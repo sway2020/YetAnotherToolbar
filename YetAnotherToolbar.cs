@@ -228,7 +228,7 @@ namespace YetAnotherToolbar
                                     scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
 
                                     scrollablePanel.autoLayout = true;
-                                    scrollablePanel.autoLayoutStart = LayoutStart.BottomLeft;
+                                    scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
                                     scrollablePanel.wrapLayout = false;
                                     scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                     scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
