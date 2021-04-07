@@ -217,9 +217,10 @@ namespace YetAnotherToolbar
                                     tabPanel.height = tsContainer.height;
                                     tabPanel.width = tsContainer.width;
 
+
+
                                     try
                                     {
-                                        dictVerticalScrollbars[(UIPanel)tabPanel].Hide();
                                     }
                                     catch { }
 
@@ -232,6 +233,19 @@ namespace YetAnotherToolbar
                                     scrollablePanel.wrapLayout = false;
                                     scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                     scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
+
+                                    UIScrollbar verticalScrollbar;
+                                    try
+                                    {
+                                        verticalScrollbar = dictVerticalScrollbars[(UIPanel)tabPanel];
+                                        AdjustVerticalScrollbar(verticalScrollbar, tabPanel, scrollablePanel);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        verticalScrollbar = CreateVerticalScrollbar((UIPanel)tabPanel, scrollablePanel);
+                                        dictVerticalScrollbars[(UIPanel)tabPanel] = verticalScrollbar;
+                                    }
+                                    dictVerticalScrollbars[(UIPanel)tabPanel].Hide();
 
                                     UIScrollbar horizontalScrollbar = tabPanel.GetComponentInChildren<UIScrollbar>();
                                     horizontalScrollbar.decrementButton.relativePosition = new Vector3(horizontalScrollbar.decrementButton.relativePosition.x, horizontalScrollbar.height / 2f - 16f);

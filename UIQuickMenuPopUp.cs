@@ -152,7 +152,7 @@ namespace YetAnotherToolbar
             horizonOffsetLabel.textColor = new Color32(0, 0, 0, 255);
             horizonOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, scaleSlider.relativePosition.y + scaleSlider.height + 20);
 
-            horizonOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.horizontalOffset, -1000.0f, 1000f, 25.0f);
+            horizonOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.horizontalOffset, -1000.0f, 1000f, 10.0f);
             horizonOffsetSlider.relativePosition = new Vector3(horizonOffsetLabel.relativePosition.x, horizonOffsetLabel.relativePosition.y + horizonOffsetLabel.height + 5);
             horizonOffsetSlider.eventValueChanged += (c, p) =>
             {
@@ -175,7 +175,7 @@ namespace YetAnotherToolbar
             verticalOffsetLabel.textColor = new Color32(0, 0, 0, 255);
             verticalOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, horizonOffsetValueLabel.relativePosition.y + horizonOffsetValueLabel.height + 20);
 
-            verticalOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.verticalOffset, -1000.0f, 1000f, 25.0f);
+            verticalOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.verticalOffset, -1000.0f, 1000f, 10.0f);
             verticalOffsetSlider.relativePosition = new Vector3(verticalOffsetLabel.relativePosition.x, verticalOffsetLabel.relativePosition.y + verticalOffsetLabel.height + 5);
             verticalOffsetSlider.eventValueChanged += (c, p) =>
             {
