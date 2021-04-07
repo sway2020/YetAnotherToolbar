@@ -256,7 +256,7 @@ namespace YetAnotherToolbar
 
                 if (isRICOEnabled)
                 {
-                    PloppableRICOLayoutPatch(numOfRows);
+                    PloppableRICOLayoutPatch(numOfRows, numOfCols);
                 }
 
             }
@@ -308,7 +308,7 @@ namespace YetAnotherToolbar
             }
         }
 
-        private void PloppableRICOLayoutPatch(int numOfRows)
+        private void PloppableRICOLayoutPatch(int numOfRows, int numOfCols)
         {
             try
             {
@@ -325,18 +325,21 @@ namespace YetAnotherToolbar
                         {
                             scrollablePanel = (UIScrollablePanel)comp;
 
-                            scrollablePanel.wrapLayout = true;
+                            scrollablePanel.height = tsContainer.height;
+                            scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
                             scrollablePanel.autoLayout = true;
                             scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
 
                             if (numOfRows > 1)
                             {
-                                scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
+                                scrollablePanel.wrapLayout = true;
                                 scrollablePanel.scrollWheelDirection = UIOrientation.Vertical;
+                                scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                             }
                             else
                             {
-                                scrollablePanel.autoLayoutDirection = LayoutDirection.Vertical;
+                                scrollablePanel.wrapLayout = false;
+                                scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                 scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
                             }
                         }
@@ -404,6 +407,15 @@ namespace YetAnotherToolbar
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel";
                                 break;
                         }
+
+                        if (isRICOEnabled)
+                        {
+                            UIComponent component = GameObject.Find("PloppableBuildingPanel").GetComponent<UIComponent>();
+                            UIPanel panel = component as UIPanel;
+                            panel.atlas = gtsContainer.atlas;
+                            panel.backgroundSprite = gtsContainer.backgroundSprite;
+                        }
+
                     }
                 }
             }
