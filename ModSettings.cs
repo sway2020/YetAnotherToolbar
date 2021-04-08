@@ -16,7 +16,11 @@ namespace YetAnotherToolbar
         internal static int verticalOffset = 0;
         internal static int horizontalOffset = 0;
         internal static bool expanded = true;
+        internal static bool hideMainButton = false;
+        internal static bool disableUpdateNotice = false;
         internal static int backgroundOption = 0;
+        internal static float mainButtonX = 538.0f;
+        internal static float mainButtonY = 947.0f;
     }
 
     /// <summary>
@@ -43,7 +47,19 @@ namespace YetAnotherToolbar
         [XmlElement("expanded")]
         public bool Expanded { get => Settings.expanded; set => Settings.expanded = value; }
 
+        [XmlElement("hideMainButton")]
+        public bool HideMainButton { get => Settings.hideMainButton; set => Settings.hideMainButton = value; }
+
+        [XmlElement("disableUpdateNotice")]
+        public bool DisableUpdateNotice { get => Settings.disableUpdateNotice; set => Settings.disableUpdateNotice = value; }
+
         [XmlElement("backgroundOption")]
         public int BackgroundOption { get => Settings.backgroundOption; set => Settings.backgroundOption = value; }
+
+        [XmlElement("mainButtonX")]
+        public float MainButtonX { get => Settings.mainButtonX; set => Settings.mainButtonX = value; }
+
+        [XmlElement("mainButtonY")]
+        public float MainButtonY { get => Settings.mainButtonY; set => Settings.mainButtonY = value; }
     }
 }

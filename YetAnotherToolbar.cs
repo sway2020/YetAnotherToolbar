@@ -27,14 +27,26 @@ namespace YetAnotherToolbar
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
 
                     UIView view = UIView.GetAView();
-                    UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
+                    //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
 
                     mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
-                    mainButton.absolutePosition = advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
+                    mainButton.absolutePosition = new Vector3(Settings.mainButtonX, Settings.mainButtonY);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
                     mainButton.name = "YetAnotherToolbarMainButton";
                     mainButton.isInteractive = true;
                     mainButton.size = new Vector2(34, 34);
+                    mainButton.isVisible = !Settings.hideMainButton;
                     mainButton.atlas = YetAnotherToolbar.atlas;
+                    mainButton.dragHandle = mainButton.AddUIComponent<UIDragHandle>();
+                    mainButton.dragHandle.target = mainButton;
+                    mainButton.dragHandle.relativePosition = Vector3.zero;
+                    mainButton.dragHandle.size = mainButton.size;
+                    mainButton.eventPositionChanged += (c, p) =>
+                    {
+                        Settings.mainButtonX = mainButton.absolutePosition.x;
+                        Settings.mainButtonY = mainButton.absolutePosition.y;
+                        XMLUtils.SaveSettings();
+                    };
+
                     if (!Settings.expanded)
                     {
                         mainButton.normalFgSprite = "Expand";

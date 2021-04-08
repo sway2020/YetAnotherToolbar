@@ -40,7 +40,7 @@ namespace YetAnotherToolbar
             instance = this;
 
             UILabel title = AddUIComponent<UILabel>();
-            title.text = "Yet Another Toolbar";
+            title.text = "Quick Menu";
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 3, spacing * 3);
 
