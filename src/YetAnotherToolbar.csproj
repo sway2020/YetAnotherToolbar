@@ -64,6 +64,7 @@
     <Compile Include="UIMainButton.cs" />
     <Compile Include="UIQuickMenuPopUp.cs" />
     <Compile Include="UIThreading.cs" />
+    <Compile Include="UIUpdateNoticePopUp.cs" />
     <Compile Include="UIUtils.cs" />
     <Compile Include="XMLUtils.cs" />
     <Compile Include="YetAnotherToolbar.cs" />

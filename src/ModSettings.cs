@@ -19,6 +19,7 @@ namespace YetAnotherToolbar
         internal static bool expanded = true;
         internal static bool hideMainButton = false;
         internal static bool disableUpdateNotice = false;
+        internal static double lastUpdateNotice = 0.0;
         internal static int backgroundOption = 0;
         internal static float mainButtonX = 538.0f;
         internal static float mainButtonY = 947.0f;
@@ -55,6 +56,9 @@ namespace YetAnotherToolbar
 
         [XmlElement("disableUpdateNotice")]
         public bool DisableUpdateNotice { get => Settings.disableUpdateNotice; set => Settings.disableUpdateNotice = value; }
+
+        [XmlElement("LastUpdateNotice")]
+        public double LastUpdateNotice { get => Settings.lastUpdateNotice; set => Settings.lastUpdateNotice = value; }
 
         [XmlElement("backgroundOption")]
         public int BackgroundOption { get => Settings.backgroundOption; set => Settings.backgroundOption = value; }

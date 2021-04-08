@@ -75,6 +75,19 @@ namespace YetAnotherToolbar
                         YetAnotherToolbar.instance.Expand();
                         YetAnotherToolbar.instance.mainButton.normalFgSprite = "Collapse";
                     }
+
+                    // show update notice
+                    if (!YetAnotherToolbar.instance.showUpdateNoticeFlag)
+                    {
+                        YetAnotherToolbar.instance.showUpdateNoticeFlag = true;
+                        // show update notice
+                        if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                        {
+                            UIUpdateNoticePopUp.ShowAt();
+                            Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                            XMLUtils.SaveSettings();
+                        }
+                    }
                 }
 
             }

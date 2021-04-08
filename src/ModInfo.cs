@@ -9,9 +9,22 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.4";
+        public const string version = "0.5";
         public string Name => "Yet Another Toolbar [Test] " + version;
         public string Description => "Another toolbar mod";
+
+        public const double updateNoticeDate = 20210408;
+        public const string updateNotice =
+
+            "- This mod now has its own mod settings page in Menu -> Options\n\n" +
+
+            "- Add update notice pop-up(this thing). It can be disabled in mod settings\n\n" +
+
+            "- The expand/collapse button is now moveable. Left-click & drag to move it\n" +
+            "  You can also hide the button or reset its position in mod settings\n\n" +
+
+            "- Add hotkey for mode switching. Default hotkey is ALT+T. You can change\n" +
+            "  it in mod settings\n";
 
         public void OnEnabled()
         {
@@ -70,20 +83,7 @@ namespace YetAnotherToolbar
 
                 // shortcut keys
                 panel.gameObject.AddComponent<ModeToggleKeyMapping>();
-                
-                /*
-                panel.gameObject.AddComponent<AllKeyMapping>();
-                panel.gameObject.AddComponent<NetworkKeyMapping>();
-                panel.gameObject.AddComponent<PloppableKeyMapping>();
-                panel.gameObject.AddComponent<GrowableKeyMapping>();
-                panel.gameObject.AddComponent<RicoKeyMapping>();
-                panel.gameObject.AddComponent<GrwbRicoKeyMapping>();
-                panel.gameObject.AddComponent<PropKeyMapping>();
-                panel.gameObject.AddComponent<DecalKeyMapping>();
-                panel.gameObject.AddComponent<TreeKeyMapping>();
-                panel.gameObject.AddComponent<RandomSelectionKeyMapping>();
                 group.AddSpace(10);
-                */
 
             }
             catch (Exception e)

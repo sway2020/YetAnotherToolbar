@@ -17,6 +17,7 @@ namespace YetAnotherToolbar
         public static bool isFindItEnabled = IsAssemblyEnabled("findit");
         public static bool isRICOEnabled = IsAssemblyEnabled("ploppablerico");
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
+        public bool showUpdateNoticeFlag = false;
 
         public void Start()
         {
@@ -72,6 +73,19 @@ namespace YetAnotherToolbar
                             XMLUtils.SaveSettings();
                             Expand();
                             mainButton.normalFgSprite = "Collapse";
+                        }
+
+                        // show update notice
+                        if (!showUpdateNoticeFlag)
+                        {
+                            showUpdateNoticeFlag = true;
+                            // show update notice
+                            if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                            {
+                                UIUpdateNoticePopUp.ShowAt();
+                                Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                                XMLUtils.SaveSettings();
+                            }
                         }
                     };
                 }
