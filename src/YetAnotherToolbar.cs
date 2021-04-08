@@ -207,20 +207,22 @@ namespace YetAnotherToolbar
                         {
                             foreach (UIComponent tabPanel in gtsContainer.components)
                             {
+                                tabPanel.height = tsContainer.height;
+                                tabPanel.width = tsContainer.width;
+
+                                UIScrollablePanel scrollablePanel = tabPanel.GetComponentInChildren<UIScrollablePanel>();
+                                scrollablePanel.height = tsContainer.height;
+                                scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
+
                                 if (numOfRows > 1)
                                 {
                                     UIScrollbar horizontalScrollbar = tabPanel.GetComponentInChildren<UIScrollbar>();
-                                    tabPanel.height = tsContainer.height;
-                                    tabPanel.width = tsContainer.width;
                                     horizontalScrollbar.value = 0;
-
-                                    UIScrollablePanel scrollablePanel = tabPanel.GetComponentInChildren<UIScrollablePanel>();
-                                    scrollablePanel.height = tsContainer.height;
-                                    scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
 
                                     scrollablePanel.autoLayout = true;
                                     scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
                                     scrollablePanel.wrapLayout = true;
+                                    scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                     scrollablePanel.scrollWheelDirection = UIOrientation.Vertical;
 
                                     UIScrollbar verticalScrollbar;
@@ -234,18 +236,10 @@ namespace YetAnotherToolbar
                                         verticalScrollbar = CreateVerticalScrollbar((UIPanel)tabPanel, scrollablePanel);
                                         dictVerticalScrollbars[(UIPanel)tabPanel] = verticalScrollbar;
                                     }
-                                    scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                     verticalScrollbar.Show();
                                 }
                                 else
                                 {
-                                    tabPanel.height = tsContainer.height;
-                                    tabPanel.width = tsContainer.width;
-
-                                    UIScrollablePanel scrollablePanel = tabPanel.GetComponentInChildren<UIScrollablePanel>();
-                                    scrollablePanel.height = tsContainer.height;
-                                    scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
-
                                     scrollablePanel.autoLayout = true;
                                     scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
                                     scrollablePanel.wrapLayout = false;
@@ -275,20 +269,13 @@ namespace YetAnotherToolbar
                     }
                 }
 
-                if (isFindItEnabled)
-                {
-                    FindItLayoutPatch();
-                }
-
-                if (isRICOEnabled)
-                {
-                    PloppableRICOLayoutPatch(numOfRows, numOfCols);
-                }
+                if (isFindItEnabled) FindItLayoutPatch();
+                if (isRICOEnabled) PloppableRICOLayoutPatch(numOfRows, numOfCols);
 
             }
             catch (Exception ex)
             {
-                Debugging.Message("UpdateLayout() - " + ex.Message);
+                // Debugging.Message("UpdateLayout() - " + ex.Message);
             }
         }
 
