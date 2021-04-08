@@ -26,7 +26,7 @@ namespace YetAnotherToolbar
                 UIPanel panel = group.self as UIPanel;
 
                 // Hide main button
-                UICheckBox checkBox = (UICheckBox)group.AddCheckbox("Hide main button", Settings.hideMainButton, (b) =>
+                UICheckBox hideMainButton = (UICheckBox)group.AddCheckbox("Hide main button", Settings.hideMainButton, (b) =>
                 {
                     Settings.hideMainButton = b;
                     XMLUtils.SaveSettings();
@@ -68,9 +68,10 @@ namespace YetAnotherToolbar
                     group.AddButton("Open in file explorer", () => System.Diagnostics.Process.Start("explorer.exe", "/select," + path));
                 }
 
-                /*
                 // shortcut keys
-                panel.gameObject.AddComponent<MainButtonKeyMapping>();
+                panel.gameObject.AddComponent<ModeToggleKeyMapping>();
+                
+                /*
                 panel.gameObject.AddComponent<AllKeyMapping>();
                 panel.gameObject.AddComponent<NetworkKeyMapping>();
                 panel.gameObject.AddComponent<PloppableKeyMapping>();

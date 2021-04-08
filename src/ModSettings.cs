@@ -1,6 +1,7 @@
 ﻿// Originally written by algernon for Find It 2.
 // Modified by sway
 using System.Xml.Serialization;
+using UnityEngine;
 
 namespace YetAnotherToolbar
 {
@@ -21,6 +22,8 @@ namespace YetAnotherToolbar
         internal static int backgroundOption = 0;
         internal static float mainButtonX = 538.0f;
         internal static float mainButtonY = 947.0f;
+
+        internal static KeyBinding modeToggleKey = new KeyBinding { keyCode = (int)KeyCode.T, control = false, shift = false, alt = true };
     }
 
     /// <summary>
@@ -61,5 +64,26 @@ namespace YetAnotherToolbar
 
         [XmlElement("mainButtonY")]
         public float MainButtonY { get => Settings.mainButtonY; set => Settings.mainButtonY = value; }
+
+        [XmlElement("modeToggleKey")]
+        public KeyBinding ModeToggleKey { get => Settings.modeToggleKey; set => Settings.modeToggleKey = value; }
+    }
+
+    /// <summary>
+    /// Basic keybinding class - code and modifiers.
+    /// </summary>
+    public struct KeyBinding
+    {
+        [XmlAttribute("KeyCode")]
+        public int keyCode;
+
+        [XmlAttribute("Control")]
+        public bool control;
+
+        [XmlAttribute("Shift")]
+        public bool shift;
+
+        [XmlAttribute("Alt")]
+        public bool alt;
     }
 }
