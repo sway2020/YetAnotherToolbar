@@ -221,19 +221,28 @@ namespace YetAnotherToolbar
                                 tabPanel.width = tsContainer.width;
 
                                 UIScrollablePanel scrollablePanel = tabPanel.GetComponentInChildren<UIScrollablePanel>();
-                                scrollablePanel.height = tsContainer.height;
-                                scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
+                                if (scrollablePanel != null)
+                                {
+                                    scrollablePanel.height = tsContainer.height;
+                                    scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
+                                }
 
                                 if (numOfRows > 1)
                                 {
                                     UIScrollbar horizontalScrollbar = tabPanel.GetComponentInChildren<UIScrollbar>();
-                                    horizontalScrollbar.value = 0;
+                                    if (horizontalScrollbar != null)
+                                    {
+                                        horizontalScrollbar.value = 0;
+                                    }
 
-                                    scrollablePanel.autoLayout = true;
-                                    scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
-                                    scrollablePanel.wrapLayout = true;
-                                    scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
-                                    scrollablePanel.scrollWheelDirection = UIOrientation.Vertical;
+                                    if (scrollablePanel != null)
+                                    {
+                                        scrollablePanel.autoLayout = true;
+                                        scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
+                                        scrollablePanel.wrapLayout = true;
+                                        scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
+                                        scrollablePanel.scrollWheelDirection = UIOrientation.Vertical;
+                                    }
 
                                     UIScrollbar verticalScrollbar;
                                     try
@@ -250,11 +259,14 @@ namespace YetAnotherToolbar
                                 }
                                 else
                                 {
-                                    scrollablePanel.autoLayout = true;
-                                    scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
-                                    scrollablePanel.wrapLayout = false;
-                                    scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
-                                    scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
+                                    if (scrollablePanel != null)
+                                    {
+                                        scrollablePanel.autoLayout = true;
+                                        scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
+                                        scrollablePanel.wrapLayout = false;
+                                        scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
+                                        scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
+                                    }
 
                                     UIScrollbar verticalScrollbar;
                                     try
@@ -270,8 +282,17 @@ namespace YetAnotherToolbar
                                     dictVerticalScrollbars[(UIPanel)tabPanel].Hide();
 
                                     UIScrollbar horizontalScrollbar = tabPanel.GetComponentInChildren<UIScrollbar>();
-                                    horizontalScrollbar.decrementButton.relativePosition = new Vector3(horizontalScrollbar.decrementButton.relativePosition.x, horizontalScrollbar.height / 2f - 16f);
-                                    horizontalScrollbar.incrementButton.relativePosition = new Vector3(horizontalScrollbar.incrementButton.relativePosition.x, horizontalScrollbar.height / 2f - 16f);
+                                    if (horizontalScrollbar != null)
+                                    {
+                                        if (horizontalScrollbar.decrementButton != null)
+                                        {
+                                            horizontalScrollbar.decrementButton.relativePosition = new Vector3(horizontalScrollbar.decrementButton.relativePosition.x, horizontalScrollbar.height / 2f - 16f);
+                                        }
+                                        if (horizontalScrollbar.incrementButton != null)
+                                        {
+                                            horizontalScrollbar.incrementButton.relativePosition = new Vector3(horizontalScrollbar.incrementButton.relativePosition.x, horizontalScrollbar.height / 2f - 16f);
+                                        }
+                                    }
                                 }
 
                             }
@@ -285,7 +306,7 @@ namespace YetAnotherToolbar
             }
             catch (Exception ex)
             {
-                // Debugging.Message("UpdateLayout() - " + ex.Message);
+                Debugging.Message("UpdateLayout() - " + ex.Message);
             }
         }
 
