@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Language UniqueName="ja" ReadableName="日本語">
+  <Translations>
+    <Translation ID="YAT_DESC" String="もう一つのツールバーMOD" />
+    <Translation ID="TRN_CHOICE" String="言語を設定する (次回から有効になります)" />
+    <Translation ID="TRN_SYS" String="システム言語を使用する" />
+    <Translation ID="YAT_SET_HMB" String="メインボタンを隠す" />
+    <Translation ID="YAT_SET_HMBRST" String="リセットメインボタンの位置" />
+    <Translation ID="YAT_SET_DUN" String="将来のアップデート通知を無効にする" />
+    <Translation ID="YAT_SET_CFP" String="設定ファイルのパス" />
+    <Translation ID="YAT_SET_OFE" String="フォルダを表示" />
+    <Translation ID="YAT_SET_KEY" String="拡大/縮小モードの切り替え" />
+    <Translation ID="YAT_QM_TIT" String="クイックメニュー" />
+    <Translation ID="YAT_QM_ROW" String="展開時の行数:" />
+    <Translation ID="YAT_QM_COL" String="列数:" />
+    <Translation ID="YAT_QM_SCL" String="パネルのUIスケール:" />
+    <Translation ID="YAT_QM_HOR" String="水平方向の位置のオフセット:" />
+    <Translation ID="YAT_QM_VER" String="垂直方向の位置のオフセット:" />
+    <Translation ID="YAT_QM_BAC" String="パネルの背景:" />
+    <Translation ID="YAT_QM_DRK" String="ダーク" />
+    <Translation ID="YAT_QM_LGH" String="ライト" />
+    <Translation ID="YAT_QM_TRS" String="透明" />
+    <Translation ID="YAT_UP_TIT" String="アップデート" />
+    <Translation ID="YAT_UP_CNF" String="確認" />
+    <Translation ID="YAT_SET_QMKEY" String="クイックメニューの表示" />
+
+  </Translations>
+</Language>

@@ -40,7 +40,7 @@ namespace YetAnotherToolbar
             instance = this;
 
             UILabel title = AddUIComponent<UILabel>();
-            title.text = "Quick Menu";
+            title.text = Translations.Translate("YAT_QM_TIT");
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 3, spacing * 3);
 
@@ -61,7 +61,7 @@ namespace YetAnotherToolbar
             close.Focus();
 
             numOfRowLabel = AddUIComponent<UILabel>();
-            numOfRowLabel.text = "Number of rows when expanded:";
+            numOfRowLabel.text = Translations.Translate("YAT_QM_ROW");
             numOfRowLabel.textScale = 0.8f;
             numOfRowLabel.textColor = new Color32(0, 0, 0, 255);
             numOfRowLabel.relativePosition = new Vector3(title.relativePosition.x, title.relativePosition.y + title.height + 20);
@@ -92,7 +92,7 @@ namespace YetAnotherToolbar
 
 
             numOfColLabel = AddUIComponent<UILabel>();
-            numOfColLabel.text = "Number of columns:";
+            numOfColLabel.text = Translations.Translate("YAT_QM_COL");
             numOfColLabel.textScale = 0.8f;
             numOfColLabel.textColor = new Color32(0, 0, 0, 255);
             numOfColLabel.relativePosition = new Vector3(title.relativePosition.x, numOfRowValueLabel.relativePosition.y + numOfRowValueLabel.height + 20);
@@ -123,7 +123,7 @@ namespace YetAnotherToolbar
 
 
             scaleLabel = AddUIComponent<UILabel>();
-            scaleLabel.text = "Panel UI scale:";
+            scaleLabel.text = Translations.Translate("YAT_QM_SCL");
             scaleLabel.textScale = 0.8f;
             scaleLabel.textColor = new Color32(0, 0, 0, 255);
             scaleLabel.relativePosition = new Vector3(title.relativePosition.x, numOfColValueLabel.relativePosition.y + numOfColValueLabel.height + 20);
@@ -147,7 +147,7 @@ namespace YetAnotherToolbar
 
 
             horizonOffsetLabel = AddUIComponent<UILabel>();
-            horizonOffsetLabel.text = "Horizontal position offset:";
+            horizonOffsetLabel.text = Translations.Translate("YAT_QM_HOR");
             horizonOffsetLabel.textScale = 0.8f;
             horizonOffsetLabel.textColor = new Color32(0, 0, 0, 255);
             horizonOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, scaleSlider.relativePosition.y + scaleSlider.height + 20);
@@ -170,7 +170,7 @@ namespace YetAnotherToolbar
 
 
             verticalOffsetLabel = AddUIComponent<UILabel>();
-            verticalOffsetLabel.text = "Vertical possition offset:";
+            verticalOffsetLabel.text = Translations.Translate("YAT_QM_VER");
             verticalOffsetLabel.textScale = 0.8f;
             verticalOffsetLabel.textColor = new Color32(0, 0, 0, 255);
             verticalOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, horizonOffsetValueLabel.relativePosition.y + horizonOffsetValueLabel.height + 20);
@@ -193,7 +193,7 @@ namespace YetAnotherToolbar
 
 
             backgroundLabel = AddUIComponent<UILabel>();
-            backgroundLabel.text = "Panel background";
+            backgroundLabel.text = Translations.Translate("YAT_QM_BAC");
             backgroundLabel.textScale = 0.8f;
             backgroundLabel.textColor = new Color32(0, 0, 0, 255);
             backgroundLabel.relativePosition = new Vector3(title.relativePosition.x, verticalOffsetValueLabel.relativePosition.y + verticalOffsetValueLabel.height + 20);
@@ -203,15 +203,15 @@ namespace YetAnotherToolbar
             backgroundDropdown.size = new Vector2(250, 30);
             backgroundDropdown.listHeight = 270;
             backgroundDropdown.itemHeight = 30;
-            backgroundDropdown.AddItem("Dark - 100%");
-            backgroundDropdown.AddItem("Dark - 75%");
-            backgroundDropdown.AddItem("Dark - 50%");
-            backgroundDropdown.AddItem("Dark - 25%");
-            backgroundDropdown.AddItem("Transparent");
-            backgroundDropdown.AddItem("Light - 100%");
-            backgroundDropdown.AddItem("Light - 75%");
-            backgroundDropdown.AddItem("Light - 50%");
-            backgroundDropdown.AddItem("Light - 25%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 100%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 75%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 50%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 25%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_LGH") + " - 100%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_LGH") + " - 75%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_LGH") + " - 50%");
+            backgroundDropdown.AddItem(Translations.Translate("YAT_QM_LGH") + " - 25%");
 
             backgroundDropdown.selectedIndex = Settings.backgroundOption;
             backgroundDropdown.relativePosition = new Vector3(title.relativePosition.x, backgroundLabel.relativePosition.y + backgroundLabel.height + 5);

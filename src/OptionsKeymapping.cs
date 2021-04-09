@@ -226,11 +226,24 @@ namespace YetAnotherToolbar
         ModeToggleKeyMapping()
         {
             keyBinding = Settings.modeToggleKey;
-            labelString = "Toggle expand/collapse mode";
+            labelString = Translations.Translate("YAT_SET_KEY");
         }
         public override void UpdateSettingKeyBinding()
         {
             Settings.modeToggleKey = keyBinding;
+        }
+    }
+
+    public class QuickMenuKeyMapping : OptionsKeymapping
+    {
+        QuickMenuKeyMapping()
+        {
+            keyBinding = Settings.quickMenuKey;
+            labelString = Translations.Translate("YAT_SET_QMKEY");
+        }
+        public override void UpdateSettingKeyBinding()
+        {
+            Settings.quickMenuKey = keyBinding;
         }
     }
 }

@@ -25,6 +25,7 @@ namespace YetAnotherToolbar
         internal static float mainButtonY = 947.0f;
 
         internal static KeyBinding modeToggleKey = new KeyBinding { keyCode = (int)KeyCode.T, control = false, shift = false, alt = true };
+        internal static KeyBinding quickMenuKey = new KeyBinding { keyCode = (int)KeyCode.Q, control = false, shift = false, alt = true };
     }
 
     /// <summary>
@@ -71,6 +72,22 @@ namespace YetAnotherToolbar
 
         [XmlElement("modeToggleKey")]
         public KeyBinding ModeToggleKey { get => Settings.modeToggleKey; set => Settings.modeToggleKey = value; }
+
+        [XmlElement("quickMenuKey")]
+        public KeyBinding QuickMenuKey { get => Settings.quickMenuKey; set => Settings.quickMenuKey = value; }
+
+        [XmlElement("Language")]
+        public string Language
+        {
+            get
+            {
+                return Translations.Language;
+            }
+            set
+            {
+                Translations.Language = value;
+            }
+        }
     }
 
     /// <summary>

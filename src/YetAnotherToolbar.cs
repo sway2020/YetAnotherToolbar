@@ -172,6 +172,16 @@ namespace YetAnotherToolbar
             tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
         }
 
+        public void ResetScale()
+        {
+            tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
+        }
+
+        public void RestoreScale()
+        {
+            tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
+        }
+
         public void UpdatePanelPosition()
         {
             float x = 596f + Settings.horizontalOffset;
@@ -337,6 +347,8 @@ namespace YetAnotherToolbar
                         if (comp is UIScrollablePanel)
                         {
                             scrollablePanel = (UIScrollablePanel)comp;
+                            p.height = tsContainer.height;
+                            p.width = Mathf.Round(859f - 763f + 109f * numOfCols) + 1;
 
                             scrollablePanel.height = tsContainer.height;
                             scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
@@ -351,12 +363,11 @@ namespace YetAnotherToolbar
                             }
                             else
                             {
-                                scrollablePanel.wrapLayout = false;
+                                scrollablePanel.wrapLayout = true;
                                 scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                 scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
                             }
                         }
-
                     }
                 }
             }

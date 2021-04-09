@@ -9,11 +9,14 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.5";
+        public const string version = "0.6";
         public string Name => "Yet Another Toolbar [Test] " + version;
-        public string Description => "Another toolbar mod";
+        public string Description
+        {
+            get { return Translations.Translate("YAT_DESC"); }
+        }
 
-        public const double updateNoticeDate = 20210408;
+        public const double updateNoticeDate = 20210409;
         public const string updateNotice =
 
             "- This mod now has its own mod settings page in Menu -> Options\n\n" +
@@ -39,7 +42,7 @@ namespace YetAnotherToolbar
                 UIPanel panel = group.self as UIPanel;
 
                 // Hide main button
-                UICheckBox hideMainButton = (UICheckBox)group.AddCheckbox("Hide main button", Settings.hideMainButton, (b) =>
+                UICheckBox hideMainButton = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_HMB"), Settings.hideMainButton, (b) =>
                 {
                     Settings.hideMainButton = b;
                     XMLUtils.SaveSettings();
@@ -50,7 +53,7 @@ namespace YetAnotherToolbar
                 });
                 group.AddSpace(10);
 
-                UIButton mainButtonPositionReset = (UIButton)group.AddButton("Reset main button position", () =>
+                UIButton mainButtonPositionReset = (UIButton)group.AddButton(Translations.Translate("YAT_SET_HMBRST"), () =>
                 {
                     Settings.mainButtonX = 538.0f;
                     Settings.mainButtonY = 947.0f;
@@ -63,26 +66,37 @@ namespace YetAnotherToolbar
                 group.AddSpace(10);
 
                 // Disable update notice
-                UICheckBox disableUpdateNotice = (UICheckBox)group.AddCheckbox("Disable future update notice", Settings.disableUpdateNotice, (b) =>
+                UICheckBox disableUpdateNotice = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_DUN"), Settings.disableUpdateNotice, (b) =>
                 {
                     Settings.disableUpdateNotice = b;
                     XMLUtils.SaveSettings();
                 });
                 group.AddSpace(10);
 
+                // languate settings
+                UIDropDown languageDropDown = (UIDropDown)group.AddDropdown(Translations.Translate("TRN_CHOICE"), Translations.LanguageList, Translations.Index, (value) =>
+                {
+                    Translations.Index = value;
+                    XMLUtils.SaveSettings();
+                });
+
+                languageDropDown.width = 300;
+                group.AddSpace(10);
+
                 // show path to YetAnotherToolbarConfig.xml
                 string path = Path.Combine(DataLocation.executableDirectory, "YetAnotherToolbarConfig.xml");
-                UITextField ConfigFilePath = (UITextField)group.AddTextfield("Configuration file path", path, _ => { }, _ => { });
+                UITextField ConfigFilePath = (UITextField)group.AddTextfield(Translations.Translate("YAT_SET_CFP"), path, _ => { }, _ => { });
                 ConfigFilePath.width = panel.width - 30;
 
                 // from aubergine10's AutoRepair
                 if (Application.platform == RuntimePlatform.WindowsPlayer)
                 {
-                    group.AddButton("Open in file explorer", () => System.Diagnostics.Process.Start("explorer.exe", "/select," + path));
+                    group.AddButton(Translations.Translate("YAT_SET_OFE"), () => System.Diagnostics.Process.Start("explorer.exe", "/select," + path));
                 }
 
                 // shortcut keys
                 panel.gameObject.AddComponent<ModeToggleKeyMapping>();
+                panel.gameObject.AddComponent<QuickMenuKeyMapping>();
                 group.AddSpace(10);
 
             }

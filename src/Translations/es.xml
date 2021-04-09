@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Language UniqueName="es" ReadableName="español">
+  <Translations>
+    <Translation ID="YAT_DESC" String="otro mod de toolbar" />
+    <Translation ID="TRN_CHOICE" String="Fijar el idioma (será efectivo la próxima vez)" />
+    <Translation ID="TRN_SYS" String="Utilizar el lenguaje del sistema" />
+    <Translation ID="YAT_SET_HMB" String="Ocultar el botón principal" />
+    <Translation ID="YAT_SET_HMBRST" String="Posición del botón principal de reinicio" />
+    <Translation ID="YAT_SET_DUN" String="Desactivar el aviso de actualización futura" />
+    <Translation ID="YAT_SET_CFP" String="Ruta del archivo de configuración" />
+    <Translation ID="YAT_SET_OFE" String="Abrir carpeta de archivos" />
+    <Translation ID="YAT_SET_KEY" String="Alternar el modo de expansión/colapso" />
+    <Translation ID="YAT_QM_TIT" String="Menú rápido" />
+    <Translation ID="YAT_QM_ROW" String="Número de filas cuando se expande:" />
+    <Translation ID="YAT_QM_COL" String="Número de columnas:" />
+    <Translation ID="YAT_QM_SCL" String="Escala del panel:" />
+    <Translation ID="YAT_QM_HOR" String="Desplazamiento de la posición horizontal:" />
+    <Translation ID="YAT_QM_VER" String="Desplazamiento de la posición vertical:" />
+    <Translation ID="YAT_QM_BAC" String="Fondo del panel:" />
+    <Translation ID="YAT_QM_DRK" String="Oscuro" />
+    <Translation ID="YAT_QM_LGH" String="brillante" />
+    <Translation ID="YAT_QM_TRS" String="Transparente" />
+    <Translation ID="YAT_UP_TIT" String="Actualización" />
+    <Translation ID="YAT_UP_CNF" String="Confirmar" />
+    <Translation ID="YAT_SET_QMKEY" String="Abrir el menú rápido" />
+
+  </Translations>
+</Language>

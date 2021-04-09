@@ -20,7 +20,7 @@ namespace YetAnotherToolbar
             size = new Vector2(660, 200);
 
             UILabel title = AddUIComponent<UILabel>();
-            title.text = "Yet Another Toolbar " + ModInfo.version + " Update";
+            title.text = "Yet Another Toolbar " + ModInfo.version + Translations.Translate("YAT_UP_TIT");
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 2, spacing * 2);
 
@@ -45,7 +45,7 @@ namespace YetAnotherToolbar
 
             closeButton = SamsamTS.UIUtils.CreateButton(this);
             closeButton.size = new Vector2(100, 40);
-            closeButton.text = "Confirm";
+            closeButton.text = Translations.Translate("YAT_UP_CNF");
             closeButton.relativePosition = new Vector3(spacing * 2, message.relativePosition.y + message.height + spacing * 2);
             closeButton.eventClick += (c, p) =>
             {

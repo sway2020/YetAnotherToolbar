@@ -61,6 +61,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModInfo.cs" />
     <Compile Include="ResourceLoader.cs" />
+    <Compile Include="TranslationFramework\TranslationFramework.cs" />
+    <Compile Include="TranslationFramework\TranslationXML.cs" />
     <Compile Include="UIMainButton.cs" />
     <Compile Include="UIQuickMenuPopUp.cs" />
     <Compile Include="UIThreading.cs" />
@@ -82,6 +84,12 @@
     <EmbeddedResource Include="Icons\GenericTabHovered25.png" />
     <EmbeddedResource Include="Icons\GenericTabHovered50.png" />
     <EmbeddedResource Include="Icons\GenericTabHovered75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Translations\en.xml" />
+    <Content Include="Translations\es.xml" />
+    <Content Include="Translations\ja.xml" />
+    <Content Include="Translations\zh.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

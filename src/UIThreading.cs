@@ -25,6 +25,7 @@ namespace YetAnotherToolbar
             if (mainButton == null) return;
 
             KeyCode modeToggleKey = (KeyCode)(Settings.modeToggleKey.keyCode);
+            KeyCode quickMenuKey = (KeyCode)(Settings.quickMenuKey.keyCode);
 
             // Null checks for safety.
             // Check modifier keys according to settings.
@@ -37,7 +38,10 @@ namespace YetAnotherToolbar
             {
                 ProcessPressedKey(0);
             }
-
+            else if (quickMenuKey != KeyCode.None && Input.GetKey(quickMenuKey) && CheckHotkey(Settings.quickMenuKey, altPressed, ctrlPressed, shiftPressed))
+            {
+                ProcessPressedKey(1);
+            }
             else
             {
                 // Relevant keys aren't pressed anymore; this keystroke is over, so reset and continue.
@@ -88,6 +92,10 @@ namespace YetAnotherToolbar
                             XMLUtils.SaveSettings();
                         }
                     }
+                }
+                else if (index == 1)
+                {
+                    UIQuickMenuPopUp.ShowAt(YetAnotherToolbar.instance.mainButton);
                 }
 
             }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Language UniqueName="en" ReadableName="English">
+  <Translations>
+    <Translation ID="YAT_DESC" String="Another toolbar mod" />
+    <Translation ID="TRN_CHOICE" String="Set language (will be effective next time)" />
+    <Translation ID="TRN_SYS" String="Use system language" />
+    <Translation ID="YAT_SET_HMB" String="Hide main button" />
+    <Translation ID="YAT_SET_HMBRST" String="Reset main button position" />
+    <Translation ID="YAT_SET_DUN" String="Disable future update notice" />
+    <Translation ID="YAT_SET_CFP" String="Configuration file path" />
+    <Translation ID="YAT_SET_OFE" String="Open in File Explorer" />
+    <Translation ID="YAT_SET_KEY" String="Toggle expand/collapse mode" />
+    <Translation ID="YAT_SET_QMKEY" String="Open quick menu" />
+    <Translation ID="YAT_QM_TIT" String="Quick Menu" />
+    <Translation ID="YAT_QM_ROW" String="Number of rows when expanded:" />
+    <Translation ID="YAT_QM_COL" String="Number of columns:" />
+    <Translation ID="YAT_QM_SCL" String="Panel UI scale:" />
+    <Translation ID="YAT_QM_HOR" String="Horizontal position offset:" />
+    <Translation ID="YAT_QM_VER" String="Vertical position offset:" />
+    <Translation ID="YAT_QM_BAC" String="Panel background:" />
+    <Translation ID="YAT_QM_DRK" String="Dark" />
+    <Translation ID="YAT_QM_LGH" String="Light" />
+    <Translation ID="YAT_QM_TRS" String="Transparent" />
+    <Translation ID="YAT_UP_TIT" String="Update" />
+    <Translation ID="YAT_UP_CNF" String="Confirm" />
+
+  </Translations>
+</Language>
