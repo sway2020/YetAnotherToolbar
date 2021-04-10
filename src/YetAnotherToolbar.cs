@@ -17,7 +17,7 @@ namespace YetAnotherToolbar
         public static bool isFindItEnabled = IsAssemblyEnabled("findit");
         public static bool isRICOEnabled = IsAssemblyEnabled("ploppablerico");
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
-        public bool showUpdateNoticeFlag = false;
+        public bool shownUpdateNoticeFlag = false;
 
         public void Start()
         {
@@ -76,9 +76,9 @@ namespace YetAnotherToolbar
                         }
 
                         // show update notice
-                        if (!showUpdateNoticeFlag)
+                        if (!shownUpdateNoticeFlag)
                         {
-                            showUpdateNoticeFlag = true;
+                            shownUpdateNoticeFlag = true;
                             // show update notice
                             if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
                             {

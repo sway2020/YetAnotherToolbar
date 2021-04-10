@@ -81,9 +81,9 @@ namespace YetAnotherToolbar
                     }
 
                     // show update notice
-                    if (!YetAnotherToolbar.instance.showUpdateNoticeFlag)
+                    if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
                     {
-                        YetAnotherToolbar.instance.showUpdateNoticeFlag = true;
+                        YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
                         // show update notice
                         if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
                         {

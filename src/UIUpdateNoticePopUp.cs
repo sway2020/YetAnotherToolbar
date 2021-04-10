@@ -20,7 +20,7 @@ namespace YetAnotherToolbar
             size = new Vector2(660, 200);
 
             UILabel title = AddUIComponent<UILabel>();
-            title.text = "Yet Another Toolbar " + ModInfo.version + Translations.Translate("YAT_UP_TIT");
+            title.text = "Yet Another Toolbar " + ModInfo.version + " " + Translations.Translate("YAT_UP_TIT");
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 2, spacing * 2);
 

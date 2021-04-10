@@ -19,15 +19,8 @@ namespace YetAnotherToolbar
         public const double updateNoticeDate = 20210409;
         public const string updateNotice =
 
-            "- This mod now has its own mod settings page in Menu -> Options\n\n" +
-
-            "- Add update notice pop-up(this thing). It can be disabled in mod settings\n\n" +
-
-            "- The expand/collapse button is now moveable. Left-click & drag to move it\n" +
-            "  You can also hide the button or reset its position in mod settings\n\n" +
-
-            "- Add hotkey for mode switching. Default hotkey is ALT+T. You can change\n" +
-            "  it in mod settings\n";
+            "- Add hotkey to open Quick Menu pop-up. Default hotkey is ALT+Q. You\n" +
+            "  can change it in mod settings\n";
 
         public void OnEnabled()
         {
