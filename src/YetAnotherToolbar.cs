@@ -373,20 +373,17 @@ namespace YetAnotherToolbar
 
                             scrollablePanel.height = tsContainer.height;
                             scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
-                            scrollablePanel.autoLayout = true;
-                            scrollablePanel.autoLayoutStart = LayoutStart.TopLeft;
 
                             if (numOfRows > 1)
                             {
-                                scrollablePanel.wrapLayout = true;
                                 scrollablePanel.scrollWheelDirection = UIOrientation.Vertical;
                                 scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                             }
                             else
                             {
-                                scrollablePanel.wrapLayout = true;
                                 scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                 scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
+                            
                             }
                         }
                     }
