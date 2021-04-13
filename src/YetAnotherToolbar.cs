@@ -16,6 +16,7 @@ namespace YetAnotherToolbar
         private UITabContainer tsContainer;
         public static bool isFindItEnabled = IsAssemblyEnabled("findit");
         public static bool isRICOEnabled = IsAssemblyEnabled("ploppablerico");
+        public static bool isEditorMode = false;
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
 
@@ -124,9 +125,11 @@ namespace YetAnotherToolbar
                     "SubcategoriesPanel75",
                     "SubcategoriesPanel50",
                     "SubcategoriesPanel25",
+                    "SubcategoriesPanel",
                     "GenericTabHovered75",
                     "GenericTabHovered50",
-                    "GenericTabHovered25"
+                    "GenericTabHovered25",
+                    "GenericTabHovered"
                 };
 
                 atlas = ResourceLoader.CreateTextureAtlas("YetAnotherToolbarAtlas", spriteNames, "YetAnotherToolbar.Icons.");
@@ -301,7 +304,7 @@ namespace YetAnotherToolbar
                 }
 
                 if (isFindItEnabled) FindItLayoutPatch();
-                if (isRICOEnabled) PloppableRICOLayoutPatch(numOfRows, numOfCols);
+                if (isRICOEnabled && (!isEditorMode)) PloppableRICOLayoutPatch(numOfRows, numOfCols);
 
             }
             catch (Exception ex)
@@ -383,7 +386,6 @@ namespace YetAnotherToolbar
                             {
                                 scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                 scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
-                            
                             }
                         }
                     }
@@ -406,58 +408,51 @@ namespace YetAnotherToolbar
 
                     if (gtsContainer != null)
                     {
+                        gtsContainer.atlas = YetAnotherToolbar.atlas;
                         switch (Settings.backgroundOption)
                         {
                             case 0:
-                                gtsContainer.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel";
                                 break;
                             case 1:
-                                gtsContainer.atlas = YetAnotherToolbar.atlas;
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel75";
                                 break;
                             case 2:
-                                gtsContainer.atlas = YetAnotherToolbar.atlas;
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel50";
                                 break;
                             case 3:
-                                gtsContainer.atlas = YetAnotherToolbar.atlas;
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel25";
                                 break;
                             case 4:
-                                gtsContainer.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
                                 gtsContainer.backgroundSprite = "";
                                 break;
                             case 5:
-                                gtsContainer.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
                                 gtsContainer.backgroundSprite = "GenericTabHovered";
                                 break;
                             case 6:
-                                gtsContainer.atlas = YetAnotherToolbar.atlas;
                                 gtsContainer.backgroundSprite = "GenericTabHovered75";
                                 break;
                             case 7:
-                                gtsContainer.atlas = YetAnotherToolbar.atlas;
                                 gtsContainer.backgroundSprite = "GenericTabHovered50";
                                 break;
                             case 8:
-                                gtsContainer.atlas = YetAnotherToolbar.atlas;
                                 gtsContainer.backgroundSprite = "GenericTabHovered25";
                                 break;
                             default:
-                                gtsContainer.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel";
                                 break;
                         }
 
-                        if (isRICOEnabled)
+                        if (isRICOEnabled && (!isEditorMode))
                         {
                             UIComponent component = GameObject.Find("PloppableBuildingPanel").GetComponent<UIComponent>();
-                            UIPanel panel = component as UIPanel;
-                            panel.atlas = gtsContainer.atlas;
-                            panel.backgroundSprite = gtsContainer.backgroundSprite;
+                            if (component != null)
+                            {
+                                UIPanel panel = component as UIPanel;
+                                panel.atlas = gtsContainer.atlas;
+                                panel.backgroundSprite = gtsContainer.backgroundSprite;
+                            }
                         }
-
                     }
                 }
             }

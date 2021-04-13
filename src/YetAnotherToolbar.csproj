@@ -86,6 +86,8 @@
     <EmbeddedResource Include="Icons\GenericTabHovered75.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Icons\GenericTabHovered.png" />
+    <EmbeddedResource Include="Icons\SubcategoriesPanel.png" />
     <Content Include="Translations\en.xml" />
     <Content Include="Translations\es.xml" />
     <Content Include="Translations\ja.xml" />

@@ -36,7 +36,7 @@ namespace YetAnotherToolbar
             name = "YetAnotherToolbar_UIQuickMenuPopUp";
             atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
             backgroundSprite = "GenericPanelWhite";
-            size = new Vector2(430, 400);
+            size = new Vector2(430, 390);
             instance = this;
 
             UILabel title = AddUIComponent<UILabel>();

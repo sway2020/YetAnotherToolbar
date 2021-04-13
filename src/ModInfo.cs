@@ -9,18 +9,17 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.6";
+        public const string version = "0.7";
         public string Name => "Yet Another Toolbar [Test] " + version;
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210409;
+        public const double updateNoticeDate = 20210413;
         public const string updateNotice =
 
-            "- Add hotkey to open Quick Menu pop-up. Default hotkey is ALT+Q. You\n" +
-            "  can change it in mod settings\n";
+            "- Custom panel background now also works in map & asset editors\n\n";
 
         public void OnEnabled()
         {
