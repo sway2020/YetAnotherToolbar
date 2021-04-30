@@ -63,11 +63,11 @@
     <Compile Include="ResourceLoader.cs" />
     <Compile Include="TranslationFramework\TranslationFramework.cs" />
     <Compile Include="TranslationFramework\TranslationXML.cs" />
-    <Compile Include="UIMainButton.cs" />
-    <Compile Include="UIQuickMenuPopUp.cs" />
-    <Compile Include="UIThreading.cs" />
-    <Compile Include="UIUpdateNoticePopUp.cs" />
-    <Compile Include="UIUtils.cs" />
+    <Compile Include="GUI\UIMainButton.cs" />
+    <Compile Include="GUI\UIQuickMenuPopUp.cs" />
+    <Compile Include="GUI\UIThreading.cs" />
+    <Compile Include="GUI\UIUpdateNoticePopUp.cs" />
+    <Compile Include="GUI\UIUtils.cs" />
     <Compile Include="XMLUtils.cs" />
     <Compile Include="YetAnotherToolbar.cs" />
   </ItemGroup>
