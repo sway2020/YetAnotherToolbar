@@ -5,6 +5,8 @@
     <Translation ID="TRN_CHOICE" String="Set language (will be effective next time)" />
     <Translation ID="TRN_SYS" String="Use system language" />
     <Translation ID="YAT_SET_HMB" String="Hide main button" />
+    <Translation ID="YAT_SET_HAB" String="Hide Advisor button" />
+    <Translation ID="YAT_SET_HFP" String="Hide Filter Panels" />
     <Translation ID="YAT_SET_HMBRST" String="Reset main button position" />
     <Translation ID="YAT_SET_DUN" String="Disable future update notice" />
     <Translation ID="YAT_SET_CFP" String="Configuration file path" />
