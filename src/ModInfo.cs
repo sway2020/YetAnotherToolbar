@@ -57,6 +57,33 @@ namespace YetAnotherToolbar
                 });
                 group.AddSpace(10);
 
+                // Hide Advisor Button
+                UICheckBox hideAdvisorButton = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_HAB"), Settings.hideAdvisorButton, (b) =>
+                {
+                    Settings.hideAdvisorButton = b;
+                    XMLUtils.SaveSettings();
+                    if (YetAnotherToolbar.instance != null)
+                    {
+                        YetAnotherToolbar.instance.SetAdvisorButtonVisibility();
+                    }
+                });
+                group.AddSpace(10);
+
+                /*
+                // Hide Filter Panels
+                UICheckBox hideFilterPanels = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_HFP"), Settings.hideFilterPanels, (b) =>
+                {
+                    Settings.hideFilterPanels = b;
+                    XMLUtils.SaveSettings();
+                    if (YetAnotherToolbar.instance != null)
+                    {
+                        YetAnotherToolbar.instance.hideFilterPanels = Settings.hideFilterPanels;
+                        YetAnotherToolbar.instance.SetFilterPanelsVisibility();
+                    }
+                });
+                group.AddSpace(10);
+                */
+
                 // Disable update notice
                 UICheckBox disableUpdateNotice = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_DUN"), Settings.disableUpdateNotice, (b) =>
                 {
