@@ -19,8 +19,6 @@ namespace YetAnotherToolbar
         public static bool isEditorMode = false;
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
-        public bool hideAdvisorButton = false;
-        public bool hideFilterPanels = false;
 
         public void Start()
         {
@@ -34,10 +32,8 @@ namespace YetAnotherToolbar
                     //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
 
                     // Set Advisor Button and filter panel visiblity
-                    hideAdvisorButton = Settings.hideAdvisorButton;
-                    hideFilterPanels = Settings.hideFilterPanels;
                     SetAdvisorButtonVisibility();
-                    SetFilterPanelsVisibility();
+                    // SetFilterPanelsVisibility();
 
                     mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
                     mainButton.absolutePosition = new Vector3(Settings.mainButtonX, Settings.mainButtonY);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
@@ -539,17 +535,18 @@ namespace YetAnotherToolbar
             try
             {
                 UIMultiStateButton advisorButton = UIView.Find("AdvisorButton") as UIMultiStateButton;
-                if (hideAdvisorButton)
+                if (Settings.hideAdvisorButton)
                     advisorButton.Hide();
                 else
                     advisorButton.Show();
             }
             catch (Exception ex)
             {
-                Debugging.Message("HideAdvisorButton() - " + ex.Message);
+                Debugging.Message("SetAdvisorButtonVisibility() - " + ex.Message);
             }
         }
 
+        /*
         public void SetFilterPanelsVisibility()
         {
             try
@@ -582,6 +579,7 @@ namespace YetAnotherToolbar
                 Debugging.Message("HideFilterPanels() - " + ex.Message);
             }
         }
+        */
 
     }
 
