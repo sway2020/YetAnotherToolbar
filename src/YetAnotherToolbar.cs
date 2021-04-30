@@ -31,6 +31,10 @@ namespace YetAnotherToolbar
                     UIView view = UIView.GetAView();
                     //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
 
+                    // Set Advisor Button and filter panel visiblity
+                    SetAdvisorButtonVisibility();
+                    // SetFilterPanelsVisibility();
+
                     mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
                     mainButton.absolutePosition = new Vector3(Settings.mainButtonX, Settings.mainButtonY);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
                     mainButton.name = "YetAnotherToolbarMainButton";
@@ -525,6 +529,57 @@ namespace YetAnotherToolbar
             verticalScrollbar.thumbObject = thumbSprite;
             scrollablePanel.verticalScrollbar = verticalScrollbar;
         }
+
+        public void SetAdvisorButtonVisibility()
+        {
+            try
+            {
+                UIMultiStateButton advisorButton = UIView.Find("AdvisorButton") as UIMultiStateButton;
+                if (Settings.hideAdvisorButton)
+                    advisorButton.Hide();
+                else
+                    advisorButton.Show();
+            }
+            catch (Exception ex)
+            {
+                Debugging.Message("SetAdvisorButtonVisibility() - " + ex.Message);
+            }
+        }
+
+        /*
+        public void SetFilterPanelsVisibility()
+        {
+            try
+            {
+                UITabContainer gtsContainer;
+
+                foreach (UIComponent toolPanel in tsContainer.components)
+                {
+                    if (toolPanel is UIPanel)
+                    {
+                        gtsContainer = toolPanel.GetComponentInChildren<UITabContainer>();
+
+                        if (gtsContainer != null)
+                        {
+                            foreach (UIComponent tabPanel in gtsContainer.components)
+                            {
+                                UIPanel filterPanel = tabPanel.Find("FilterPanel") as UIPanel;
+                                if (hideFilterPanels)
+                                    filterPanel.Hide();
+                                else
+                                    filterPanel.Show();
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debugging.Message("HideFilterPanels() - " + ex.Message);
+            }
+        }
+        */
 
     }
 
