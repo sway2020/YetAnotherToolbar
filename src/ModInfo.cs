@@ -9,17 +9,18 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.7";
+        public const string version = "0.8";
         public string Name => "Yet Another Toolbar [Test] " + version;
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210413;
+        public const double updateNoticeDate = 20210430;
         public const string updateNotice =
 
-            "- Custom panel background now also works in map & asset editors\n\n";
+            "- Add an option to hide the advisor button in mod settings\n" +
+            "  suggested and added by Coldrifting\n\n";
 
         public void OnEnabled()
         {
