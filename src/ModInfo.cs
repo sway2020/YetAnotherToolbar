@@ -9,7 +9,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.8";
+        public const string version = "0.8.1";
         public string Name => "Yet Another Toolbar [Test] " + version;
         public string Description
         {

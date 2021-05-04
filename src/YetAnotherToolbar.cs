@@ -535,6 +535,8 @@ namespace YetAnotherToolbar
             try
             {
                 UIMultiStateButton advisorButton = UIView.Find("AdvisorButton") as UIMultiStateButton;
+                if (advisorButton == null) return;
+
                 if (Settings.hideAdvisorButton)
                     advisorButton.Hide();
                 else
