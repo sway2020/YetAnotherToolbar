@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Language UniqueName="zh-tw" ReadableName="繁體中文">
+  <Translations>
+    <Translation ID="YAT_DESC" String="又一個工具列修改模組" />
+    <Translation ID="TRN_CHOICE" String="語言設置 (下次生效)" />
+    <Translation ID="TRN_SYS" String="使用系統默認語言" />
+    <Translation ID="YAT_SET_HMB" String="隱藏面板圖標" />
+    <Translation ID="YAT_SET_HMBRST" String="重置面板圖標位置" />
+    <Translation ID="YAT_SET_DUN" String="停用更新通知" />
+    <Translation ID="YAT_SET_CFP" String="配置文檔路徑" />
+    <Translation ID="YAT_SET_OFE" String="在“檔案總管”中開啟" />
+    <Translation ID="YAT_SET_KEY" String="切換展開/折疊模式" />
+    <Translation ID="YAT_QM_TIT" String="面板設置" />
+    <Translation ID="YAT_QM_ROW" String="展開後的行數:" />
+    <Translation ID="YAT_QM_COL" String="列數:" />
+    <Translation ID="YAT_QM_SCL" String="面板界面縮放:" />
+    <Translation ID="YAT_QM_HOR" String="面板界面水平位置偏移:" />
+    <Translation ID="YAT_QM_VER" String="面板界面垂直位置偏移:" />
+    <Translation ID="YAT_QM_BAC" String="面板背景：" />
+    <Translation ID="YAT_QM_DRK" String="暗色" />
+    <Translation ID="YAT_QM_LGH" String="亮色" />
+    <Translation ID="YAT_QM_TRS" String="透明" />
+    <Translation ID="YAT_UP_TIT" String="更新通知" />
+    <Translation ID="YAT_UP_CNF" String="確認" />
+    <Translation ID="YAT_SET_QMKEY" String="開啟面板設置" />
+    <Translation ID="YAT_SET_HAB" String="隱藏顧問圖標" />
+    <Translation ID="YAT_SET_HFP" String="隱藏過濾面板" />
+
+  </Translations>
+</Language>
