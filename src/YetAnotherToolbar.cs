@@ -34,9 +34,8 @@ namespace YetAnotherToolbar
                     // Set Advisor Button and filter panel visiblity
                     SetAdvisorButtonVisibility();
                     // SetFilterPanelsVisibility();
-
                     mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
-                    mainButton.absolutePosition = new Vector3(Settings.mainButtonX, Settings.mainButtonY);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
+                    mainButton.absolutePosition = new Vector3(Settings.mainButtonX * view.GetScreenResolution().x / 1920f, Settings.mainButtonY);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
                     mainButton.name = "YetAnotherToolbarMainButton";
                     mainButton.isInteractive = true;
                     mainButton.size = new Vector2(34, 34);
@@ -191,7 +190,8 @@ namespace YetAnotherToolbar
 
         public void UpdatePanelPosition()
         {
-            float x = 596f + Settings.horizontalOffset;
+            UIView view = UIView.GetAView();
+            float x = (596f * view.GetScreenResolution().x / 1920f) + Settings.horizontalOffset;
             float y = -110f + Settings.verticalOffset;
 
             if (Settings.expanded)

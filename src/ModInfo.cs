@@ -9,18 +9,20 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.8.1";
+        public const string version = "0.8.2";
         public string Name => "Yet Another Toolbar [Test] " + version;
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210430;
+        public const double updateNoticeDate = 20210516;
         public const string updateNotice =
 
-            "- Add an option to hide the advisor button in mod settings\n" +
-            "  suggested and added by Coldrifting\n\n";
+            "- Improve compatibility with non-16:9 resolutions\n" +
+            "  You might need to re-adjust panel position offsets and main\n" +
+            "  button position.\n" + 
+            "  Thanks for the help from macsergey\n\n";
 
         public void OnEnabled()
         {
@@ -53,7 +55,8 @@ namespace YetAnotherToolbar
                     XMLUtils.SaveSettings();
                     if (YetAnotherToolbar.instance?.mainButton != null)
                     {
-                        YetAnotherToolbar.instance.mainButton.absolutePosition = new Vector3(Settings.mainButtonX, Settings.mainButtonY);
+                        UIView view = UIView.GetAView();
+                        YetAnotherToolbar.instance.mainButton.absolutePosition = new Vector3(Settings.mainButtonX * view.GetScreenResolution().x / 1920f, Settings.mainButtonY);
                     }
                 });
                 group.AddSpace(10);
