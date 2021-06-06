@@ -31,6 +31,8 @@ namespace YetAnotherToolbar
         private UILabel backgroundLabel;
         private UIDropDown backgroundDropdown;
 
+        private UIDragHandle dragHandle;
+
         public override void Start()
         {
             name = "YetAnotherToolbar_UIQuickMenuPopUp";
@@ -38,6 +40,10 @@ namespace YetAnotherToolbar
             backgroundSprite = "GenericPanelWhite";
             size = new Vector2(430, 390);
             instance = this;
+
+            dragHandle = AddUIComponent<UIDragHandle>();
+            dragHandle.relativePosition = new Vector3(0, 0);
+            dragHandle.size = size;
 
             UILabel title = AddUIComponent<UILabel>();
             title.text = Translations.Translate("YAT_QM_TIT");
@@ -226,7 +232,7 @@ namespace YetAnotherToolbar
         {
             if (instance != null)
             {
-                UIView.PopModal();
+                // UIView.PopModal();
                 instance.isVisible = false;
                 Destroy(instance.gameObject);
                 instance = null;
@@ -251,7 +257,7 @@ namespace YetAnotherToolbar
                 instance = UIView.GetAView().AddUIComponent(typeof(UIQuickMenuPopUp)) as UIQuickMenuPopUp;
                 instance.relativePosition += new Vector3(-200, -400);
 
-                UIView.PushModal(instance);
+                // UIView.PushModal(instance);
             }
             instance.Show(true);
         }
