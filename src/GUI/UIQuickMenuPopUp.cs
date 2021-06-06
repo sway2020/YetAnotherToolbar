@@ -74,14 +74,13 @@ namespace YetAnotherToolbar
                 XMLUtils.SaveSettings();
                 numOfRowValueLabel.text = $"{Settings.numOfRows}";
 
-                if (Settings.expanded)
+                if (!Settings.expanded)
                 {
-                    YetAnotherToolbar.instance.Expand();
+                    Settings.expanded = true;
+                    XMLUtils.SaveSettings();
+                    YetAnotherToolbar.instance.mainButton.normalFgSprite = "Collapse";
                 }
-                else
-                {
-                    YetAnotherToolbar.instance.Collapse();
-                }
+                YetAnotherToolbar.instance.Expand();
             };
 
             numOfRowValueLabel = AddUIComponent<UILabel>();
