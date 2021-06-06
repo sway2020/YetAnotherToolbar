@@ -41,16 +41,6 @@ namespace YetAnotherToolbar
                     mainButton.size = new Vector2(34, 34);
                     mainButton.isVisible = !Settings.hideMainButton;
                     mainButton.atlas = YetAnotherToolbar.atlas;
-                    mainButton.dragHandle = mainButton.AddUIComponent<UIDragHandle>();
-                    mainButton.dragHandle.target = mainButton;
-                    mainButton.dragHandle.relativePosition = Vector3.zero;
-                    mainButton.dragHandle.size = mainButton.size;
-                    mainButton.eventPositionChanged += (c, p) =>
-                    {
-                        Settings.mainButtonX = mainButton.absolutePosition.x;
-                        Settings.mainButtonY = mainButton.absolutePosition.y;
-                        XMLUtils.SaveSettings();
-                    };
 
                     if (!Settings.expanded)
                     {
