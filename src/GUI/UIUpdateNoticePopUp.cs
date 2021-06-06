@@ -11,13 +11,17 @@ namespace YetAnotherToolbar
         public static UIUpdateNoticePopUp instance;
         private const float spacing = 5f;
         private UIButton closeButton;
+        private UIDragHandle dragHandle;
 
         public override void Start()
         {
             name = "YetAnotherToolbar_UpdateNoticePopUp";
             atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
             backgroundSprite = "GenericPanelWhite";
-            size = new Vector2(660, 200);
+            size = new Vector2(600, 200);
+
+            dragHandle = AddUIComponent<UIDragHandle>();
+            dragHandle.relativePosition = new Vector3(0, 0);
 
             UILabel title = AddUIComponent<UILabel>();
             title.text = "Yet Another Toolbar " + ModInfo.version + " " + Translations.Translate("YAT_UP_TIT");
@@ -53,6 +57,7 @@ namespace YetAnotherToolbar
             };
 
             height = closeButton.relativePosition.y + closeButton.height + 10;
+            dragHandle.size = size;
             closeButton.Focus();
         }
 
@@ -60,7 +65,7 @@ namespace YetAnotherToolbar
         {
             if (instance != null)
             {
-                UIView.PopModal();
+                // UIView.PopModal();
                 instance.isVisible = false;
                 Destroy(instance.gameObject);
                 instance = null;
@@ -84,7 +89,7 @@ namespace YetAnotherToolbar
             {
                 instance = UIView.GetAView().AddUIComponent(typeof(UIUpdateNoticePopUp)) as UIUpdateNoticePopUp;
                 instance.Show(true);
-                UIView.PushModal(instance);
+                // UIView.PushModal(instance);
             }
             else
             {
