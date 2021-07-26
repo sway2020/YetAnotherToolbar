@@ -110,14 +110,10 @@ namespace YetAnotherToolbar
 
                 // show path to YetAnotherToolbarConfig.xml
                 string path = Path.Combine(DataLocation.executableDirectory, "YetAnotherToolbarConfig.xml");
-                UITextField ConfigFilePath = (UITextField)group.AddTextfield(Translations.Translate("YAT_SET_CFP"), path, _ => { }, _ => { });
+                UITextField ConfigFilePath = (UITextField)group.AddTextfield($"{Translations.Translate("YAT_SET_CFP")} - YetAnotherToolbarConfig.xml", path, _ => { }, _ => { });
                 ConfigFilePath.width = panel.width - 30;
 
-                // from aubergine10's AutoRepair
-                if (Application.platform == RuntimePlatform.WindowsPlayer)
-                {
-                    group.AddButton(Translations.Translate("YAT_SET_OFE"), () => System.Diagnostics.Process.Start("explorer.exe", "/select," + path));
-                }
+                group.AddButton(Translations.Translate("YAT_SET_OFE"), () => System.Diagnostics.Process.Start(DataLocation.executableDirectory));
 
                 // shortcut keys
                 panel.gameObject.AddComponent<ModeToggleKeyMapping>();
