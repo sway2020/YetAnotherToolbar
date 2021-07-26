@@ -22,7 +22,9 @@ namespace YetAnotherToolbar
             "- Fix vertical scrollbar bug\n\n" +
 
             "- Fix UI display bug appeared after a panel is collapsed\n" +
-            "  at the last row\n\n";
+            "  at the last row\n\n" +
+
+            "- Improve compatability with Find It 2\n";
 
         public void OnEnabled()
         {
