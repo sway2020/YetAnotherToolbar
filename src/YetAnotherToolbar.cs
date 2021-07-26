@@ -263,6 +263,7 @@ namespace YetAnotherToolbar
                                         scrollablePanel.wrapLayout = false;
                                         scrollablePanel.autoLayoutDirection = LayoutDirection.Horizontal;
                                         scrollablePanel.scrollWheelDirection = UIOrientation.Horizontal;
+                                        scrollablePanel.ScrollToLeft();
                                     }
 
                                     UIScrollbar verticalScrollbar;
