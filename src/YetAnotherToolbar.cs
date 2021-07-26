@@ -495,6 +495,10 @@ namespace YetAnotherToolbar
                 scrollablePanel.scrollPosition = new Vector2(0, value);
             };
 
+            panel.eventMouseWheel += (component, eventParam) => {
+                scrollablePanel.scrollPosition = new Vector2(0, scrollablePanel.scrollPosition.y - (int)eventParam.wheelDelta * verticalScrollbar.incrementAmount);
+            };
+
             return verticalScrollbar;
         }
 
