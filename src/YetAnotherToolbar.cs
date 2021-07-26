@@ -224,6 +224,9 @@ namespace YetAnotherToolbar
                                     scrollablePanel.width = Mathf.Round(109f * numOfCols) + 1;
                                 }
 
+                                // don't mess further with Find It's panel
+                                if (tabPanel.name == "FindItDefaultPanel") continue;
+
                                 if (numOfRows > 1)
                                 {
                                     UIScrollbar horizontalScrollbar = tabPanel.GetComponentInChildren<UIScrollbar>();
@@ -242,12 +245,12 @@ namespace YetAnotherToolbar
                                     }
 
                                     UIScrollbar verticalScrollbar;
-                                    try
+                                    if (dictVerticalScrollbars.ContainsKey((UIPanel)tabPanel))
                                     {
                                         verticalScrollbar = dictVerticalScrollbars[(UIPanel)tabPanel];
                                         AdjustVerticalScrollbar(verticalScrollbar, tabPanel, scrollablePanel);
                                     }
-                                    catch (Exception ex)
+                                    else
                                     {
                                         verticalScrollbar = CreateVerticalScrollbar((UIPanel)tabPanel, scrollablePanel);
                                         dictVerticalScrollbars[(UIPanel)tabPanel] = verticalScrollbar;
@@ -267,12 +270,12 @@ namespace YetAnotherToolbar
                                     }
 
                                     UIScrollbar verticalScrollbar;
-                                    try
+                                    if (dictVerticalScrollbars.ContainsKey((UIPanel)tabPanel))
                                     {
                                         verticalScrollbar = dictVerticalScrollbars[(UIPanel)tabPanel];
                                         AdjustVerticalScrollbar(verticalScrollbar, tabPanel, scrollablePanel);
                                     }
-                                    catch (Exception ex)
+                                    else
                                     {
                                         verticalScrollbar = CreateVerticalScrollbar((UIPanel)tabPanel, scrollablePanel);
                                         dictVerticalScrollbars[(UIPanel)tabPanel] = verticalScrollbar;
@@ -487,6 +490,10 @@ namespace YetAnotherToolbar
 
             verticalScrollbar.thumbObject = thumbSprite;
             scrollablePanel.verticalScrollbar = verticalScrollbar;
+
+            verticalScrollbar.eventValueChanged += (component, value) => {
+                scrollablePanel.scrollPosition = new Vector2(0, value);
+            };
 
             return verticalScrollbar;
         }

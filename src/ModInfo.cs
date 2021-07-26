@@ -9,26 +9,20 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "0.8.3";
+        public const string version = "0.8.4";
         public string Name => "Yet Another Toolbar [Test] " + version;
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210606;
+        public const double updateNoticeDate = 20210726;
         public const string updateNotice =
 
-            "- Quick Menu pop-up is now moveable(left-click and drag it)\n\n" +
+            "- Fix vertical scrollbar bug\n\n" +
 
-            "- When the quick menu pop-up is shown, it will no long block\n" +
-            "  you from interacting with other UI elements\n\n" +
-
-            "- Changed the way to move the +/- button\n" +
-            "  RIGHT-click & drag to move the button\n\n" +
-
-            "- When the number of rows is changed, the panels will be\n" +
-            "  forced into expanded mode to show the change\n\n";
+            "- Fix UI display bug appeared after a panel is collapsed\n" +
+            "  at the last row\n\n";
 
         public void OnEnabled()
         {
