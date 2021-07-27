@@ -16,8 +16,11 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210726;
+        public const double updateNoticeDate = 20210727;
         public const string updateNotice =
+
+            "- Fix the bug where the mouse wheel doesn't work if the\n" +
+            "  cursor is not above any button\n\n" +
 
             "- Fix vertical scrollbar bug\n\n" +
 
