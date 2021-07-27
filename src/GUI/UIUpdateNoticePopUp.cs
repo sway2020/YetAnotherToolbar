@@ -57,6 +57,7 @@ namespace YetAnotherToolbar
             };
 
             height = closeButton.relativePosition.y + closeButton.height + 10;
+            width = message.width + 40;
             dragHandle.size = size;
             closeButton.Focus();
         }
