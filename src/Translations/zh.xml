@@ -22,7 +22,7 @@
     <Translation ID="YAT_QM_TRS" String="透明" />
     <Translation ID="YAT_UP_TIT" String="更新" />
     <Translation ID="YAT_UP_CNF" String="确认" />
-    <Translation ID="YAT_SET_QMKEY" String="打开快速选单" />
+    <Translation ID="YAT_SET_QMKEY" String="打开快速菜单" />
 
   </Translations>
 </Language>

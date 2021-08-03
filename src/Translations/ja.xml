@@ -22,7 +22,6 @@
     <Translation ID="YAT_QM_TRS" String="透明" />
     <Translation ID="YAT_UP_TIT" String="アップデート" />
     <Translation ID="YAT_UP_CNF" String="確認" />
-    <Translation ID="YAT_SET_QMKEY" String="クイックメニューの表示" />
 
   </Translations>
 </Language>
