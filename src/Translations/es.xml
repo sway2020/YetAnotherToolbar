@@ -2,13 +2,13 @@
 <Language UniqueName="es" ReadableName="español">
   <Translations>
     <Translation ID="YAT_DESC" String="Otro mod de toolbar" />
-    <Translation ID="TRN_CHOICE" String="Elegir idioma (será efectivo la próxima vez)" />
-    <Translation ID="TRN_SYS" String="Utilizar el idioma del sistema" />
+    <Translation ID="TRN_CHOICE" String="Seleccionar idioma (tomará efecto la próxima vez que inice el juego)" />
+    <Translation ID="TRN_SYS" String="Utilizar el idioma del juego" />
     <Translation ID="YAT_SET_HMB" String="Ocultar el botón principal" />
     <Translation ID="YAT_SET_HMBRST" String="Reestablecer posición del botón principal" />
-    <Translation ID="YAT_SET_DUN" String="Desactivar el aviso de actualización futura" />
+    <Translation ID="YAT_SET_DUN" String="Desactivar el aviso de actualización" />
     <Translation ID="YAT_SET_CFP" String="Ruta del archivo de configuración" />
-    <Translation ID="YAT_SET_OFE" String="Abrir carpeta de archivos" />
+    <Translation ID="YAT_SET_OFE" String="Abrir Explorador de Archivos" />
     <Translation ID="YAT_SET_KEY" String="Alternar el modo de expansión/colapso" />
     <Translation ID="YAT_QM_TIT" String="Menú rápido" />
     <Translation ID="YAT_QM_ROW" String="Número de filas cuando se expande:" />
@@ -18,7 +18,7 @@
     <Translation ID="YAT_QM_VER" String="Desplazamiento de la posición vertical:" />
     <Translation ID="YAT_QM_BAC" String="Fondo del panel:" />
     <Translation ID="YAT_QM_DRK" String="Oscuro" />
-    <Translation ID="YAT_QM_LGH" String="Brillante" />
+    <Translation ID="YAT_QM_LGH" String="Claro" />
     <Translation ID="YAT_QM_TRS" String="Transparente" />
     <Translation ID="YAT_UP_TIT" String="Actualización" />
     <Translation ID="YAT_UP_CNF" String="Confirmar" />

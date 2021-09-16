@@ -315,7 +315,9 @@ namespace YetAnotherToolbar
         {
             try
             {
-                UIComponent finditDefaultPanel = GameObject.Find("FindItDefaultPanel").GetComponent<UIComponent>();
+                GameObject findItObject = GameObject.Find("FindItDefaultPanel");
+                if (findItObject == null) return;
+                UIComponent finditDefaultPanel = findItObject.GetComponent<UIComponent>();
 
                 if (finditDefaultPanel != null)
                 {
