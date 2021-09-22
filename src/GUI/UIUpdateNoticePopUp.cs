@@ -20,13 +20,12 @@ namespace YetAnotherToolbar
             backgroundSprite = "GenericPanelWhite";
             size = new Vector2(600, 200);
 
-            dragHandle = AddUIComponent<UIDragHandle>();
-            dragHandle.relativePosition = new Vector3(0, 0);
-
             UILabel title = AddUIComponent<UILabel>();
             title.text = "Yet Another Toolbar " + ModInfo.version + " " + Translations.Translate("YAT_UP_TIT");
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 2, spacing * 2);
+
+            
 
             UIButton close = AddUIComponent<UIButton>();
             close.size = new Vector2(30f, 30f);
@@ -47,6 +46,9 @@ namespace YetAnotherToolbar
             message.textColor = new Color32(0, 0, 0, 255);
             message.relativePosition = new Vector3(spacing * 2, spacing + title.height + spacing);
 
+            dragHandle = AddUIComponent<UIDragHandle>();
+            dragHandle.relativePosition = new Vector3(0, 0);
+
             closeButton = SamsamTS.UIUtils.CreateButton(this);
             closeButton.size = new Vector2(100, 40);
             closeButton.text = Translations.Translate("YAT_UP_CNF");
@@ -58,6 +60,7 @@ namespace YetAnotherToolbar
 
             height = closeButton.relativePosition.y + closeButton.height + 10;
             width = message.width + 40;
+            close.relativePosition = new Vector3(width - close.width, 0);
             dragHandle.size = size;
             closeButton.Focus();
         }

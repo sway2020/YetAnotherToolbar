@@ -9,24 +9,24 @@ namespace YetAnotherToolbar
         private const float spacing = 5f;
 
         private UILabel numOfRowLabel;
-        private UILabel numOfRowValueLabel;
         private UISlider numOfRowSlider;
+        private UITextField numOfRowValueTextField;
 
         private UILabel numOfColLabel;
-        private UILabel numOfColValueLabel;
         private UISlider numOfColSlider;
+        private UITextField numOfColValueTextField;
 
         private UILabel scaleLabel;
         private UILabel scaleValueLabel;
         private UISlider scaleSlider;
 
-        private UILabel horizonOffsetLabel;
-        private UILabel horizonOffsetValueLabel;
-        private UISlider horizonOffsetSlider;
+        private UILabel horizontalOffsetLabel;
+        private UISlider horizontalOffsetSlider;
+        private UITextField horizontalOffsetValueTextField;
 
         private UILabel verticalOffsetLabel;
-        private UILabel verticalOffsetValueLabel;
         private UISlider verticalOffsetSlider;
+        private UITextField verticalOffsetValueTextField;
 
         private UILabel backgroundLabel;
         private UIDropDown backgroundDropdown;
@@ -38,7 +38,7 @@ namespace YetAnotherToolbar
             name = "YetAnotherToolbar_UIQuickMenuPopUp";
             atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
             backgroundSprite = "GenericPanelWhite";
-            size = new Vector2(430, 390);
+            size = new Vector2(460, 350);
             instance = this;
 
             dragHandle = AddUIComponent<UIDragHandle>();
@@ -72,14 +72,25 @@ namespace YetAnotherToolbar
             numOfRowLabel.textColor = new Color32(0, 0, 0, 255);
             numOfRowLabel.relativePosition = new Vector3(title.relativePosition.x, title.relativePosition.y + title.height + 20);
 
-            numOfRowSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.numOfRows, 2.0f, 6.0f, 1.0f);
+            numOfRowSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.numOfRows, 2.0f, 10.0f, 1.0f);
             numOfRowSlider.relativePosition = new Vector3(numOfRowLabel.relativePosition.x, numOfRowLabel.relativePosition.y + numOfRowLabel.height + 5);
             numOfRowSlider.eventValueChanged += (c, p) =>
             {
-                Settings.numOfRows = (int)numOfRowSlider.value;
-                XMLUtils.SaveSettings();
-                numOfRowValueLabel.text = $"{Settings.numOfRows}";
+                if (numOfRowSlider.value == Settings.numOfRows) return;
+                numOfRowValueTextField.text = $"{numOfRowSlider.value}";
+            };
 
+            numOfRowValueTextField = SamsamTS.UIUtils.CreateTextField(this);
+            numOfRowValueTextField.text = $"{Settings.numOfRows}";
+            numOfRowValueTextField.width = 70;
+            numOfRowValueTextField.relativePosition = new Vector3(numOfRowSlider.relativePosition.x + numOfRowSlider.width + 15, numOfRowSlider.relativePosition.y - 10);
+            numOfRowValueTextField.eventTextChanged += (c, p) =>
+            {
+                if (!int.TryParse(numOfRowValueTextField.text, out int newValue)) return;
+                if (newValue < 2 || newValue > 10) return; // too many rows will cause performance issues or even crash the game
+                Settings.numOfRows = newValue;
+                XMLUtils.SaveSettings();
+                numOfRowSlider.value = newValue;
                 if (!Settings.expanded)
                 {
                     Settings.expanded = true;
@@ -89,27 +100,32 @@ namespace YetAnotherToolbar
                 YetAnotherToolbar.instance.Expand();
             };
 
-            numOfRowValueLabel = AddUIComponent<UILabel>();
-            numOfRowValueLabel.text = $"{Settings.numOfRows}";
-            numOfRowValueLabel.textScale = 0.8f;
-            numOfRowValueLabel.textColor = new Color32(0, 0, 0, 255);
-            numOfRowValueLabel.relativePosition = new Vector3(numOfRowSlider.relativePosition.x + numOfRowSlider.width + 10, numOfRowSlider.relativePosition.y);
-
-
             numOfColLabel = AddUIComponent<UILabel>();
             numOfColLabel.text = Translations.Translate("YAT_QM_COL");
             numOfColLabel.textScale = 0.8f;
             numOfColLabel.textColor = new Color32(0, 0, 0, 255);
-            numOfColLabel.relativePosition = new Vector3(title.relativePosition.x, numOfRowValueLabel.relativePosition.y + numOfRowValueLabel.height + 20);
+            numOfColLabel.relativePosition = new Vector3(title.relativePosition.x, numOfRowLabel.relativePosition.y + numOfRowLabel.height + 30);
 
             numOfColSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.numOfCols, 7.0f, 25.0f, 1.0f);
             numOfColSlider.relativePosition = new Vector3(numOfColLabel.relativePosition.x, numOfColLabel.relativePosition.y + numOfColLabel.height + 5);
             numOfColSlider.eventValueChanged += (c, p) =>
             {
-                Settings.numOfCols = (int)numOfColSlider.value;
-                XMLUtils.SaveSettings();
-                numOfColValueLabel.text = $"{Settings.numOfCols}";
+                if (numOfColSlider.value == Settings.numOfCols) return;
+                numOfColValueTextField.text = $"{numOfColSlider.value}";
+            };
 
+            numOfColValueTextField = SamsamTS.UIUtils.CreateTextField(this);
+            numOfColValueTextField.text = $"{Settings.numOfCols}";
+            numOfColValueTextField.width = 70;
+            numOfColValueTextField.relativePosition = new Vector3(numOfColSlider.relativePosition.x + numOfColSlider.width + 15, numOfColSlider.relativePosition.y - 10);
+            numOfColValueTextField.eventTextChanged += (c, p) =>
+            {
+                if (!int.TryParse(numOfColValueTextField.text, out int newValue)) return;
+                if (newValue < 7 || newValue > 25) return; // too many cols will cause performance issues or even crash the game
+
+                Settings.numOfCols = newValue;
+                XMLUtils.SaveSettings();
+                numOfColSlider.value = newValue;
                 if (Settings.expanded)
                 {
                     YetAnotherToolbar.instance.Expand();
@@ -120,18 +136,11 @@ namespace YetAnotherToolbar
                 }
             };
 
-            numOfColValueLabel = AddUIComponent<UILabel>();
-            numOfColValueLabel.text = $"{Settings.numOfCols}";
-            numOfColValueLabel.textScale = 0.8f;
-            numOfColValueLabel.textColor = new Color32(0, 0, 0, 255);
-            numOfColValueLabel.relativePosition = new Vector3(numOfColSlider.relativePosition.x + numOfColSlider.width + 10, numOfColSlider.relativePosition.y);
-
-
             scaleLabel = AddUIComponent<UILabel>();
             scaleLabel.text = Translations.Translate("YAT_QM_SCL");
             scaleLabel.textScale = 0.8f;
             scaleLabel.textColor = new Color32(0, 0, 0, 255);
-            scaleLabel.relativePosition = new Vector3(title.relativePosition.x, numOfColValueLabel.relativePosition.y + numOfColValueLabel.height + 20);
+            scaleLabel.relativePosition = new Vector3(title.relativePosition.x, numOfColLabel.relativePosition.y + numOfColLabel.height + 30);
 
             scaleSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.toolbarScale, 0.5f, 1.5f, 0.05f);
             scaleSlider.relativePosition = new Vector3(scaleLabel.relativePosition.x, scaleLabel.relativePosition.y + scaleLabel.height + 5);
@@ -146,62 +155,71 @@ namespace YetAnotherToolbar
 
             scaleValueLabel = AddUIComponent<UILabel>();
             scaleValueLabel.text = $"{Settings.toolbarScale * 100} %";
-            scaleValueLabel.textScale = 0.8f;
+            scaleValueLabel.textScale = 1.0f;
             scaleValueLabel.textColor = new Color32(0, 0, 0, 255);
-            scaleValueLabel.relativePosition = new Vector3(scaleSlider.relativePosition.x + scaleSlider.width + 10, scaleSlider.relativePosition.y);
+            scaleValueLabel.relativePosition = new Vector3(scaleSlider.relativePosition.x + scaleSlider.width + 30, scaleSlider.relativePosition.y);
 
+            horizontalOffsetLabel = AddUIComponent<UILabel>();
+            horizontalOffsetLabel.text = Translations.Translate("YAT_QM_HOR");
+            horizontalOffsetLabel.textScale = 0.8f;
+            horizontalOffsetLabel.textColor = new Color32(0, 0, 0, 255);
+            horizontalOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, scaleSlider.relativePosition.y + scaleSlider.height + 20);
 
-            horizonOffsetLabel = AddUIComponent<UILabel>();
-            horizonOffsetLabel.text = Translations.Translate("YAT_QM_HOR");
-            horizonOffsetLabel.textScale = 0.8f;
-            horizonOffsetLabel.textColor = new Color32(0, 0, 0, 255);
-            horizonOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, scaleSlider.relativePosition.y + scaleSlider.height + 20);
-
-            horizonOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.horizontalOffset, -1000.0f, 1000f, 10.0f);
-            horizonOffsetSlider.relativePosition = new Vector3(horizonOffsetLabel.relativePosition.x, horizonOffsetLabel.relativePosition.y + horizonOffsetLabel.height + 5);
-            horizonOffsetSlider.eventValueChanged += (c, p) =>
+            horizontalOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.horizontalOffset, -2000.0f, 2000f, 10.0f);
+            horizontalOffsetSlider.relativePosition = new Vector3(horizontalOffsetLabel.relativePosition.x, horizontalOffsetLabel.relativePosition.y + horizontalOffsetLabel.height + 5);
+            horizontalOffsetSlider.eventValueChanged += (c, p) =>
             {
-                Settings.horizontalOffset = (int)horizonOffsetSlider.value;
-                XMLUtils.SaveSettings();
-                horizonOffsetValueLabel.text = $"{Settings.horizontalOffset}";
-                YetAnotherToolbar.instance.UpdatePanelPosition();
+                if (horizontalOffsetSlider.value == Settings.horizontalOffset) return;
+                horizontalOffsetValueTextField.text = $"{horizontalOffsetSlider.value}";
             };
 
-            horizonOffsetValueLabel = AddUIComponent<UILabel>();
-            horizonOffsetValueLabel.text = $"{Settings.horizontalOffset}";
-            horizonOffsetValueLabel.textScale = 0.8f;
-            horizonOffsetValueLabel.textColor = new Color32(0, 0, 0, 255);
-            horizonOffsetValueLabel.relativePosition = new Vector3(horizonOffsetSlider.relativePosition.x + horizonOffsetSlider.width + 10, horizonOffsetSlider.relativePosition.y);
-
+            horizontalOffsetValueTextField = SamsamTS.UIUtils.CreateTextField(this);
+            horizontalOffsetValueTextField.text = $"{Settings.horizontalOffset}";
+            horizontalOffsetValueTextField.width = 70;
+            horizontalOffsetValueTextField.relativePosition = new Vector3(horizontalOffsetSlider.relativePosition.x + horizontalOffsetSlider.width + 15, horizontalOffsetSlider.relativePosition.y - 10);
+            horizontalOffsetValueTextField.eventTextChanged += (c, p) =>
+            {
+                if (!int.TryParse(horizontalOffsetValueTextField.text, out int newValue)) return;
+                if (newValue < -2000 || newValue > 2000) return; // reasonable range
+                Settings.horizontalOffset = newValue;
+                XMLUtils.SaveSettings();
+                horizontalOffsetSlider.value = newValue;
+                YetAnotherToolbar.instance.UpdatePanelPosition();
+            };
 
             verticalOffsetLabel = AddUIComponent<UILabel>();
             verticalOffsetLabel.text = Translations.Translate("YAT_QM_VER");
             verticalOffsetLabel.textScale = 0.8f;
             verticalOffsetLabel.textColor = new Color32(0, 0, 0, 255);
-            verticalOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, horizonOffsetValueLabel.relativePosition.y + horizonOffsetValueLabel.height + 20);
+            verticalOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, horizontalOffsetLabel.relativePosition.y + horizontalOffsetLabel.height + 30);
 
-            verticalOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.verticalOffset, -1000.0f, 1000f, 10.0f);
+            verticalOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.verticalOffset, -1500.0f, 1500f, 10.0f);
             verticalOffsetSlider.relativePosition = new Vector3(verticalOffsetLabel.relativePosition.x, verticalOffsetLabel.relativePosition.y + verticalOffsetLabel.height + 5);
             verticalOffsetSlider.eventValueChanged += (c, p) =>
             {
-                Settings.verticalOffset = (int)verticalOffsetSlider.value;
-                XMLUtils.SaveSettings();
-                verticalOffsetValueLabel.text = $"{Settings.verticalOffset}";
-                YetAnotherToolbar.instance.UpdatePanelPosition();
+                if (verticalOffsetSlider.value == Settings.verticalOffset) return;
+                verticalOffsetValueTextField.text = $"{verticalOffsetSlider.value}";
             };
 
-            verticalOffsetValueLabel = AddUIComponent<UILabel>();
-            verticalOffsetValueLabel.text = $"{Settings.verticalOffset}";
-            verticalOffsetValueLabel.textScale = 0.8f;
-            verticalOffsetValueLabel.textColor = new Color32(0, 0, 0, 255);
-            verticalOffsetValueLabel.relativePosition = new Vector3(verticalOffsetSlider.relativePosition.x + verticalOffsetSlider.width + 10, verticalOffsetSlider.relativePosition.y);
-
+            verticalOffsetValueTextField = SamsamTS.UIUtils.CreateTextField(this);
+            verticalOffsetValueTextField.text = $"{Settings.verticalOffset}";
+            verticalOffsetValueTextField.width = 70;
+            verticalOffsetValueTextField.relativePosition = new Vector3(verticalOffsetSlider.relativePosition.x + verticalOffsetSlider.width + 15, verticalOffsetSlider.relativePosition.y - 10);
+            verticalOffsetValueTextField.eventTextChanged += (c, p) =>
+            {
+                if (!int.TryParse(verticalOffsetValueTextField.text, out int newValue)) return;
+                if (newValue < -1500 || newValue > 1500) return; // reasonable range
+                Settings.verticalOffset = newValue;
+                XMLUtils.SaveSettings();
+                verticalOffsetSlider.value = newValue;
+                YetAnotherToolbar.instance.UpdatePanelPosition();
+            };
 
             backgroundLabel = AddUIComponent<UILabel>();
             backgroundLabel.text = Translations.Translate("YAT_QM_BAC");
             backgroundLabel.textScale = 0.8f;
             backgroundLabel.textColor = new Color32(0, 0, 0, 255);
-            backgroundLabel.relativePosition = new Vector3(title.relativePosition.x, verticalOffsetValueLabel.relativePosition.y + verticalOffsetValueLabel.height + 20);
+            backgroundLabel.relativePosition = new Vector3(title.relativePosition.x, verticalOffsetLabel.relativePosition.y + verticalOffsetLabel.height + 30);
 
             backgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
             backgroundDropdown.normalBgSprite = "TextFieldPanelHovered";

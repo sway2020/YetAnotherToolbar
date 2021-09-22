@@ -29,13 +29,14 @@ namespace YetAnotherToolbar
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
 
                     UIView view = UIView.GetAView();
+                    Vector2 screenResolution = view.GetScreenResolution();
                     //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
 
                     // Set Advisor Button and filter panel visiblity
                     SetAdvisorButtonVisibility();
                     // SetFilterPanelsVisibility();
                     mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
-                    mainButton.absolutePosition = new Vector3(Settings.mainButtonX * view.GetScreenResolution().x / 1920f, Settings.mainButtonY);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
+                    mainButton.absolutePosition = new Vector3(Settings.mainButtonX * screenResolution.x / 1920f, Settings.mainButtonY * screenResolution.y / 1080f);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
                     mainButton.name = "YetAnotherToolbarMainButton";
                     mainButton.isInteractive = true;
                     mainButton.size = new Vector2(34, 34);
@@ -68,20 +69,20 @@ namespace YetAnotherToolbar
                             Expand();
                             mainButton.normalFgSprite = "Collapse";
                         }
-
-                        // show update notice
-                        if (!shownUpdateNoticeFlag)
-                        {
-                            shownUpdateNoticeFlag = true;
-                            // show update notice
-                            if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
-                            {
-                                UIUpdateNoticePopUp.ShowAt();
-                                Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
-                                XMLUtils.SaveSettings();
-                            }
-                        }
                     };
+
+                    // show update notice
+                    if (!shownUpdateNoticeFlag)
+                    {
+                        shownUpdateNoticeFlag = true;
+                        // show update notice
+                        if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                        {
+                            UIUpdateNoticePopUp.ShowAt();
+                            Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                            XMLUtils.SaveSettings();
+                        }
+                    }
                 }
             }
             catch (Exception ex)

@@ -9,25 +9,19 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.0.1";
+        public const string version = "1.0.2";
         public string Name => "Yet Another Toolbar " + version;
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210727;
+        public const double updateNoticeDate = 20210921;
         public const string updateNotice =
 
-            "- Fix the bug where the mouse wheel doesn't work if the\n" +
-            "  cursor is not above any button\n\n" +
+            "- Fix the main button position issue on non-16:9 resolutions\n\n" +
 
-            "- Fix vertical scrollbar bug\n\n" +
-
-            "- Fix UI display bug appeared after a panel is collapsed\n" +
-            "  at the last row\n\n" +
-
-            "- Improve compatability with Find It 2\n";
+            "- Offset and row/column numbers now can be manually entered\n\n";
 
         public void OnEnabled()
         {
@@ -61,7 +55,8 @@ namespace YetAnotherToolbar
                     if (YetAnotherToolbar.instance?.mainButton != null)
                     {
                         UIView view = UIView.GetAView();
-                        YetAnotherToolbar.instance.mainButton.absolutePosition = new Vector3(Settings.mainButtonX * view.GetScreenResolution().x / 1920f, Settings.mainButtonY);
+                        Vector2 screenResolution = view.GetScreenResolution();
+                        YetAnotherToolbar.instance.mainButton.absolutePosition = new Vector3(Settings.mainButtonX * screenResolution.x / 1920f, Settings.mainButtonY * screenResolution.y / 1080f);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
                     }
                 });
                 group.AddSpace(10);

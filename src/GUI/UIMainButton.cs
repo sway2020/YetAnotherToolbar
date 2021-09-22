@@ -28,8 +28,10 @@ namespace YetAnotherToolbar
                 mousePosition.y = m_OwnerView.fixedHeight - mousePosition.y;
 
                 absolutePosition = mousePosition + deltaPosition;
-                Settings.mainButtonX = absolutePosition.x;
-                Settings.mainButtonY = absolutePosition.y;
+                UIView view = UIView.GetAView();
+                Vector2 screenResolution = view.GetScreenResolution();
+                Settings.mainButtonX = absolutePosition.x * 1920f / screenResolution.x;
+                Settings.mainButtonY = absolutePosition.y * 1080f / screenResolution.y;
                 XMLUtils.SaveSettings();
             }
         }
