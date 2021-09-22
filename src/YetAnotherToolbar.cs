@@ -69,20 +69,20 @@ namespace YetAnotherToolbar
                             Expand();
                             mainButton.normalFgSprite = "Collapse";
                         }
-                    };
 
-                    // show update notice
-                    if (!shownUpdateNoticeFlag)
-                    {
-                        shownUpdateNoticeFlag = true;
                         // show update notice
-                        if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                        if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
                         {
-                            UIUpdateNoticePopUp.ShowAt();
-                            Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
-                            XMLUtils.SaveSettings();
+                            YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
+                            // show update notice
+                            if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                            {
+                                UIUpdateNoticePopUp.ShowAt();
+                                Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                                XMLUtils.SaveSettings();
+                            }
                         }
-                    }
+                    };
                 }
             }
             catch (Exception ex)
