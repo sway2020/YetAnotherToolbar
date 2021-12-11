@@ -1,28 +1,31 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language UniqueName="zh" ReadableName="简体中文">
   <Translations>
-    <Translation ID="YAT_DESC" String="又一个工具栏修改模组" />
-    <Translation ID="TRN_CHOICE" String="语言设定 (下次生效)" />
-    <Translation ID="TRN_SYS" String="使用游戏默认语言" />
-    <Translation ID="YAT_SET_HMB" String="隐藏主按钮" />
-    <Translation ID="YAT_SET_HMBRST" String="重置主按钮位置" />
-    <Translation ID="YAT_SET_DUN" String="禁用未来更新通知" />
-    <Translation ID="YAT_SET_CFP" String="配置文件路径" />
-    <Translation ID="YAT_SET_OFE" String="在文件夹中显示" />
-    <Translation ID="YAT_SET_KEY" String="切换展开/折叠模式" />
-    <Translation ID="YAT_QM_TIT" String="快速选单" />
-    <Translation ID="YAT_QM_ROW" String="展开后的行数:" />
-    <Translation ID="YAT_QM_COL" String="列数:" />
-    <Translation ID="YAT_QM_SCL" String="面板UI比例:" />
-    <Translation ID="YAT_QM_HOR" String="水平位置偏移:" />
-    <Translation ID="YAT_QM_VER" String="垂直位置偏移:" />
-    <Translation ID="YAT_QM_BAC" String="面板背景:" />
-    <Translation ID="YAT_QM_DRK" String="暗色" />
-    <Translation ID="YAT_QM_LGH" String="亮色" />
-    <Translation ID="YAT_QM_TRS" String="透明" />
-    <Translation ID="YAT_UP_TIT" String="更新" />
-    <Translation ID="YAT_UP_CNF" String="确认" />
-    <Translation ID="YAT_SET_QMKEY" String="打开快速菜单" />
+    <Translation ID="YAT_DESC" String="又一个工具栏修改模组"/>
+    <Translation ID="TRN_CHOICE" String="语言设定 (下次生效)"/>
+    <Translation ID="TRN_SYS" String="使用游戏默认语言"/>
+    <Translation ID="YAT_SET_HMB" String="隐藏主按钮"/>
+    <Translation ID="YAT_SET_HMBRST" String="重置主按钮位置"/>
+    <Translation ID="YAT_SET_DUN" String="禁用未来更新通知"/>
+    <Translation ID="YAT_SET_CFP" String="配置文件路径"/>
+    <Translation ID="YAT_SET_OFE" String="在文件夹中显示"/>
+    <Translation ID="YAT_SET_KEY" String="切换展开/折叠模式"/>
+    <Translation ID="YAT_QM_TIT" String="快速选单"/>
+    <Translation ID="YAT_QM_ROW" String="展开后的行数:"/>
+    <Translation ID="YAT_QM_COL" String="列数:"/>
+    <Translation ID="YAT_QM_SCL" String="面板UI比例:"/>
+    <Translation ID="YAT_QM_HOR" String="水平位置偏移:"/>
+    <Translation ID="YAT_QM_VER" String="垂直位置偏移:"/>
+    <Translation ID="YAT_QM_BAC" String="面板背景:"/>
+    <Translation ID="YAT_QM_DRK" String="暗色"/>
+    <Translation ID="YAT_QM_LGH" String="亮色"/>
+    <Translation ID="YAT_QM_TRS" String="透明"/>
+    <Translation ID="YAT_UP_TIT" String="更新"/>
+    <Translation ID="YAT_UP_CNF" String="确认"/>
+    <Translation ID="YAT_SET_QMKEY" String="打开快速菜单"/>
+    <Translation ID="YAT_SET_HAB" String="隐藏顾问按钮"/>
+    <Translation ID="YAT_SET_HFP" String="隐藏筛选器面板"/>
+    <Translation ID="YAT_SET_HMKEY" String="隐藏工具栏面板"/>
 
   </Translations>
 </Language>
