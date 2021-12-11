@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Language UniqueName="ru" ReadableName="Русский">
   <Translations>
-    <Translation ID="YAT_DESC" String="Another toolbar mod" />
-    <Translation ID="TRN_CHOICE" String="Выбор языка" />
-    <Translation ID="TRN_SYS" String="Использовать язык системы" />
+    <Translation ID="YAT_DESC" String="Ещё один мод панели инструментов" />
+    <Translation ID="TRN_CHOICE" String="Выбор языка (применится при следующей загрузке)" />
+    <Translation ID="TRN_SYS" String="Использ. системный" />
     <Translation ID="YAT_SET_HMB" String="Скрыть кнопку" />
+    <Translation ID="YAT_SET_HAB" String="Скрыть кнопку справки" />
+    <Translation ID="YAT_SET_HFP" String="Скрыть меню фильтров" />
     <Translation ID="YAT_SET_HMBRST" String="Сбросить позицию кнопки" />
     <Translation ID="YAT_SET_DUN" String="Отключить уведомления об обновлениях" />
     <Translation ID="YAT_SET_CFP" String="Путь к файлу конфигурации" />
     <Translation ID="YAT_SET_OFE" String="Открыть в Проводнике" />
     <Translation ID="YAT_SET_KEY" String="Переключить режим отображения" />
-    <Translation ID="YAT_QM_TIT" String="Быстрое меню" />
-    <Translation ID="YAT_QM_ROW" String="Число раскрытых рядов" />
-    <Translation ID="YAT_QM_COL" String="Число столбцов" />
-    <Translation ID="YAT_QM_SCL" String="Масштаб панели" />
-    <Translation ID="YAT_QM_HOR" String="Позиция по горизонтали" />
-    <Translation ID="YAT_QM_VER" String="Позиция по вертикали" />
-    <Translation ID="YAT_QM_BAC" String="Фон панели" />
+    <Translation ID="YAT_SET_QMKEY" String="Открыть настройки" />
+    <Translation ID="YAT_QM_TIT" String="Настройки панели" />
+    <Translation ID="YAT_QM_ROW" String="Количество строк в развёрнутом виде:" />
+    <Translation ID="YAT_QM_COL" String="Количество столбцов:" />
+    <Translation ID="YAT_QM_SCL" String="Масштаб панели:" />
+    <Translation ID="YAT_QM_HOR" String="Смещение по горизонтали:" />
+    <Translation ID="YAT_QM_VER" String="Смещение по вертикали:" />
+    <Translation ID="YAT_QM_BAC" String="Фон панели:" />
     <Translation ID="YAT_QM_DRK" String="Тёмный" />
     <Translation ID="YAT_QM_LGH" String="Светлый" />
     <Translation ID="YAT_QM_TRS" String="Прозрачный" />
     <Translation ID="YAT_UP_TIT" String="Обновить" />
     <Translation ID="YAT_UP_CNF" String="Принять" />
-    <Translation ID="YAT_SET_QMKEY" String="Открыть быстрое меню" />
-    <Translation ID="YAT_SET_HAB" String="Скрыть кнопку советника" />
-    <Translation ID="YAT_SET_HFP" String="Скрыть меню фильтров" />
-
+    <Translation ID="YAT_SET_HMKEY" String="Скрыть панель инструментов" />
+ 
   </Translations>
 </Language>
