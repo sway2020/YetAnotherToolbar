@@ -9,19 +9,21 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.0.2";
+        public const string version = "1.0.4";
         public string Name => "Yet Another Toolbar " + version;
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20210921;
+        public const double updateNoticeDate = 20211210;
         public const string updateNotice =
 
-            "- Fix the main button position issue on non-16:9 resolutions\n\n" +
+            "- New keyboard shortcut (Alt+Space) to quickly hide toolbar panels\n\n" +
 
-            "- Offset and row/column numbers now can be manually entered\n\n";
+            "  Unlike closing a panel, you can continue placing selected assets when the panels are hidden\n" +
+            "  This should be useful when the panels are expanded to 3+ rows\n" +
+            "  YAT\'s main button will be shown in inverted colors when this feature is active\n";
 
         public void OnEnabled()
         {
@@ -116,6 +118,7 @@ namespace YetAnotherToolbar
                 // shortcut keys
                 panel.gameObject.AddComponent<ModeToggleKeyMapping>();
                 panel.gameObject.AddComponent<QuickMenuKeyMapping>();
+                panel.gameObject.AddComponent<HideMenuKeyMapping>();
                 group.AddSpace(10);
 
             }

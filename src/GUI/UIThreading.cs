@@ -26,6 +26,7 @@ namespace YetAnotherToolbar
 
             KeyCode modeToggleKey = (KeyCode)(Settings.modeToggleKey.keyCode);
             KeyCode quickMenuKey = (KeyCode)(Settings.quickMenuKey.keyCode);
+            KeyCode hideMenuKey = (KeyCode)(Settings.hideMenuKey.keyCode);
 
             // Null checks for safety.
             // Check modifier keys according to settings.
@@ -41,6 +42,10 @@ namespace YetAnotherToolbar
             else if (quickMenuKey != KeyCode.None && Input.GetKey(quickMenuKey) && CheckHotkey(Settings.quickMenuKey, altPressed, ctrlPressed, shiftPressed))
             {
                 ProcessPressedKey(1);
+            }
+            else if (quickMenuKey != KeyCode.None && Input.GetKey(hideMenuKey) && CheckHotkey(Settings.hideMenuKey, altPressed, ctrlPressed, shiftPressed))
+            {
+                ProcessPressedKey(2);
             }
             else
             {
@@ -79,23 +84,15 @@ namespace YetAnotherToolbar
                         YetAnotherToolbar.instance.Expand();
                         YetAnotherToolbar.instance.mainButton.normalFgSprite = "Collapse";
                     }
-
-                    // show update notice
-                    if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
-                    {
-                        YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
-                        // show update notice
-                        if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
-                        {
-                            UIUpdateNoticePopUp.ShowAt();
-                            Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
-                            XMLUtils.SaveSettings();
-                        }
-                    }
+                    
                 }
                 else if (index == 1)
                 {
                     UIQuickMenuPopUp.ShowAt(YetAnotherToolbar.instance.mainButton);
+                }
+                else if (index == 2)
+                {
+                    YetAnotherToolbar.instance.ToggleMenuVisibility();
                 }
 
             }

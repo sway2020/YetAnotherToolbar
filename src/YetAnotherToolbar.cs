@@ -20,6 +20,9 @@ namespace YetAnotherToolbar
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
 
+        private bool hideMenuFlag = false;
+        private Vector2 lastMenuPosition;
+
         public void Start()
         {
             try
@@ -70,18 +73,6 @@ namespace YetAnotherToolbar
                             mainButton.normalFgSprite = "Collapse";
                         }
 
-                        // show update notice
-                        if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
-                        {
-                            YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
-                            // show update notice
-                            if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
-                            {
-                                UIUpdateNoticePopUp.ShowAt();
-                                Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
-                                XMLUtils.SaveSettings();
-                            }
-                        }
                     };
                 }
             }
@@ -105,6 +96,19 @@ namespace YetAnotherToolbar
                     Expand();
                 }
                 UpdateBackground();
+
+                // show update notice
+                if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
+                {
+                    YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
+                    // show update notice
+                    if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                    {
+                        UIUpdateNoticePopUp.ShowAt();
+                        Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                        XMLUtils.SaveSettings();
+                    }
+                }
             }
         }
 
@@ -116,6 +120,8 @@ namespace YetAnotherToolbar
                 {
                     "Collapse",
                     "Expand",
+                    "Collapse-Inverted",
+                    "Expand-Inverted",
                     "SubcategoriesPanel75",
                     "SubcategoriesPanel50",
                     "SubcategoriesPanel25",
@@ -179,8 +185,35 @@ namespace YetAnotherToolbar
             tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
         }
 
+        public void ToggleMenuVisibility()
+        {
+            if (!this.hideMenuFlag)
+            {
+                this.hideMenuFlag = true;
+                lastMenuPosition = tsContainer.relativePosition;
+                tsContainer.relativePosition = new Vector2(-50000, -50000);
+
+                if (Settings.expanded) mainButton.normalFgSprite = "Collapse-Inverted";
+                else mainButton.normalFgSprite = "Expand-Inverted";
+            }
+            else
+            {
+                this.hideMenuFlag = false;
+                tsContainer.relativePosition = this.lastMenuPosition;
+                if (Settings.expanded) mainButton.normalFgSprite = "Collapse";
+                else mainButton.normalFgSprite = "Expand";
+            }
+        }
+
+        public void CheckMenuVisibility()
+        {
+            if (!this.hideMenuFlag) return;
+            ToggleMenuVisibility();
+        }
+
         public void UpdatePanelPosition()
         {
+            CheckMenuVisibility();
             UIView view = UIView.GetAView();
             float x = (596f * view.GetScreenResolution().x / 1920f) + Settings.horizontalOffset;
             float y = -110f + Settings.verticalOffset;
@@ -196,8 +229,10 @@ namespace YetAnotherToolbar
 
         }
 
+
         private void UpdateLayout(int numOfRows, int numOfCols)
         {
+            CheckMenuVisibility();
             try
             {
                 UITabContainer gtsContainer;

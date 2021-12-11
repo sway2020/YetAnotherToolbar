@@ -28,6 +28,7 @@ namespace YetAnotherToolbar
 
         internal static KeyBinding modeToggleKey = new KeyBinding { keyCode = (int)KeyCode.T, control = false, shift = false, alt = true };
         internal static KeyBinding quickMenuKey = new KeyBinding { keyCode = (int)KeyCode.Q, control = false, shift = false, alt = true };
+        internal static KeyBinding hideMenuKey = new KeyBinding { keyCode = (int)KeyCode.Space, control = false, shift = false, alt = true };
     }
 
     /// <summary>
@@ -83,6 +84,9 @@ namespace YetAnotherToolbar
 
         [XmlElement("quickMenuKey")]
         public KeyBinding QuickMenuKey { get => Settings.quickMenuKey; set => Settings.quickMenuKey = value; }
+
+        [XmlElement("hideMenuKey")]
+        public KeyBinding HideMenuKey { get => Settings.hideMenuKey; set => Settings.hideMenuKey = value; }
 
         [XmlElement("Language")]
         public string Language

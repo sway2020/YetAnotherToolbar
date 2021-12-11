@@ -246,4 +246,17 @@ namespace YetAnotherToolbar
             Settings.quickMenuKey = keyBinding;
         }
     }
+
+    public class HideMenuKeyMapping : OptionsKeymapping
+    {
+        HideMenuKeyMapping()
+        {
+            keyBinding = Settings.hideMenuKey;
+            labelString = Translations.Translate("YAT_SET_HMKEY");
+        }
+        public override void UpdateSettingKeyBinding()
+        {
+            Settings.hideMenuKey = keyBinding;
+        }
+    }
 }
