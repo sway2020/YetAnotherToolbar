@@ -25,6 +25,7 @@
     <Translation ID="YAT_QM_TRS" String="Transparent" />
     <Translation ID="YAT_UP_TIT" String="Update" />
     <Translation ID="YAT_UP_CNF" String="Confirm" />
+    <Translation ID="YAT_SET_HMKEY" String="Hide toolbar panels" />
 
   </Translations>
 </Language>

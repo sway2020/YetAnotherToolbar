@@ -88,6 +88,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Icons\GenericTabHovered.png" />
     <EmbeddedResource Include="Icons\SubcategoriesPanel.png" />
+    <EmbeddedResource Include="Icons\Collapse-Inverted.png" />
+    <EmbeddedResource Include="Icons\Expand-Inverted.png" />
     <Content Include="Translations\en.xml" />
     <Content Include="Translations\es.xml" />
     <Content Include="Translations\fr.xml" />
