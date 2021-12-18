@@ -4,6 +4,8 @@ using ColossalFramework.UI;
 using System.IO;
 using ColossalFramework.IO;
 using UnityEngine;
+using CitiesHarmony.API;
+
 
 namespace YetAnotherToolbar
 {
@@ -27,7 +29,22 @@ namespace YetAnotherToolbar
 
         public void OnEnabled()
         {
+            // Apply Harmony patches via Cities Harmony.
+            // Called here instead of OnCreated to allow the auto-downloader to do its work prior to launch.
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
+            Debugging.Message("Harmony patches applied");
+            // Load settings here.
             XMLUtils.LoadSettings();
+            Debugging.Message("XML Settings loaded");
+        }
+
+        public void OnDisabled()
+        {
+            // Unapply Harmony patches via Cities Harmony.
+            if (HarmonyHelper.IsHarmonyInstalled)
+            {
+                Patcher.UnpatchAll();
+            }
         }
 
         public void OnSettingsUI(UIHelperBase helper)

@@ -21,6 +21,9 @@ namespace YetAnotherToolbar
         internal static bool disableUpdateNotice = false;
         internal static double lastUpdateNotice = 0.0;
         internal static int backgroundOption = 0;
+        internal static int thumbnailBarBackgroundOption = 0;
+        internal static int tsBarBackgroundOption = 0;
+        internal static int infoPanelBackgroundOption = 0;
         internal static float mainButtonX = 538.0f;
         internal static float mainButtonY = 947.0f;
         internal static bool hideAdvisorButton = false;
@@ -72,6 +75,15 @@ namespace YetAnotherToolbar
 
         [XmlElement("backgroundOption")]
         public int BackgroundOption { get => Settings.backgroundOption; set => Settings.backgroundOption = value; }
+
+        [XmlElement("thumbnailBarBackgroundOption")]
+        public int ThumbnailBarBackgroundOption { get => Settings.thumbnailBarBackgroundOption; set => Settings.thumbnailBarBackgroundOption = value; }
+
+        [XmlElement("tsBarBackgroundOption")]
+        public int TSBarBackgroundOption { get => Settings.tsBarBackgroundOption; set => Settings.tsBarBackgroundOption = value; }
+
+        [XmlElement("infoPanelBackgroundOption")]
+        public int InfoPanelBackgroundOption { get => Settings.infoPanelBackgroundOption; set => Settings.infoPanelBackgroundOption = value; }
 
         [XmlElement("mainButtonX")]
         public float MainButtonX { get => Settings.mainButtonX; set => Settings.mainButtonX = value; }
