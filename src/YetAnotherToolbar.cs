@@ -146,13 +146,9 @@ namespace YetAnotherToolbar
                     "GenericTabHovered50",
                     "GenericTabHovered25",
                     "GenericTabHovered",
-                    "Servicebar",
-                    "Servicebar90",
-                    "Servicebar80",
-                    "Servicebar70",
-                    "Servicebar60",
-                    "Servicebar50",
-                    "Servicebar25"
+                    "SubcategoriesPanel75",
+                    "SubcategoriesPanel50",
+                    "SubcategoriesPanel25"
                 };
 
                 atlas = ResourceLoader.CreateTextureAtlas("YetAnotherToolbarAtlas", spriteNames, "YetAnotherToolbar.Icons.");
@@ -471,31 +467,31 @@ namespace YetAnotherToolbar
                         switch (Settings.backgroundOption)
                         {
                             case 0:
-                                gtsContainer.backgroundSprite = "SubcategoriesPanel"; // original
+                                gtsContainer.backgroundSprite = "SubcategoriesPanel";
                                 break;
                             case 1:
-                                gtsContainer.backgroundSprite = "Servicebar"; // dark 100%
+                                gtsContainer.backgroundSprite = "SubcategoriesPanel75";
                                 break;
                             case 2:
-                                gtsContainer.backgroundSprite = "Servicebar90"; // dark 90%
+                                gtsContainer.backgroundSprite = "SubcategoriesPanel50";
                                 break;
                             case 3:
-                                gtsContainer.backgroundSprite = "Servicebar80"; // dark 80%
+                                gtsContainer.backgroundSprite = "SubcategoriesPanel25";
                                 break;
                             case 4:
-                                gtsContainer.backgroundSprite = "Servicebar70"; // dark 70%
+                                gtsContainer.backgroundSprite = "";
                                 break;
                             case 5:
-                                gtsContainer.backgroundSprite = "Servicebar60"; // dark 60%
+                                gtsContainer.backgroundSprite = "GenericTabHovered";
                                 break;
                             case 6:
-                                gtsContainer.backgroundSprite = "Servicebar50"; // dark 50%
+                                gtsContainer.backgroundSprite = "GenericTabHovered75";
                                 break;
                             case 7:
-                                gtsContainer.backgroundSprite = "Servicebar25"; // dark 25%
+                                gtsContainer.backgroundSprite = "GenericTabHovered50";
                                 break;
                             case 8:
-                                gtsContainer.backgroundSprite = ""; // dark 0%
+                                gtsContainer.backgroundSprite = "GenericTabHovered25";
                                 break;
                             default:
                                 gtsContainer.backgroundSprite = "SubcategoriesPanel";
@@ -531,32 +527,21 @@ namespace YetAnotherToolbar
                         thumbnailBar.spriteName = "Servicebar"; // original
                         break;
                     case 1:
-                        thumbnailBar.spriteName = "Servicebar"; // dark 100%
+                        thumbnailBar.spriteName = "SubcategoriesPanel75"; // dark 75%
                         break;
                     case 2:
-                        thumbnailBar.spriteName = "Servicebar90"; // dark 90%
+                        thumbnailBar.spriteName = "SubcategoriesPanel50"; // dark 50%
                         break;
                     case 3:
-                        thumbnailBar.spriteName = "Servicebar80"; // dark 80%
+                        thumbnailBar.spriteName = "SubcategoriesPanel25"; // dark 25%
                         break;
                     case 4:
-                        thumbnailBar.spriteName = "Servicebar70"; // dark 70%
-                        break;
-                    case 5:
-                        thumbnailBar.spriteName = "Servicebar60"; // dark 60%
-                        break;
-                    case 6:
-                        thumbnailBar.spriteName = "Servicebar50"; // dark 50%
-                        break;
-                    case 7:
-                        thumbnailBar.spriteName = "Servicebar25"; // dark 25%
-                        break;
-                    case 8:
-                        thumbnailBar.spriteName = ""; // dark 0%
+                        thumbnailBar.spriteName = ""; // transparent
                         pauseOutline.size = originalScreenSize;
                         break;
                     default:
-                        thumbnailBar.spriteName = "Servicebar";
+                        thumbnailBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        thumbnailBar.spriteName = "Servicebar"; // original
                         break;
                 }
             }
@@ -571,35 +556,23 @@ namespace YetAnotherToolbar
                 {
                     case 0:
                         tsBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
-                        tsBar.spriteName = "Toolbar";
+                        tsBar.spriteName = "Toolbar"; // original
                         break;
                     case 1:
-                        tsBar.spriteName = "Servicebar"; // dark 100%
+                        tsBar.spriteName = "SubcategoriesPanel75"; // dark 75%
                         break;
                     case 2:
-                        tsBar.spriteName = "Servicebar90"; // dark 90%
+                        tsBar.spriteName = "SubcategoriesPanel50"; // dark 50%
                         break;
                     case 3:
-                        tsBar.spriteName = "Servicebar80"; // dark 80%
+                        tsBar.spriteName = "SubcategoriesPanel25"; // dark 25%
                         break;
                     case 4:
-                        tsBar.spriteName = "Servicebar70"; // dark 70%
-                        break;
-                    case 5:
-                        tsBar.spriteName = "Servicebar60"; // dark 60%
-                        break;
-                    case 6:
-                        tsBar.spriteName = "Servicebar50"; // dark 50%
-                        break;
-                    case 7:
-                        tsBar.spriteName = "Servicebar25"; // dark 25%
-                        break;
-                    case 8:
-                        tsBar.spriteName = ""; // dark 0%
+                        tsBar.spriteName = ""; // transparent
                         break;
                     default:
                         tsBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
-                        tsBar.spriteName = "Toolbar";
+                        tsBar.spriteName = "Toolbar"; // original
                         break;
                 }
             }
@@ -614,35 +587,23 @@ namespace YetAnotherToolbar
                 {
                     case 0:
                         infoPanel.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
-                        infoPanel.backgroundSprite = "Servicebar";
+                        infoPanel.backgroundSprite = "GenericTabDisabled"; // original
                         break;
                     case 1:
-                        infoPanel.backgroundSprite = "Servicebar"; // dark 100%
+                        infoPanel.backgroundSprite = "SubcategoriesPanel75"; // dark 75%
                         break;
                     case 2:
-                        infoPanel.backgroundSprite = "Servicebar90"; // dark 90%
+                        infoPanel.backgroundSprite = "SubcategoriesPanel50"; // dark 50%
                         break;
                     case 3:
-                        infoPanel.backgroundSprite = "Servicebar80"; // dark 80%
+                        infoPanel.backgroundSprite = "SubcategoriesPanel25"; // dark 25%
                         break;
                     case 4:
-                        infoPanel.backgroundSprite = "Servicebar70"; // dark 70%
-                        break;
-                    case 5:
-                        infoPanel.backgroundSprite = "Servicebar60"; // dark 60%
-                        break;
-                    case 6:
-                        infoPanel.backgroundSprite = "Servicebar50"; // dark 50%
-                        break;
-                    case 7:
-                        infoPanel.backgroundSprite = "Servicebar25"; // dark 25%
-                        break;
-                    case 8:
-                        infoPanel.backgroundSprite = ""; // dark 0%
+                        infoPanel.backgroundSprite = ""; // transparent
                         break;
                     default:
                         infoPanel.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
-                        infoPanel.backgroundSprite = "Servicebar";
+                        infoPanel.backgroundSprite = "GenericTabDisabled"; // original
                         break;
                 }
             }
