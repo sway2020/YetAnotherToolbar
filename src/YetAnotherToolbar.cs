@@ -38,11 +38,15 @@ namespace YetAnotherToolbar
                 if (mainButton == null)
                 {
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
-                    thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
-                    tsBar = UIView.Find<UISlicedSprite>("TSBar");
-                    infoPanel = UIView.Find<UIPanel>("InfoPanel");
-                    pauseOutline = GameObject.Find("PauseOutline").GetComponent<UIComponent>();
-                    pauseOutlineOriginalSize = pauseOutline.size;
+
+                    if (!isEditorMode)
+                    {
+                        thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
+                        tsBar = UIView.Find<UISlicedSprite>("TSBar");
+                        infoPanel = UIView.Find<UIPanel>("InfoPanel");
+                        pauseOutline = GameObject.Find("PauseOutline").GetComponent<UIComponent>();
+                        pauseOutlineOriginalSize = pauseOutline.size;
+                    }
 
                     UIView view = UIView.GetAView();
                     Vector2 screenResolution = view.GetScreenResolution();
@@ -112,9 +116,13 @@ namespace YetAnotherToolbar
                 }
 
                 UpdateMainPanelBackground();
-                UpdateThumbnailBarBackground();
-                UpdateTSBarBackground();
-                UpdateInfoPanelBackground();
+
+                if (!isEditorMode)
+                {
+                    UpdateThumbnailBarBackground();
+                    UpdateTSBarBackground();
+                    UpdateInfoPanelBackground();
+                }
 
                 // show update notice
                 if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)

@@ -248,6 +248,11 @@ namespace YetAnotherToolbar
                 YetAnotherToolbar.instance.UpdateMainPanelBackground();
             };
 
+            if (YetAnotherToolbar.isEditorMode)
+            {
+                size = new Vector2(460, 350);
+                return;
+            }
 
             thumbnailBarBackgroundLabel = AddUIComponent<UILabel>();
             thumbnailBarBackgroundLabel.text = Translations.Translate("YAT_QM_THM");
