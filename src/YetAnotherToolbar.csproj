@@ -92,13 +92,9 @@
     <EmbeddedResource Include="Icons\SubcategoriesPanel.png" />
     <EmbeddedResource Include="Icons\Collapse-Inverted.png" />
     <EmbeddedResource Include="Icons\Expand-Inverted.png" />
-    <EmbeddedResource Include="Icons\Servicebar90.png" />
-    <EmbeddedResource Include="Icons\Servicebar.png" />
-    <EmbeddedResource Include="Icons\Servicebar25.png" />
-    <EmbeddedResource Include="Icons\Servicebar50.png" />
-    <EmbeddedResource Include="Icons\Servicebar60.png" />
-    <EmbeddedResource Include="Icons\Servicebar70.png" />
-    <EmbeddedResource Include="Icons\Servicebar80.png" />
+    <EmbeddedResource Include="Icons\SubcategoriesPanel25.png" />
+    <EmbeddedResource Include="Icons\SubcategoriesPanel50.png" />
+    <EmbeddedResource Include="Icons\SubcategoriesPanel75.png" />
     <Content Include="Translations\en.xml" />
     <Content Include="Translations\es.xml" />
     <Content Include="Translations\fr.xml" />
