@@ -44,8 +44,8 @@ namespace YetAnotherToolbar
                         thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
                         tsBar = UIView.Find<UISlicedSprite>("TSBar");
                         infoPanel = UIView.Find<UIPanel>("InfoPanel");
-                        pauseOutline = GameObject.Find("PauseOutline").GetComponent<UIComponent>();
-                        pauseOutlineOriginalSize = pauseOutline.size;
+                        pauseOutline = GameObject.Find("PauseOutline")?.GetComponent<UIComponent>();
+                        if (pauseOutline != null) pauseOutlineOriginalSize = pauseOutline.size;
                     }
 
                     UIView view = UIView.GetAView();
@@ -525,7 +525,8 @@ namespace YetAnotherToolbar
         {
             if (thumbnailBar != null)
             {
-                pauseOutline.size = pauseOutlineOriginalSize;
+
+                if (pauseOutline != null) pauseOutline.size = pauseOutlineOriginalSize;
                 thumbnailBar.atlas = YetAnotherToolbar.atlas;
 
                 switch (Settings.thumbnailBarBackgroundOption)
@@ -545,7 +546,7 @@ namespace YetAnotherToolbar
                         break;
                     case 4:
                         thumbnailBar.spriteName = ""; // transparent
-                        pauseOutline.size = originalScreenSize;
+                        if (pauseOutline != null) pauseOutline.size = originalScreenSize;
                         break;
                     default:
                         thumbnailBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
