@@ -59,10 +59,11 @@ namespace YetAnotherToolbar
     }
 
     [HarmonyPatch(typeof(CameraController))]
-    [HarmonyPatch("LateUpdate")]
+    [HarmonyPatch("UpdateFreeCamera")]
     [HarmonyPatch(new Type[] {})]
     internal static class LateUpdatePatch
     {
+        [HarmonyPriority(Priority.Low)]
         private static void Postfix(Camera ___m_camera)
         {
             ___m_camera.rect = new Rect(0f, 0f, 1f, 1f);
