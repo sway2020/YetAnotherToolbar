@@ -431,7 +431,7 @@ namespace YetAnotherToolbar
 
             // If we got here, then we didn't find the assembly.
             Debugging.Message("assembly path not found");
-            throw new FileNotFoundException("Find It 2: assembly path not found!");
+            throw new FileNotFoundException("Yet Another Toolbar: assembly path not found!");
         }
     }
 }

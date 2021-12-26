@@ -67,7 +67,6 @@ namespace YetAnotherToolbar
         private static void Postfix(Camera ___m_camera)
         {
             ___m_camera.rect = new Rect(0f, 0f, 1f, 1f);
-            return;
         }
     }
 }
