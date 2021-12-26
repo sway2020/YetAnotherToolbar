@@ -39,14 +39,11 @@ namespace YetAnotherToolbar
                 {
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
 
-                    if (!isEditorMode)
-                    {
-                        thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
-                        tsBar = UIView.Find<UISlicedSprite>("TSBar");
-                        infoPanel = UIView.Find<UIPanel>("InfoPanel");
-                        pauseOutline = GameObject.Find("PauseOutline")?.GetComponent<UIComponent>();
-                        if (pauseOutline != null) pauseOutlineOriginalSize = pauseOutline.size;
-                    }
+                    thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
+                    tsBar = UIView.Find<UISlicedSprite>("TSBar");
+                    infoPanel = UIView.Find<UIPanel>("InfoPanel");
+                    pauseOutline = GameObject.Find("PauseOutline")?.GetComponent<UIComponent>();
+                    if (pauseOutline != null) pauseOutlineOriginalSize = pauseOutline.size;
 
                     UIView view = UIView.GetAView();
                     Vector2 screenResolution = view.GetScreenResolution();
@@ -106,6 +103,7 @@ namespace YetAnotherToolbar
             if (!initialized)
             {
                 initialized = true;
+
                 if (!Settings.expanded)
                 {
                     Collapse();
@@ -117,12 +115,9 @@ namespace YetAnotherToolbar
 
                 UpdateMainPanelBackground();
 
-                if (!isEditorMode)
-                {
-                    UpdateThumbnailBarBackground();
-                    UpdateTSBarBackground();
-                    UpdateInfoPanelBackground();
-                }
+                UpdateThumbnailBarBackground();
+                UpdateTSBarBackground();
+                UpdateInfoPanelBackground();
 
                 // show update notice
                 if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
@@ -255,7 +250,6 @@ namespace YetAnotherToolbar
             }
 
         }
-
 
         private void UpdateLayout(int numOfRows, int numOfCols)
         {
