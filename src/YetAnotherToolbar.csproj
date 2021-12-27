@@ -88,6 +88,13 @@
     <EmbeddedResource Include="Icons\GenericTabHovered75.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Translations\es.xml" />
+    <Content Include="Translations\fr.xml" />
+    <Content Include="Translations\ja.xml" />
+    <Content Include="Translations\pl.xml" />
+    <Content Include="Translations\ru.xml" />
+    <Content Include="Translations\zh-tw.xml" />
+    <Content Include="Translations\zh.xml" />
     <EmbeddedResource Include="Icons\GenericTabHovered.png" />
     <EmbeddedResource Include="Icons\SubcategoriesPanel.png" />
     <EmbeddedResource Include="Icons\Collapse-Inverted.png" />
@@ -96,12 +103,6 @@
     <EmbeddedResource Include="Icons\SubcategoriesPanel50.png" />
     <EmbeddedResource Include="Icons\SubcategoriesPanel75.png" />
     <Content Include="Translations\en.xml" />
-    <Content Include="Translations\es.xml" />
-    <Content Include="Translations\fr.xml" />
-    <Content Include="Translations\ja.xml" />
-    <Content Include="Translations\ru.xml" />
-    <Content Include="Translations\zh-tw.xml" />
-    <Content Include="Translations\zh.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
