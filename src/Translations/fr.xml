@@ -1,30 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language UniqueName="fr" ReadableName="Français">
   <Translations>
-    <Translation ID="YAT_DESC" String="Un autre mod de barre d'outils" />
-    <Translation ID="TRN_CHOICE" String="Choix de langue (actif au prochain démarrage)" />
-    <Translation ID="TRN_SYS" String="Utiliser la langue du système" />
-    <Translation ID="YAT_SET_HMB" String="Cacher le bouton principal" />
-    <Translation ID="YAT_SET_HMBRST" String="Réinitialiser l'emplacement du bouton principal" />
-    <Translation ID="YAT_SET_DUN" String="Désactiver les futures notifications de mise à jour" />
-    <Translation ID="YAT_SET_CFP" String="Chemin du fichier de configuration" />
-    <Translation ID="YAT_SET_OFE" String="Ouvrir dans l'explorateur de fichiers" />
-    <Translation ID="YAT_SET_KEY" String="Basculer en mode étendu/réduit" />
-    <Translation ID="YAT_QM_TIT" String="Menu rapide" />
-    <Translation ID="YAT_QM_ROW" String="Nombre de lignes en mode étendu :" />
-    <Translation ID="YAT_QM_COL" String="Nombre de colonnes :" />
-    <Translation ID="YAT_QM_SCL" String="Taille du panneau d'interface :" />
-    <Translation ID="YAT_QM_HOR" String="Décalage horizontal :" />
-    <Translation ID="YAT_QM_VER" String="Décalage vertical :" />
-    <Translation ID="YAT_QM_BAC" String="fond de l'interface :" />
-    <Translation ID="YAT_QM_DRK" String="Sombre" />
-    <Translation ID="YAT_QM_LGH" String="Clair" />
-    <Translation ID="YAT_QM_TRS" String="Transparent" />
-    <Translation ID="YAT_UP_TIT" String="Mettre à jour" />
-    <Translation ID="YAT_UP_CNF" String="Confirmer" />
-    <Translation ID="YAT_SET_QMKEY" String="Ouvrir le menu rapide" />
-    <Translation ID="YAT_SET_HAB" String="Cacher le bouton d'aide" />
-    <Translation ID="YAT_SET_HFP" String="Cacher les filtres des panneaux" />
+    <Translation ID="YAT_DESC" String="Un autre mod de barre d'outils"/>
+    <Translation ID="TRN_CHOICE" String="Choix de langue (actif au prochain démarrage)"/>
+    <Translation ID="TRN_SYS" String="Utiliser la langue du système"/>
+    <Translation ID="YAT_SET_HMB" String="Cacher le bouton principal"/>
+    <Translation ID="YAT_SET_HAB" String="Cacher le bouton d'aide"/>
+    <Translation ID="YAT_SET_HFP" String="Cacher les filtres des panneaux"/>
+    <Translation ID="YAT_SET_HMBRST" String="Réinitialiser l'emplacement du bouton principal"/>
+    <Translation ID="YAT_SET_DUN" String="Désactiver les futures notifications de mise à jour"/>
+    <Translation ID="YAT_SET_CFP" String="Chemin du fichier de configuration"/>
+    <Translation ID="YAT_SET_OFE" String="Ouvrir dans l'explorateur de fichiers"/>
+    <Translation ID="YAT_SET_KEY" String="Basculer en mode étendu/réduit"/>
+    <Translation ID="YAT_SET_QMKEY" String="Ouvrir le menu rapide"/>
+    <Translation ID="YAT_QM_TIT" String="Menu rapide"/>
+    <Translation ID="YAT_QM_ROW" String="Nombre de lignes en mode étendu :"/>
+    <Translation ID="YAT_QM_COL" String="Nombre de colonnes :"/>
+    <Translation ID="YAT_QM_SCL" String="Taille du panneau d'interface :"/>
+    <Translation ID="YAT_QM_HOR" String="Décalage horizontal :"/>
+    <Translation ID="YAT_QM_VER" String="Décalage vertical :"/>
+    <Translation ID="YAT_QM_BAC" String="Fond de l'interface :"/>
+    <Translation ID="YAT_QM_DRK" String="Sombre"/>
+    <Translation ID="YAT_QM_LGH" String="Clair"/>
+    <Translation ID="YAT_QM_TRS" String="Transparent"/>
+    <Translation ID="YAT_UP_TIT" String="Mettre à jour"/>
+    <Translation ID="YAT_UP_CNF" String="Confirmer"/>
+    <Translation ID="YAT_SET_HMKEY" String="Hide toolbar panels"/>
+    <Translation ID="YAT_QM_THM" String="Thumbnail bar background:"/>
+    <Translation ID="YAT_QM_TSB" String="TS bar background:"/>
+    <Translation ID="YAT_QM_IPB" String="Info panel background:"/>
+    <Translation ID="YAT_QM_PB_OR" String="Original"/>
 
   </Translations>
 </Language>

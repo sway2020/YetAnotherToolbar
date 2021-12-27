@@ -1,30 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Language UniqueName="es" ReadableName="español">
   <Translations>
-    <Translation ID="YAT_DESC" String="Otro mod de toolbar" />
-    <Translation ID="TRN_CHOICE" String="Seleccionar idioma (tomará efecto la próxima vez que inice el juego)" />
-    <Translation ID="TRN_SYS" String="Utilizar el idioma del juego" />
-    <Translation ID="YAT_SET_HMB" String="Ocultar el botón principal" />
-    <Translation ID="YAT_SET_HMBRST" String="Reestablecer posición del botón principal" />
-    <Translation ID="YAT_SET_DUN" String="Desactivar el aviso de actualización" />
-    <Translation ID="YAT_SET_CFP" String="Ruta del archivo de configuración" />
-    <Translation ID="YAT_SET_OFE" String="Abrir Explorador de Archivos" />
-    <Translation ID="YAT_SET_KEY" String="Alternar el modo de expansión/colapso" />
-    <Translation ID="YAT_QM_TIT" String="Menú rápido" />
-    <Translation ID="YAT_QM_ROW" String="Número de filas cuando se expande:" />
-    <Translation ID="YAT_QM_COL" String="Número de columnas:" />
-    <Translation ID="YAT_QM_SCL" String="Escala del panel:" />
-    <Translation ID="YAT_QM_HOR" String="Desplazamiento de la posición horizontal:" />
-    <Translation ID="YAT_QM_VER" String="Desplazamiento de la posición vertical:" />
-    <Translation ID="YAT_QM_BAC" String="Fondo del panel:" />
-    <Translation ID="YAT_QM_DRK" String="Oscuro" />
-    <Translation ID="YAT_QM_LGH" String="Claro" />
-    <Translation ID="YAT_QM_TRS" String="Transparente" />
-    <Translation ID="YAT_UP_TIT" String="Actualización" />
-    <Translation ID="YAT_UP_CNF" String="Confirmar" />
-    <Translation ID="YAT_SET_QMKEY" String="Abrir el menú rápido" />
-    <Translation ID="YAT_SET_HAB" String="Ocultar botón del tutorial" />
-    <Translation ID="YAT_SET_HFP" String="Ocultar páneles de filtros" />
+    <Translation ID="YAT_DESC" String="Another toolbar mod"/>
+    <Translation ID="TRN_CHOICE" String="Seleccionar idioma (se ahrá efecto la próxima vez que inice el juego)"/>
+    <Translation ID="TRN_SYS" String="Utilizar el idioma del juego"/>
+    <Translation ID="YAT_SET_HMB" String="Ocultar el botón principal"/>
+    <Translation ID="YAT_SET_HAB" String="Ocultar botón de ayuda"/>
+    <Translation ID="YAT_SET_HFP" String="Ocultar panel de filtros"/>
+    <Translation ID="YAT_SET_HMBRST" String="Restablecer posición del botón principal"/>
+    <Translation ID="YAT_SET_DUN" String="Desactivar aviso de futuras actualizaciones"/>
+    <Translation ID="YAT_SET_CFP" String="Ruta del archivo de configuración"/>
+    <Translation ID="YAT_SET_OFE" String="Abrir en el explorador de archivos"/>
+    <Translation ID="YAT_SET_KEY" String="Cambiar modo expandir/contraer"/>
+    <Translation ID="YAT_SET_QMKEY" String="Abrir menú rápido"/>
+    <Translation ID="YAT_QM_TIT" String="Menú rápido"/>
+    <Translation ID="YAT_QM_ROW" String="Número de filas al expandirse:"/>
+    <Translation ID="YAT_QM_COL" String="Número de columnas:"/>
+    <Translation ID="YAT_QM_SCL" String="Escala de la interfaz de usuario:"/>
+    <Translation ID="YAT_QM_HOR" String="Compensar la posición horizontal:"/>
+    <Translation ID="YAT_QM_VER" String="Compensar la posición vertical:"/>
+    <Translation ID="YAT_QM_BAC" String="Fondo del panel:"/>
+    <Translation ID="YAT_QM_DRK" String="Oscuro"/>
+    <Translation ID="YAT_QM_LGH" String="Clara"/>
+    <Translation ID="YAT_QM_TRS" String="Transparente"/>
+    <Translation ID="YAT_UP_TIT" String="Actualización"/>
+    <Translation ID="YAT_UP_CNF" String="Confirmar"/>
+    <Translation ID="YAT_SET_HMKEY" String="Ocultar panel de la barra de herramientas"/>
+    <Translation ID="YAT_QM_THM" String="Fondo de la barra de miniaturas:"/>
+    <Translation ID="YAT_QM_TSB" String="Fondo de la barra TS:"/>
+    <Translation ID="YAT_QM_IPB" String="Fondo del panel de información:"/>
+    <Translation ID="YAT_QM_PB_OR" String="Original"/>
 
   </Translations>
 </Language>
