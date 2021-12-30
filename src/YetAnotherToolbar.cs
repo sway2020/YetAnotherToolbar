@@ -14,8 +14,8 @@ namespace YetAnotherToolbar
         public UIMainButton mainButton;
         private bool initialized = false;
         private UITabContainer tsContainer;
-        public static bool isFindItEnabled = IsAssemblyEnabled("findit");
-        public static bool isRICOEnabled = IsAssemblyEnabled("ploppablerico");
+        public static bool isFindItEnabled = false;
+        public static bool isRICOEnabled = false;
         public static bool isEditorMode = false;
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
@@ -44,6 +44,29 @@ namespace YetAnotherToolbar
                     infoPanel = UIView.Find<UIPanel>("InfoPanel");
                     pauseOutline = GameObject.Find("PauseOutline")?.GetComponent<UIComponent>();
                     if (pauseOutline != null) pauseOutlineOriginalSize = pauseOutline.size;
+
+                    isFindItEnabled = IsAssemblyEnabled("findit");
+                    if (isFindItEnabled)
+                    {
+                        Debugging.Message($"Found enabled mod: findit. Yet Another Toolbar layout patch will be applied");
+                    }
+
+                    isRICOEnabled = IsAssemblyEnabled("ploppablerico");
+                    if (isRICOEnabled)
+                    {
+                        Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar layout patch will be applied");
+
+                        try
+                        {
+                            bool result = DrawPloppablePanelPatch.Patch(Patcher.harmonyInstance);
+                            if (result) Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch applied");
+                            else Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch failed. TabClicked() not found");
+                        }
+                        catch (Exception ex)
+                        {
+                            Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch failed. {ex.Message}");
+                        }
+                    }
 
                     UIView view = UIView.GetAView();
                     Vector2 screenResolution = view.GetScreenResolution();
@@ -160,7 +183,7 @@ namespace YetAnotherToolbar
             return atlas;
         }
 
-        private static bool IsAssemblyEnabled(string assemblyName)
+        public static bool IsAssemblyEnabled(string assemblyName)
         {
             foreach (PluginManager.PluginInfo plugin in PluginManager.instance.GetPluginsInfo())
             {
@@ -168,7 +191,6 @@ namespace YetAnotherToolbar
                 {
                     if (assembly.GetName().Name.ToLower() == assemblyName)
                     {
-                        Debugging.Message($"Found enabled mod: {assemblyName}. Yet Another Toolbar patch will be applied");
                         return plugin.isEnabled;
                     }
                 }
@@ -194,17 +216,17 @@ namespace YetAnotherToolbar
 
         public void UpdateScale(float scaleFactor)
         {
-            tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
+            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
         }
 
         public void ResetScale()
         {
-            tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
+            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
         }
 
         public void RestoreScale()
         {
-            tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
+            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
         }
 
         public void ToggleMenuVisibility()

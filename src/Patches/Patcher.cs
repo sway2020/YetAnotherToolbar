@@ -1,10 +1,8 @@
 ﻿
 using HarmonyLib;
 using CitiesHarmony.API;
-using ColossalFramework;
-using ColossalFramework.UI;
-using UnityEngine;
-using System;
+using ColossalFramework.Plugins;
+using System.Reflection;
 
 namespace YetAnotherToolbar
 {
@@ -12,6 +10,7 @@ namespace YetAnotherToolbar
     {
         // Unique harmony identifier.
         private const string harmonyID = "com.github.sway2020.YetAnotherToolbar";
+        public static Harmony harmonyInstance;
 
         // Flag.
         internal static bool Patched => _patched;
@@ -31,7 +30,7 @@ namespace YetAnotherToolbar
                     Debugging.Message("deploying Harmony patches");
 
                     // Apply all annotated patches and update flag.
-                    Harmony harmonyInstance = new Harmony(harmonyID);
+                    harmonyInstance = new Harmony(harmonyID);
                     harmonyInstance.PatchAll();
                     _patched = true;
                 }
@@ -41,7 +40,6 @@ namespace YetAnotherToolbar
                 }
             }
         }
-
 
         public static void UnpatchAll()
         {
@@ -55,18 +53,6 @@ namespace YetAnotherToolbar
                 harmonyInstance.UnpatchAll(harmonyID);
                 _patched = false;
             }
-        }
-    }
-
-    [HarmonyPatch(typeof(CameraController))]
-    [HarmonyPatch("UpdateFreeCamera")]
-    [HarmonyPatch(new Type[] {})]
-    internal static class LateUpdatePatch
-    {
-        [HarmonyPriority(Priority.Low)]
-        private static void Postfix(Camera ___m_camera)
-        {
-            ___m_camera.rect = new Rect(0f, 0f, 1f, 1f);
         }
     }
 }
