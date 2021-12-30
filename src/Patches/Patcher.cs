@@ -1,8 +1,6 @@
 ﻿
 using HarmonyLib;
 using CitiesHarmony.API;
-using ColossalFramework.Plugins;
-using System.Reflection;
 
 namespace YetAnotherToolbar
 {

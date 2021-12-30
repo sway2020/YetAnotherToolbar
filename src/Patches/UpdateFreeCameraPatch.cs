@@ -17,6 +17,4 @@ namespace YetAnotherToolbar
             ___m_camera.rect = new Rect(0f, 0f, 1f, 1f);
         }
     }
-
-    // Patch RICO Revisited to fix scaling issue
 }

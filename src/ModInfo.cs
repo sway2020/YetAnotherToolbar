@@ -6,7 +6,6 @@ using ColossalFramework.IO;
 using UnityEngine;
 using CitiesHarmony.API;
 
-
 namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
