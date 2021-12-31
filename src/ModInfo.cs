@@ -4,30 +4,52 @@ using ColossalFramework.UI;
 using System.IO;
 using ColossalFramework.IO;
 using UnityEngine;
+using CitiesHarmony.API;
 
 namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.0.4";
-        public string Name => "Yet Another Toolbar " + version;
+        public const string version = "1.1.0-beta6";
+
+        public string Name
+        {
+            get { return "Yet Another Toolbar "+ version; }
+        }
         public string Description
         {
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20211210;
+        public const double updateNoticeDate = 20211229;
         public const string updateNotice =
 
-            "- New keyboard shortcut (Alt+Space) to quickly hide toolbar panels\n\n" +
+            "- Panel scaling now can work correctly on Ploppable RICO Revisited's panels\n\n\n" +
 
-            "  Unlike closing a panel, you can continue placing selected assets when the panels are hidden\n" +
-            "  This should be useful when the panels are expanded to 3+ rows\n" +
-            "  YAT\'s main button will be shown in inverted colors when this feature is active\n";
+            "  Other changes from v1.1.0 beta:\n\n" +
+
+            "- Add options to change the background of the bottom panels\n\n" +
+
+            "- This mod now requires Harmony 2\n";
 
         public void OnEnabled()
         {
+            // Apply Harmony patches via Cities Harmony.
+            // Called here instead of OnCreated to allow the auto-downloader to do its work prior to launch.
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
+            Debugging.Message("Harmony patches applied");
+            // Load settings here.
             XMLUtils.LoadSettings();
+            Debugging.Message("XML Settings loaded");
+        }
+
+        public void OnDisabled()
+        {
+            // Unapply Harmony patches via Cities Harmony.
+            if (HarmonyHelper.IsHarmonyInstalled)
+            {
+                Patcher.UnpatchAll();
+            }
         }
 
         public void OnSettingsUI(UIHelperBase helper)

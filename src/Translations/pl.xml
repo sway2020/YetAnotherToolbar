@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="pl" ReadableName="Polish">
+  <Translations>
+    <Translation ID="YAT_DESC" String="Kolejny mod na pasku narzędzi"/>
+    <Translation ID="TRN_CHOICE" String="Ustaw język (będzie skuteczny po restarcie)"/>
+    <Translation ID="TRN_SYS" String="Użyj języka systemowego"/>
+    <Translation ID="YAT_SET_HMB" String="Ukryj główny przycisk"/>
+    <Translation ID="YAT_SET_HAB" String="Ukryj przycisk doradcy"/>
+    <Translation ID="YAT_SET_HFP" String="Ukryj panele filtrów"/>
+    <Translation ID="YAT_SET_HMBRST" String="Resetuj pozycję głównego przycisku"/>
+    <Translation ID="YAT_SET_DUN" String="Wyłącz przyszłe powiadomienie o aktualizacji"/>
+    <Translation ID="YAT_SET_CFP" String="Ścieżka pliku konfiguracyjnego"/>
+    <Translation ID="YAT_SET_OFE" String="Otwórz w Eksploratorze plików"/>
+    <Translation ID="YAT_SET_KEY" String="Przełącz tryb rozwijania/zwijania"/>
+    <Translation ID="YAT_SET_QMKEY" String="Otwórz szybkie menu"/>
+    <Translation ID="YAT_QM_TIT" String="Szybkie menu"/>
+    <Translation ID="YAT_QM_ROW" String="Liczba wierszy po rozszerzeniu:"/>
+    <Translation ID="YAT_QM_COL" String="Liczba kolumn:"/>
+    <Translation ID="YAT_QM_SCL" String="Skala interfejsu użytkownika:"/>
+    <Translation ID="YAT_QM_HOR" String="Przesunięcie pozycji poziomej:"/>
+    <Translation ID="YAT_QM_VER" String="Przesunięcie pozycji pionowej:"/>
+    <Translation ID="YAT_QM_BAC" String="Tło panelu:"/>
+    <Translation ID="YAT_QM_DRK" String="Ciemny"/>
+    <Translation ID="YAT_QM_LGH" String="Jasny"/>
+    <Translation ID="YAT_QM_TRS" String="Przezroczysty"/>
+    <Translation ID="YAT_UP_TIT" String="Aktualizacja"/>
+    <Translation ID="YAT_UP_CNF" String="Potwierdź"/>
+    <Translation ID="YAT_SET_HMKEY" String="Ukryj panel paska narzędzi"/>
+    <Translation ID="YAT_QM_THM" String="Thumbnail bar background:"/>
+    <Translation ID="YAT_QM_TSB" String="TS bar background:"/>
+    <Translation ID="YAT_QM_IPB" String="Info panel background:"/>
+    <Translation ID="YAT_QM_PB_OR" String="Original"/>
+
+  </Translations>
+</Language>

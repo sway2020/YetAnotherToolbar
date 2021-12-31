@@ -14,14 +14,22 @@ namespace YetAnotherToolbar
         public UIMainButton mainButton;
         private bool initialized = false;
         private UITabContainer tsContainer;
-        public static bool isFindItEnabled = IsAssemblyEnabled("findit");
-        public static bool isRICOEnabled = IsAssemblyEnabled("ploppablerico");
+        public static bool isFindItEnabled = false;
+        public static bool isRICOEnabled = false;
         public static bool isEditorMode = false;
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
 
         private bool hideMenuFlag = false;
         private Vector2 lastMenuPosition;
+
+        private static UISlicedSprite thumbnailBar;
+        private static UISlicedSprite tsBar;
+        private static UIPanel infoPanel;
+
+        private static UIComponent pauseOutline;
+        private static Vector2 pauseOutlineOriginalSize;
+        private static Vector2 originalScreenSize;
 
         public void Start()
         {
@@ -31,8 +39,38 @@ namespace YetAnotherToolbar
                 {
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
 
+                    thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
+                    tsBar = UIView.Find<UISlicedSprite>("TSBar");
+                    infoPanel = UIView.Find<UIPanel>("InfoPanel");
+                    pauseOutline = GameObject.Find("PauseOutline")?.GetComponent<UIComponent>();
+                    if (pauseOutline != null) pauseOutlineOriginalSize = pauseOutline.size;
+
+                    isFindItEnabled = IsAssemblyEnabled("findit");
+                    if (isFindItEnabled)
+                    {
+                        Debugging.Message($"Found enabled mod: findit. Yet Another Toolbar layout patch will be applied");
+                    }
+
+                    isRICOEnabled = IsAssemblyEnabled("ploppablerico");
+                    if (isRICOEnabled)
+                    {
+                        Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar layout patch will be applied");
+
+                        try
+                        {
+                            bool result = DrawPloppablePanelPatch.Patch(Patcher.harmonyInstance);
+                            if (result) Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch applied");
+                            else Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch failed. TabClicked() not found");
+                        }
+                        catch (Exception ex)
+                        {
+                            Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch failed. {ex.Message}");
+                        }
+                    }
+
                     UIView view = UIView.GetAView();
                     Vector2 screenResolution = view.GetScreenResolution();
+                    originalScreenSize = screenResolution;
                     //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
 
                     // Set Advisor Button and filter panel visiblity
@@ -74,6 +112,7 @@ namespace YetAnotherToolbar
                         }
 
                     };
+
                 }
             }
             catch (Exception ex)
@@ -87,6 +126,7 @@ namespace YetAnotherToolbar
             if (!initialized)
             {
                 initialized = true;
+
                 if (!Settings.expanded)
                 {
                     Collapse();
@@ -95,7 +135,12 @@ namespace YetAnotherToolbar
                 {
                     Expand();
                 }
-                UpdateBackground();
+
+                UpdateMainPanelBackground();
+
+                UpdateThumbnailBarBackground();
+                UpdateTSBarBackground();
+                UpdateInfoPanelBackground();
 
                 // show update notice
                 if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
@@ -122,14 +167,14 @@ namespace YetAnotherToolbar
                     "Expand",
                     "Collapse-Inverted",
                     "Expand-Inverted",
-                    "SubcategoriesPanel75",
-                    "SubcategoriesPanel50",
-                    "SubcategoriesPanel25",
                     "SubcategoriesPanel",
                     "GenericTabHovered75",
                     "GenericTabHovered50",
                     "GenericTabHovered25",
-                    "GenericTabHovered"
+                    "GenericTabHovered",
+                    "SubcategoriesPanel75",
+                    "SubcategoriesPanel50",
+                    "SubcategoriesPanel25"
                 };
 
                 atlas = ResourceLoader.CreateTextureAtlas("YetAnotherToolbarAtlas", spriteNames, "YetAnotherToolbar.Icons.");
@@ -138,7 +183,7 @@ namespace YetAnotherToolbar
             return atlas;
         }
 
-        private static bool IsAssemblyEnabled(string assemblyName)
+        public static bool IsAssemblyEnabled(string assemblyName)
         {
             foreach (PluginManager.PluginInfo plugin in PluginManager.instance.GetPluginsInfo())
             {
@@ -146,7 +191,6 @@ namespace YetAnotherToolbar
                 {
                     if (assembly.GetName().Name.ToLower() == assemblyName)
                     {
-                        Debugging.Message($"Found enabled mod: {assemblyName}. Yet Another Toolbar patch will be applied");
                         return plugin.isEnabled;
                     }
                 }
@@ -172,17 +216,17 @@ namespace YetAnotherToolbar
 
         public void UpdateScale(float scaleFactor)
         {
-            tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
+            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
         }
 
         public void ResetScale()
         {
-            tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
+            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
         }
 
         public void RestoreScale()
         {
-            tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
+            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
         }
 
         public void ToggleMenuVisibility()
@@ -228,7 +272,6 @@ namespace YetAnotherToolbar
             }
 
         }
-
 
         private void UpdateLayout(int numOfRows, int numOfCols)
         {
@@ -433,7 +476,7 @@ namespace YetAnotherToolbar
             }
         }
 
-        public void UpdateBackground()
+        public void UpdateMainPanelBackground()
         {
             UITabContainer gtsContainer;
             foreach (UIComponent toolPanel in tsContainer.components)
@@ -490,6 +533,103 @@ namespace YetAnotherToolbar
                             }
                         }
                     }
+                }
+            }
+        }
+
+        public void UpdateThumbnailBarBackground()
+        {
+            if (thumbnailBar != null)
+            {
+
+                if (pauseOutline != null) pauseOutline.size = pauseOutlineOriginalSize;
+                thumbnailBar.atlas = YetAnotherToolbar.atlas;
+
+                switch (Settings.thumbnailBarBackgroundOption)
+                {
+                    case 0:
+                        thumbnailBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        thumbnailBar.spriteName = "Servicebar"; // original
+                        break;
+                    case 1:
+                        thumbnailBar.spriteName = "SubcategoriesPanel75"; // dark 75%
+                        break;
+                    case 2:
+                        thumbnailBar.spriteName = "SubcategoriesPanel50"; // dark 50%
+                        break;
+                    case 3:
+                        thumbnailBar.spriteName = "SubcategoriesPanel25"; // dark 25%
+                        break;
+                    case 4:
+                        thumbnailBar.spriteName = ""; // transparent
+                        if (pauseOutline != null) pauseOutline.size = originalScreenSize;
+                        break;
+                    default:
+                        thumbnailBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        thumbnailBar.spriteName = "Servicebar"; // original
+                        break;
+                }
+            }
+        }
+
+        public void UpdateTSBarBackground()
+        {
+            if (tsBar != null)
+            {
+                tsBar.atlas = YetAnotherToolbar.atlas;
+                switch (Settings.tsBarBackgroundOption)
+                {
+                    case 0:
+                        tsBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        tsBar.spriteName = "Toolbar"; // original
+                        break;
+                    case 1:
+                        tsBar.spriteName = "SubcategoriesPanel75"; // dark 75%
+                        break;
+                    case 2:
+                        tsBar.spriteName = "SubcategoriesPanel50"; // dark 50%
+                        break;
+                    case 3:
+                        tsBar.spriteName = "SubcategoriesPanel25"; // dark 25%
+                        break;
+                    case 4:
+                        tsBar.spriteName = ""; // transparent
+                        break;
+                    default:
+                        tsBar.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        tsBar.spriteName = "Toolbar"; // original
+                        break;
+                }
+            }
+        }
+
+        public void UpdateInfoPanelBackground()
+        {
+            if (infoPanel != null)
+            {
+                infoPanel.atlas = YetAnotherToolbar.atlas;
+                switch (Settings.infoPanelBackgroundOption)
+                {
+                    case 0:
+                        infoPanel.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        infoPanel.backgroundSprite = "GenericTabDisabled"; // original
+                        break;
+                    case 1:
+                        infoPanel.backgroundSprite = "SubcategoriesPanel75"; // dark 75%
+                        break;
+                    case 2:
+                        infoPanel.backgroundSprite = "SubcategoriesPanel50"; // dark 50%
+                        break;
+                    case 3:
+                        infoPanel.backgroundSprite = "SubcategoriesPanel25"; // dark 25%
+                        break;
+                    case 4:
+                        infoPanel.backgroundSprite = ""; // transparent
+                        break;
+                    default:
+                        infoPanel.atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
+                        infoPanel.backgroundSprite = "GenericTabDisabled"; // original
+                        break;
                 }
             }
         }

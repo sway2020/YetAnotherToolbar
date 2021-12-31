@@ -11,7 +11,6 @@ namespace YetAnotherToolbar
         public static UIUpdateNoticePopUp instance;
         private const float spacing = 5f;
         private UIButton closeButton;
-        private UIDragHandle dragHandle;
 
         public override void Start()
         {
@@ -24,8 +23,6 @@ namespace YetAnotherToolbar
             title.text = "Yet Another Toolbar " + ModInfo.version + " " + Translations.Translate("YAT_UP_TIT");
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 2, spacing * 2);
-
-            
 
             UIButton close = AddUIComponent<UIButton>();
             close.size = new Vector2(30f, 30f);
@@ -46,9 +43,6 @@ namespace YetAnotherToolbar
             message.textColor = new Color32(0, 0, 0, 255);
             message.relativePosition = new Vector3(spacing * 2, spacing + title.height + spacing);
 
-            dragHandle = AddUIComponent<UIDragHandle>();
-            dragHandle.relativePosition = new Vector3(0, 0);
-
             closeButton = SamsamTS.UIUtils.CreateButton(this);
             closeButton.size = new Vector2(100, 40);
             closeButton.text = Translations.Translate("YAT_UP_CNF");
@@ -61,7 +55,6 @@ namespace YetAnotherToolbar
             height = closeButton.relativePosition.y + closeButton.height + 10;
             width = message.width + 40;
             close.relativePosition = new Vector3(width - close.width, 0);
-            dragHandle.size = size;
             closeButton.Focus();
         }
 
@@ -100,6 +93,27 @@ namespace YetAnotherToolbar
                 instance.Show(true);
             }
             instance.relativePosition += new Vector3(-200, -200);
+        }
+
+        private Vector3 deltaPosition;
+        protected override void OnMouseDown(UIMouseEventParameter p)
+        {
+            if (p.buttons.IsFlagSet(UIMouseButton.Right))
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                mousePosition.y = m_OwnerView.fixedHeight - mousePosition.y;
+                deltaPosition = absolutePosition - mousePosition;
+                BringToFront();
+            }
+        }
+        protected override void OnMouseMove(UIMouseEventParameter p)
+        {
+            if (p.buttons.IsFlagSet(UIMouseButton.Right))
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                mousePosition.y = m_OwnerView.fixedHeight - mousePosition.y;
+                absolutePosition = mousePosition + deltaPosition;
+            }
         }
     }
 }

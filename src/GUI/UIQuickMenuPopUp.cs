@@ -31,19 +31,22 @@ namespace YetAnotherToolbar
         private UILabel backgroundLabel;
         private UIDropDown backgroundDropdown;
 
-        private UIDragHandle dragHandle;
+        private UILabel thumbnailBarBackgroundLabel;
+        private UIDropDown thumbnailBarbackgroundDropdown;
+
+        private UILabel tsBarBackgroundLabel;
+        private UIDropDown tsBarBackgroundDropdown;
+
+        private UILabel infoPanelBackgroundLabel;
+        private UIDropDown infoPanelBackgroundDropdown;
 
         public override void Start()
         {
             name = "YetAnotherToolbar_UIQuickMenuPopUp";
             atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
             backgroundSprite = "GenericPanelWhite";
-            size = new Vector2(460, 350);
+            size = new Vector2(460, 530);
             instance = this;
-
-            dragHandle = AddUIComponent<UIDragHandle>();
-            dragHandle.relativePosition = new Vector3(0, 0);
-            dragHandle.size = size;
 
             UILabel title = AddUIComponent<UILabel>();
             title.text = Translations.Translate("YAT_QM_TIT");
@@ -242,7 +245,85 @@ namespace YetAnotherToolbar
             {
                 Settings.backgroundOption = backgroundDropdown.selectedIndex;
                 XMLUtils.SaveSettings();
-                YetAnotherToolbar.instance.UpdateBackground();
+                YetAnotherToolbar.instance.UpdateMainPanelBackground();
+            };
+
+            thumbnailBarBackgroundLabel = AddUIComponent<UILabel>();
+            thumbnailBarBackgroundLabel.text = Translations.Translate("YAT_QM_THM");
+            thumbnailBarBackgroundLabel.textScale = 0.8f;
+            thumbnailBarBackgroundLabel.textColor = new Color32(0, 0, 0, 255);
+            thumbnailBarBackgroundLabel.relativePosition = new Vector3(title.relativePosition.x, backgroundLabel.relativePosition.y + backgroundLabel.height + 50);
+
+            thumbnailBarbackgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
+            thumbnailBarbackgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
+            thumbnailBarbackgroundDropdown.size = new Vector2(250, 30);
+            thumbnailBarbackgroundDropdown.listHeight = 270;
+            thumbnailBarbackgroundDropdown.itemHeight = 30;
+            thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_PB_OR"));
+            thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 75%");
+            thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 50%");
+            thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 25%");
+            thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
+
+            thumbnailBarbackgroundDropdown.selectedIndex = Settings.thumbnailBarBackgroundOption;
+            thumbnailBarbackgroundDropdown.relativePosition = new Vector3(title.relativePosition.x, thumbnailBarBackgroundLabel.relativePosition.y + thumbnailBarBackgroundLabel.height + 5);
+            thumbnailBarbackgroundDropdown.eventSelectedIndexChanged += (c, p) =>
+            {
+                Settings.thumbnailBarBackgroundOption = thumbnailBarbackgroundDropdown.selectedIndex;
+                XMLUtils.SaveSettings();
+                YetAnotherToolbar.instance.UpdateThumbnailBarBackground();
+            };
+
+            tsBarBackgroundLabel = AddUIComponent<UILabel>();
+            tsBarBackgroundLabel.text = Translations.Translate("YAT_QM_TSB");
+            tsBarBackgroundLabel.textScale = 0.8f;
+            tsBarBackgroundLabel.textColor = new Color32(0, 0, 0, 255);
+            tsBarBackgroundLabel.relativePosition = new Vector3(title.relativePosition.x, thumbnailBarBackgroundLabel.relativePosition.y + thumbnailBarBackgroundLabel.height + 50);
+
+            tsBarBackgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
+            tsBarBackgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
+            tsBarBackgroundDropdown.size = new Vector2(250, 30);
+            tsBarBackgroundDropdown.listHeight = 270;
+            tsBarBackgroundDropdown.itemHeight = 30;
+            tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_PB_OR"));
+            tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 75%");
+            tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 50%");
+            tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 25%");
+            tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
+
+            tsBarBackgroundDropdown.selectedIndex = Settings.tsBarBackgroundOption;
+            tsBarBackgroundDropdown.relativePosition = new Vector3(title.relativePosition.x, tsBarBackgroundLabel.relativePosition.y + tsBarBackgroundLabel.height + 5);
+            tsBarBackgroundDropdown.eventSelectedIndexChanged += (c, p) =>
+            {
+                Settings.tsBarBackgroundOption = tsBarBackgroundDropdown.selectedIndex;
+                XMLUtils.SaveSettings();
+                YetAnotherToolbar.instance.UpdateTSBarBackground();
+            };
+
+            infoPanelBackgroundLabel = AddUIComponent<UILabel>();
+            infoPanelBackgroundLabel.text = Translations.Translate("YAT_QM_IPB");
+            infoPanelBackgroundLabel.textScale = 0.8f;
+            infoPanelBackgroundLabel.textColor = new Color32(0, 0, 0, 255);
+            infoPanelBackgroundLabel.relativePosition = new Vector3(title.relativePosition.x, tsBarBackgroundLabel.relativePosition.y + tsBarBackgroundLabel.height + 50);
+
+            infoPanelBackgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
+            infoPanelBackgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
+            infoPanelBackgroundDropdown.size = new Vector2(250, 30);
+            infoPanelBackgroundDropdown.listHeight = 270;
+            infoPanelBackgroundDropdown.itemHeight = 30;
+            infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_PB_OR"));
+            infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 75%");
+            infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 50%");
+            infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 25%");
+            infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
+
+            infoPanelBackgroundDropdown.selectedIndex = Settings.infoPanelBackgroundOption;
+            infoPanelBackgroundDropdown.relativePosition = new Vector3(title.relativePosition.x, infoPanelBackgroundLabel.relativePosition.y + infoPanelBackgroundLabel.height + 5);
+            infoPanelBackgroundDropdown.eventSelectedIndexChanged += (c, p) =>
+            {
+                Settings.infoPanelBackgroundOption = infoPanelBackgroundDropdown.selectedIndex;
+                XMLUtils.SaveSettings();
+                YetAnotherToolbar.instance.UpdateInfoPanelBackground();
             };
         }
 
@@ -278,6 +359,27 @@ namespace YetAnotherToolbar
                 // UIView.PushModal(instance);
             }
             instance.Show(true);
+        }
+
+        private Vector3 deltaPosition;
+        protected override void OnMouseDown(UIMouseEventParameter p)
+        {
+            if (p.buttons.IsFlagSet(UIMouseButton.Right))
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                mousePosition.y = m_OwnerView.fixedHeight - mousePosition.y;
+                deltaPosition = absolutePosition - mousePosition;
+                BringToFront();
+            }
+        }
+        protected override void OnMouseMove(UIMouseEventParameter p)
+        {
+            if (p.buttons.IsFlagSet(UIMouseButton.Right))
+            {
+                Vector3 mousePosition = Input.mousePosition;
+                mousePosition.y = m_OwnerView.fixedHeight - mousePosition.y;
+                absolutePosition = mousePosition + deltaPosition;
+            }
         }
 
     }

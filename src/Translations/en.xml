@@ -26,6 +26,10 @@
     <Translation ID="YAT_UP_TIT" String="Update" />
     <Translation ID="YAT_UP_CNF" String="Confirm" />
     <Translation ID="YAT_SET_HMKEY" String="Hide toolbar panels" />
+    <Translation ID="YAT_QM_THM" String="Thumbnail bar background:" />
+    <Translation ID="YAT_QM_TSB" String="TS bar background:" />
+    <Translation ID="YAT_QM_IPB" String="Info panel background:" />
+    <Translation ID="YAT_QM_PB_OR" String="Original" />
 
   </Translations>
 </Language>
