@@ -3,7 +3,7 @@
   <Translations>
     <Translation ID="YAT_DESC" String="Ещё один мод панели инструментов"/>
     <Translation ID="TRN_CHOICE" String="Выбор языка (применится при следующей загрузке)"/>
-    <Translation ID="TRN_SYS" String="Использ. системный"/>
+    <Translation ID="TRN_SYS" String="Язык системы"/>
     <Translation ID="YAT_SET_HMB" String="Скрыть кнопку"/>
     <Translation ID="YAT_SET_HAB" String="Скрыть кнопку справки"/>
     <Translation ID="YAT_SET_HFP" String="Скрыть меню фильтров"/>

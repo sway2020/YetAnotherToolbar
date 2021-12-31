@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="ko" ReadableName="한국어">
+  <Translations>
+    <Translation ID="YAT_DESC" String="또다른 툴바 모드"/>
+    <Translation ID="TRN_CHOICE" String="언어 선택 (다음부터 적용됨)"/>
+    <Translation ID="TRN_SYS" String="시스템 언어 사용"/>
+    <Translation ID="YAT_SET_HMB" String="메인 버튼 숨기기"/>
+    <Translation ID="YAT_SET_HAB" String="조언 버튼 숨기기"/>
+    <Translation ID="YAT_SET_HFP" String="필터 패널 숨기기"/>
+    <Translation ID="YAT_SET_HMBRST" String="메인 버튼 위치 초기화"/>
+    <Translation ID="YAT_SET_DUN" String="미래 업데이트 알림 사용 안 함"/>
+    <Translation ID="YAT_SET_CFP" String="구성 파일 위치"/>
+    <Translation ID="YAT_SET_OFE" String="파일 탐색기에서 보기"/>
+    <Translation ID="YAT_SET_KEY" String="확장/축소 모드 전환"/>
+    <Translation ID="YAT_SET_QMKEY" String="퀵 메뉴 열기"/>
+    <Translation ID="YAT_QM_TIT" String="퀵 메뉴"/>
+    <Translation ID="YAT_QM_ROW" String="확장되었을 때 행의 개수:"/>
+    <Translation ID="YAT_QM_COL" String="열의 개수:"/>
+    <Translation ID="YAT_QM_SCL" String="패널 UI 스케일:"/>
+    <Translation ID="YAT_QM_HOR" String="수평 위치 오프셋:"/>
+    <Translation ID="YAT_QM_VER" String="수직 위치 오프셋:"/>
+    <Translation ID="YAT_QM_BAC" String="패널 배경:"/>
+    <Translation ID="YAT_QM_DRK" String="다크"/>
+    <Translation ID="YAT_QM_LGH" String="라이트"/>
+    <Translation ID="YAT_QM_TRS" String="투명"/>
+    <Translation ID="YAT_UP_TIT" String="업데이트"/>
+    <Translation ID="YAT_UP_CNF" String="확인"/>
+    <Translation ID="YAT_SET_HMKEY" String="툴바 패널 숨기기"/>
+    <Translation ID="YAT_QM_THM" String="섬네일 바 배경:"/>
+    <Translation ID="YAT_QM_TSB" String="TS 바 배경:"/>
+    <Translation ID="YAT_QM_IPB" String="정보 패널 배경:"/>
+    <Translation ID="YAT_QM_PB_OR" String="원래대로"/>
+
+  </Translations>
+</Language>
