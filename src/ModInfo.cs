@@ -10,7 +10,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.0-beta6";
+        public const string version = "1.1.0";
 
         public string Name
         {
@@ -21,12 +21,10 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20211229;
+        public const double updateNoticeDate = 20211231;
         public const string updateNotice =
 
-            "- Panel scaling now can work correctly on Ploppable RICO Revisited's panels\n\n\n" +
-
-            "  Other changes from v1.1.0 beta:\n\n" +
+            "- Panel scaling now can work correctly on Ploppable RICO Revisited's panels\n\n" +
 
             "- Add options to change the background of the bottom panels\n\n" +
 
