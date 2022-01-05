@@ -10,7 +10,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.0";
+        public const string version = "1.1.1-beta1";
 
         public string Name
         {
@@ -21,14 +21,12 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20211231;
+        public const double updateNoticeDate = 20220104;
         public const string updateNotice =
 
-            "- Panel scaling now can work correctly on Ploppable RICO Revisited's panels\n\n" +
+            "- Add optional UUI integration\n\n" +
 
-            "- Add options to change the background of the bottom panels\n\n" +
-
-            "- This mod now requires Harmony 2\n";
+            "You can turn this on in mod settings\n";
 
         public void OnEnabled()
         {
@@ -56,6 +54,25 @@ namespace YetAnotherToolbar
             {
                 UIHelper group = helper.AddGroup(Name) as UIHelper;
                 UIPanel panel = group.self as UIPanel;
+
+                // Integrate main button with UUI
+                UICheckBox integrateMainButtonUUI = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_UUI"), Settings.integrateMainButtonUUI, (b) =>
+                {
+                    Settings.integrateMainButtonUUI = b;
+                    XMLUtils.SaveSettings();
+                    if (YetAnotherToolbar.instance?.mainButton != null)
+                    {
+                        if (Settings.integrateMainButtonUUI)
+                        {
+                            UUIIntegration.AttachMainButton();
+                        }
+                        else
+                        {
+                            UUIIntegration.DetachMainButton();
+                        }
+                    }
+                });
+                group.AddSpace(10);
 
                 // Hide main button
                 UICheckBox hideMainButton = (UICheckBox)group.AddCheckbox(Translations.Translate("YAT_SET_HMB"), Settings.hideMainButton, (b) =>

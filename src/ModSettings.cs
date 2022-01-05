@@ -28,6 +28,7 @@ namespace YetAnotherToolbar
         internal static float mainButtonY = 947.0f;
         internal static bool hideAdvisorButton = false;
         internal static bool hideFilterPanels = false;
+        internal static bool integrateMainButtonUUI = false;
 
         internal static KeyBinding modeToggleKey = new KeyBinding { keyCode = (int)KeyCode.T, control = false, shift = false, alt = true };
         internal static KeyBinding quickMenuKey = new KeyBinding { keyCode = (int)KeyCode.Q, control = false, shift = false, alt = true };
@@ -60,6 +61,9 @@ namespace YetAnotherToolbar
 
         [XmlElement("hideMainButton")]
         public bool HideMainButton { get => Settings.hideMainButton; set => Settings.hideMainButton = value; }
+
+        [XmlElement("integrateMainButtonUUI")]
+        public bool IntegrateMainButtonUUI { get => Settings.integrateMainButtonUUI; set => Settings.integrateMainButtonUUI = value; }
 
         [XmlElement("hideAdvisorButton")]
         public bool HideAdvisorButton { get => Settings.hideAdvisorButton; set => Settings.hideAdvisorButton = value; }

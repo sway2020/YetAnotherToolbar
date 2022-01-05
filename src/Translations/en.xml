@@ -30,6 +30,7 @@
     <Translation ID="YAT_QM_TSB" String="TS bar background:" />
     <Translation ID="YAT_QM_IPB" String="Info panel background:" />
     <Translation ID="YAT_QM_PB_OR" String="Original" />
+    <Translation ID="YAT_SET_UUI" String="Integrate main button into UnifiedUI (UUI) mod" />
 
   </Translations>
 </Language>

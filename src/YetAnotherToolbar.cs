@@ -16,6 +16,7 @@ namespace YetAnotherToolbar
         private UITabContainer tsContainer;
         public static bool isFindItEnabled = false;
         public static bool isRICOEnabled = false;
+        public static bool isUUIEnabled = false;
         public static bool isEditorMode = false;
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
@@ -68,50 +69,23 @@ namespace YetAnotherToolbar
                         }
                     }
 
-                    UIView view = UIView.GetAView();
-                    Vector2 screenResolution = view.GetScreenResolution();
-                    originalScreenSize = screenResolution;
+                    originalScreenSize = UIView.GetAView().GetScreenResolution();
                     //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
 
                     // Set Advisor Button and filter panel visiblity
                     SetAdvisorButtonVisibility();
                     // SetFilterPanelsVisibility();
-                    mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
-                    mainButton.absolutePosition = new Vector3(Settings.mainButtonX * screenResolution.x / 1920f, Settings.mainButtonY * screenResolution.y / 1080f);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
-                    mainButton.name = "YetAnotherToolbarMainButton";
-                    mainButton.isInteractive = true;
-                    mainButton.size = new Vector2(34, 34);
-                    mainButton.isVisible = !Settings.hideMainButton;
-                    mainButton.atlas = YetAnotherToolbar.atlas;
 
-                    if (!Settings.expanded)
+                    // Create main button
+                    mainButton = CreatMainButton();
+
+                    // check UUI
+                    isUUIEnabled = IsAssemblyEnabled("unifieduimod");
+                    if (isUUIEnabled && Settings.integrateMainButtonUUI)
                     {
-                        mainButton.normalFgSprite = "Expand";
+                        UUIIntegration.AttachMainButton();
+                        Debugging.Message($"Found enabled mod: unifieduimod. Yet Another Toolbar main button UUI integration applied");
                     }
-                    else
-                    {
-                        mainButton.normalFgSprite = "Collapse";
-
-                    }
-                    mainButton.eventClicked += (c, p) =>
-                    {
-
-                        if (Settings.expanded)
-                        {
-                            Settings.expanded = false;
-                            XMLUtils.SaveSettings();
-                            Collapse();
-                            mainButton.normalFgSprite = "Expand";
-                        }
-                        else
-                        {
-                            Settings.expanded = true;
-                            XMLUtils.SaveSettings();
-                            Expand();
-                            mainButton.normalFgSprite = "Collapse";
-                        }
-
-                    };
 
                 }
             }
@@ -196,6 +170,51 @@ namespace YetAnotherToolbar
                 }
             }
             return false;
+        }
+
+        public UIMainButton CreatMainButton()
+        {
+            UIView view = UIView.GetAView();
+            Vector2 screenResolution = view.GetScreenResolution();
+
+            UIMainButton mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
+            mainButton.absolutePosition = new Vector3(Settings.mainButtonX * screenResolution.x / 1920f, Settings.mainButtonY * screenResolution.y / 1080f);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
+            mainButton.name = "YetAnotherToolbarMainButton";
+            mainButton.isInteractive = true;
+            mainButton.size = new Vector2(34, 34);
+            mainButton.isVisible = !Settings.hideMainButton;
+            mainButton.atlas = YetAnotherToolbar.atlas;
+
+            if (!Settings.expanded)
+            {
+                mainButton.normalFgSprite = "Expand";
+            }
+            else
+            {
+                mainButton.normalFgSprite = "Collapse";
+
+            }
+            mainButton.eventClicked += (c, p) =>
+            {
+
+                if (Settings.expanded)
+                {
+                    Settings.expanded = false;
+                    XMLUtils.SaveSettings();
+                    Collapse();
+                    mainButton.normalFgSprite = "Expand";
+                }
+                else
+                {
+                    Settings.expanded = true;
+                    XMLUtils.SaveSettings();
+                    Expand();
+                    mainButton.normalFgSprite = "Collapse";
+                }
+
+            };
+
+            return mainButton;
         }
 
         public void Expand()
