@@ -70,20 +70,23 @@ namespace YetAnotherToolbar
             {
                 if (index == 0)
                 {
-                    if (Settings.expanded)
-                    {
-                        Settings.expanded = false;
-                        XMLUtils.SaveSettings();
-                        YetAnotherToolbar.instance.Collapse();
-                        YetAnotherToolbar.instance.mainButton.normalFgSprite = "Expand";
-                    }
-                    else
-                    {
-                        Settings.expanded = true;
-                        XMLUtils.SaveSettings();
-                        YetAnotherToolbar.instance.Expand();
-                        YetAnotherToolbar.instance.mainButton.normalFgSprite = "Collapse";
-                    }
+                    YetAnotherToolbar.instance.mainButton.SimulateClick();
+
+                    //if (Settings.expanded)
+                    //{
+
+                    //    Settings.expanded = false;
+                    //    XMLUtils.SaveSettings();
+                    //    YetAnotherToolbar.instance.Collapse();
+                    //    YetAnotherToolbar.instance.mainButton.normalFgSprite = YetAnotherToolbar.instance.mainButton.expandSprite;
+                    //}
+                    //else
+                    //{
+                    //    Settings.expanded = true;
+                    //    XMLUtils.SaveSettings();
+                    //    YetAnotherToolbar.instance.Expand();
+                    //    YetAnotherToolbar.instance.mainButton.normalFgSprite = YetAnotherToolbar.instance.mainButton.collapseSprite;
+                    //}
                     
                 }
                 else if (index == 1)

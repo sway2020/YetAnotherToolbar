@@ -30,6 +30,7 @@
     <Translation ID="YAT_QM_TSB" String="TS 바 배경:"/>
     <Translation ID="YAT_QM_IPB" String="정보 패널 배경:"/>
     <Translation ID="YAT_QM_PB_OR" String="원래대로"/>
+    <Translation ID="YAT_SET_UUI" String="메인 버튼을 UnifedUI (UUI) 모드로 통합"/>
 
   </Translations>
 </Language>

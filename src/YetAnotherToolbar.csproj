@@ -98,6 +98,10 @@
     <EmbeddedResource Include="Icons\GenericTabHovered75.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Icons\Collapse-Inverted-UUI.png" />
+    <EmbeddedResource Include="Icons\Collapse-UUI.png" />
+    <EmbeddedResource Include="Icons\Expand-Inverted-UUI.png" />
+    <EmbeddedResource Include="Icons\Expand-UUI.png" />
     <Content Include="Translations\es.xml" />
     <Content Include="Translations\fr.xml" />
     <Content Include="Translations\ja.xml" />

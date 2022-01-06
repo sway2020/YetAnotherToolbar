@@ -21,7 +21,7 @@ namespace YetAnotherToolbar
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
 
-        private bool hideMenuFlag = false;
+        public bool hideMenuFlag = false;
         private Vector2 lastMenuPosition;
 
         private static UISlicedSprite thumbnailBar;
@@ -148,7 +148,11 @@ namespace YetAnotherToolbar
                     "GenericTabHovered",
                     "SubcategoriesPanel75",
                     "SubcategoriesPanel50",
-                    "SubcategoriesPanel25"
+                    "SubcategoriesPanel25",
+                    "Collapse-UUI",
+                    "Expand-UUI",
+                    "Collapse-Inverted-UUI",
+                    "Expand-Inverted-UUI"
                 };
 
                 atlas = ResourceLoader.CreateTextureAtlas("YetAnotherToolbarAtlas", spriteNames, "YetAnotherToolbar.Icons.");
@@ -187,29 +191,28 @@ namespace YetAnotherToolbar
 
             if (!Settings.expanded)
             {
-                mainButton.normalFgSprite = "Expand";
+                mainButton.normalFgSprite = mainButton.expandSprite;
             }
             else
             {
-                mainButton.normalFgSprite = "Collapse";
+                mainButton.normalFgSprite = mainButton.collapseSprite;
 
             }
             mainButton.eventClicked += (c, p) =>
             {
-
                 if (Settings.expanded)
                 {
                     Settings.expanded = false;
                     XMLUtils.SaveSettings();
                     Collapse();
-                    mainButton.normalFgSprite = "Expand";
+                    mainButton.normalFgSprite = mainButton.expandSprite;
                 }
                 else
                 {
                     Settings.expanded = true;
                     XMLUtils.SaveSettings();
                     Expand();
-                    mainButton.normalFgSprite = "Collapse";
+                    mainButton.normalFgSprite = mainButton.collapseSprite;
                 }
 
             };
@@ -256,15 +259,15 @@ namespace YetAnotherToolbar
                 lastMenuPosition = tsContainer.relativePosition;
                 tsContainer.relativePosition = new Vector2(-50000, -50000);
 
-                if (Settings.expanded) mainButton.normalFgSprite = "Collapse-Inverted";
-                else mainButton.normalFgSprite = "Expand-Inverted";
+                if (Settings.expanded) mainButton.normalFgSprite = mainButton.collapseInvertedSprite;
+                else mainButton.normalFgSprite = mainButton.expandInvertedSprite;
             }
             else
             {
                 this.hideMenuFlag = false;
                 tsContainer.relativePosition = this.lastMenuPosition;
-                if (Settings.expanded) mainButton.normalFgSprite = "Collapse";
-                else mainButton.normalFgSprite = "Expand";
+                if (Settings.expanded) mainButton.normalFgSprite = mainButton.collapseSprite;
+                else mainButton.normalFgSprite = mainButton.expandSprite;
             }
         }
 

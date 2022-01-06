@@ -7,6 +7,8 @@ namespace YetAnotherToolbar
         public static void AttachMainButton()
         {
             UUIHelpers.AttachAlien(YetAnotherToolbar.instance.mainButton, null);
+            YetAnotherToolbar.instance.mainButton.UseUUISprites();
+            YetAnotherToolbar.instance.mainButton.uuiMode = true;
         }
 
         public static void DetachMainButton()
