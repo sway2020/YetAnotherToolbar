@@ -184,6 +184,7 @@ namespace YetAnotherToolbar
             UIMainButton mainButton = (UIMainButton)view.AddUIComponent(typeof(UIMainButton));
             mainButton.absolutePosition = new Vector3(Settings.mainButtonX * screenResolution.x / 1920f, Settings.mainButtonY * screenResolution.y / 1080f);// advisorButton.absolutePosition + new Vector3(advisorButton.width, 0);
             mainButton.name = "YetAnotherToolbarMainButton";
+            mainButton.tooltip = "Yet Another Toolbar";
             mainButton.isInteractive = true;
             mainButton.size = new Vector2(34, 34);
             mainButton.isVisible = !Settings.hideMainButton;
