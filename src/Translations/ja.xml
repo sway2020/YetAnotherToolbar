@@ -30,6 +30,7 @@
     <Translation ID="YAT_QM_TSB" String="TSバーの背景:"/>
     <Translation ID="YAT_QM_IPB" String="情報パネルの背景:"/>
     <Translation ID="YAT_QM_PB_OR" String="オリジナル"/>
+    <Translation ID="YAT_SET_UUI" String="メインボタンをUnifiedUI(UUI) MODに統合"/>
 
   </Translations>
 </Language>

@@ -30,6 +30,7 @@
     <Translation ID="YAT_QM_TSB" String="TS Bar 背景:"/>
     <Translation ID="YAT_QM_IPB" String="資訊面板背景:"/>
     <Translation ID="YAT_QM_PB_OR" String="原始"/>
+    <Translation ID="YAT_SET_UUI" String="將主按鈕整合到 UnifiedUI (UUI) 模組面板"/>
 
   </Translations>
 </Language>

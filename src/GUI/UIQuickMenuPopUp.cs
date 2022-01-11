@@ -354,7 +354,7 @@ namespace YetAnotherToolbar
             if (instance == null)
             {
                 instance = UIView.GetAView().AddUIComponent(typeof(UIQuickMenuPopUp)) as UIQuickMenuPopUp;
-                instance.relativePosition += new Vector3(-200, -400);
+                instance.relativePosition += new Vector3(-200, -450);
 
                 // UIView.PushModal(instance);
             }
