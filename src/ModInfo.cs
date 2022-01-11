@@ -10,7 +10,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.1-beta2";
+        public const string version = "1.1.1";
 
         public string Name
         {
@@ -21,7 +21,7 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20220104;
+        public const double updateNoticeDate = 20220110;
         public const string updateNotice =
 
             "- Add optional UUI integration\n\n" +
