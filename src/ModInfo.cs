@@ -10,7 +10,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.1";
+        public const string version = "1.1.2-beta1";
 
         public string Name
         {
@@ -21,12 +21,13 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20220110;
+        public const double updateNoticeDate = 20220115;
         public const string updateNotice =
 
-            "- Add optional UUI integration\n\n" +
+            "- Fix bugs in Theme Editor mode\n\n" +
 
-            "You can turn this on in mod settings\n";
+            "- Fix bugs in Asset Editor mode. Some features are no longer\n" +
+            "  available in Asset Editor mode\n\n";
 
         public void OnEnabled()
         {

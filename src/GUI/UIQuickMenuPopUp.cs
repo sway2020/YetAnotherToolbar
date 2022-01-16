@@ -40,6 +40,8 @@ namespace YetAnotherToolbar
         private UILabel infoPanelBackgroundLabel;
         private UIDropDown infoPanelBackgroundDropdown;
 
+        private UILabel assetEditorWarning;
+
         public override void Start()
         {
             name = "YetAnotherToolbar_UIQuickMenuPopUp";
@@ -52,6 +54,13 @@ namespace YetAnotherToolbar
             title.text = Translations.Translate("YAT_QM_TIT");
             title.textColor = new Color32(0, 0, 0, 255);
             title.relativePosition = new Vector3(spacing * 3, spacing * 3);
+
+            assetEditorWarning = AddUIComponent<UILabel>();
+            assetEditorWarning.text = Translations.Translate("YAT_QM_ASSET");
+            assetEditorWarning.textColor = new Color32(255, 0, 0, 255);
+            assetEditorWarning.textScale = 0.9f;
+            assetEditorWarning.relativePosition = new Vector3(spacing * 3, title.relativePosition.y + 20);
+            assetEditorWarning.isVisible = false;
 
             UIButton close = AddUIComponent<UIButton>();
             close.size = new Vector2(30f, 30f);
@@ -325,6 +334,21 @@ namespace YetAnotherToolbar
                 XMLUtils.SaveSettings();
                 YetAnotherToolbar.instance.UpdateInfoPanelBackground();
             };
+
+            AssetEditorModeCheck();
+        }
+
+        private void AssetEditorModeCheck()
+        {
+            if (!YetAnotherToolbar.isAssetEditorMode) return;
+            assetEditorWarning.isVisible = true;
+            numOfColSlider.Disable();
+            numOfColValueTextField.Disable();
+            scaleSlider.Disable();
+            horizontalOffsetSlider.Disable();
+            horizontalOffsetValueTextField.Disable();
+            verticalOffsetSlider.Disable();
+            verticalOffsetValueTextField.Disable();
         }
 
         private static void Close()

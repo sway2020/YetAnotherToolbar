@@ -7,7 +7,11 @@ namespace YetAnotherToolbar
     {
         public override void OnLevelLoaded(LoadMode mode)
         {
-            if (mode == LoadMode.LoadMap || mode == LoadMode.NewMap || mode == LoadMode.NewAsset || mode == LoadMode.LoadAsset) YetAnotherToolbar.isEditorMode = true;
+            if (mode == LoadMode.NewMap || mode == LoadMode.LoadMap ||
+                mode == LoadMode.NewAsset || mode == LoadMode.LoadAsset ||
+                mode == LoadMode.NewTheme || mode == LoadMode.LoadTheme) YetAnotherToolbar.isEditorMode = true;
+
+            if (mode == LoadMode.NewAsset || mode == LoadMode.LoadAsset) YetAnotherToolbar.isAssetEditorMode = true;
 
             if (YetAnotherToolbar.instance == null)
             {
