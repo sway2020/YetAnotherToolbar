@@ -235,7 +235,7 @@ namespace YetAnotherToolbar
 
             backgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
             backgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
-            backgroundDropdown.size = new Vector2(225, 25);
+            backgroundDropdown.size = new Vector2(205, 25);
             backgroundDropdown.listHeight = 270;
             backgroundDropdown.itemHeight = 30;
             backgroundDropdown.AddItem(Translations.Translate("YAT_QM_DRK") + " - 100%");
@@ -249,7 +249,7 @@ namespace YetAnotherToolbar
             backgroundDropdown.AddItem(Translations.Translate("YAT_QM_LGH") + " - 25%");
 
             backgroundDropdown.selectedIndex = Settings.backgroundOption;
-            backgroundDropdown.relativePosition = new Vector3(backgroundLabel.relativePosition.x + 210, backgroundLabel.relativePosition.y - 7f);
+            backgroundDropdown.relativePosition = new Vector3(backgroundLabel.relativePosition.x + 230, backgroundLabel.relativePosition.y - 7f);
             backgroundDropdown.eventSelectedIndexChanged += (c, p) =>
             {
                 Settings.backgroundOption = backgroundDropdown.selectedIndex;
@@ -265,7 +265,7 @@ namespace YetAnotherToolbar
 
             thumbnailBarbackgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
             thumbnailBarbackgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
-            thumbnailBarbackgroundDropdown.size = new Vector2(225, 25);
+            thumbnailBarbackgroundDropdown.size = new Vector2(205, 25);
             thumbnailBarbackgroundDropdown.listHeight = 270;
             thumbnailBarbackgroundDropdown.itemHeight = 30;
             thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_PB_OR"));
@@ -275,7 +275,7 @@ namespace YetAnotherToolbar
             thumbnailBarbackgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
 
             thumbnailBarbackgroundDropdown.selectedIndex = Settings.thumbnailBarBackgroundOption;
-            thumbnailBarbackgroundDropdown.relativePosition = new Vector3(thumbnailBarBackgroundLabel.relativePosition.x + 210, thumbnailBarBackgroundLabel.relativePosition.y - 7f);
+            thumbnailBarbackgroundDropdown.relativePosition = new Vector3(thumbnailBarBackgroundLabel.relativePosition.x + 230, thumbnailBarBackgroundLabel.relativePosition.y - 7f);
             thumbnailBarbackgroundDropdown.eventSelectedIndexChanged += (c, p) =>
             {
                 Settings.thumbnailBarBackgroundOption = thumbnailBarbackgroundDropdown.selectedIndex;
@@ -291,7 +291,7 @@ namespace YetAnotherToolbar
 
             tsBarBackgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
             tsBarBackgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
-            tsBarBackgroundDropdown.size = new Vector2(225, 25);
+            tsBarBackgroundDropdown.size = new Vector2(205, 25);
             tsBarBackgroundDropdown.listHeight = 270;
             tsBarBackgroundDropdown.itemHeight = 30;
             tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_PB_OR"));
@@ -301,7 +301,7 @@ namespace YetAnotherToolbar
             tsBarBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
 
             tsBarBackgroundDropdown.selectedIndex = Settings.tsBarBackgroundOption;
-            tsBarBackgroundDropdown.relativePosition = new Vector3(tsBarBackgroundLabel.relativePosition.x + 210, tsBarBackgroundLabel.relativePosition.y - 7f);
+            tsBarBackgroundDropdown.relativePosition = new Vector3(tsBarBackgroundLabel.relativePosition.x + 230, tsBarBackgroundLabel.relativePosition.y - 7f);
             tsBarBackgroundDropdown.eventSelectedIndexChanged += (c, p) =>
             {
                 Settings.tsBarBackgroundOption = tsBarBackgroundDropdown.selectedIndex;
@@ -317,7 +317,7 @@ namespace YetAnotherToolbar
 
             infoPanelBackgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
             infoPanelBackgroundDropdown.normalBgSprite = "TextFieldPanelHovered";
-            infoPanelBackgroundDropdown.size = new Vector2(225, 25);
+            infoPanelBackgroundDropdown.size = new Vector2(205, 25);
             infoPanelBackgroundDropdown.listHeight = 270;
             infoPanelBackgroundDropdown.itemHeight = 30;
             infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_PB_OR"));
@@ -327,7 +327,7 @@ namespace YetAnotherToolbar
             infoPanelBackgroundDropdown.AddItem(Translations.Translate("YAT_QM_TRS"));
 
             infoPanelBackgroundDropdown.selectedIndex = Settings.infoPanelBackgroundOption;
-            infoPanelBackgroundDropdown.relativePosition = new Vector3(infoPanelBackgroundLabel.relativePosition.x + 210, infoPanelBackgroundLabel.relativePosition.y - 7f);
+            infoPanelBackgroundDropdown.relativePosition = new Vector3(infoPanelBackgroundLabel.relativePosition.x + 230, infoPanelBackgroundLabel.relativePosition.y - 7f);
             infoPanelBackgroundDropdown.eventSelectedIndexChanged += (c, p) =>
             {
                 Settings.infoPanelBackgroundOption = infoPanelBackgroundDropdown.selectedIndex;
