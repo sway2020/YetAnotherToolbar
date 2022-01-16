@@ -30,7 +30,8 @@
     <Translation ID="YAT_QM_TSB" String="Fondo de la barra TS:"/>
     <Translation ID="YAT_QM_IPB" String="Fondo del panel de información:"/>
     <Translation ID="YAT_QM_PB_OR" String="Original"/>
-    <Translation ID="YAT_SET_UUI" String="Integrate main button into UnifiedUI (UUI) mod"/>
+    <Translation ID="YAT_SET_UUI" String="Integrar botón principal en el mod &quot;UnifiedUI (UUI)&quot;"/>
+    <Translation ID="YAT_QM_ASSET" String="Algunas características no están disponibles en el editor de assets"/>
 
   </Translations>
 </Language>

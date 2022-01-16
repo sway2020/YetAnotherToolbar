@@ -30,7 +30,8 @@
     <Translation ID="YAT_QM_TSB" String="TS bar background:"/>
     <Translation ID="YAT_QM_IPB" String="Info panel background:"/>
     <Translation ID="YAT_QM_PB_OR" String="Original"/>
-    <Translation ID="YAT_SET_UUI" String="Integrate main button into UnifiedUI (UUI) mod"/>
+    <Translation ID="YAT_SET_UUI" String="Zintegruj przycisk główny z modem UnifiedUI (UUI)"/>
+    <Translation ID="YAT_QM_ASSET" String="Some features are not available in Asset Editor mode"/>
 
   </Translations>
 </Language>
