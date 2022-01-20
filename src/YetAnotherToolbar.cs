@@ -98,38 +98,30 @@ namespace YetAnotherToolbar
 
         public void Update()
         {
-            if (!initialized)
+            if (initialized) return;
+            if (isAssetEditorMode && tsContainer.components.Count == 0) return;
+
+            initialized = true;
+
+            if (!Settings.expanded) Collapse();
+            else Expand();
+
+            UpdateMainPanelBackground();
+
+            UpdateThumbnailBarBackground();
+            UpdateTSBarBackground();
+            UpdateInfoPanelBackground();
+
+            // show update notice
+            if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
             {
-                if (isAssetEditorMode && tsContainer.components.Count == 0) return;
-
-                initialized = true;
-
-                if (!Settings.expanded)
-                {
-                    Collapse();
-                }
-                else
-                {
-                    Expand();
-                }
-
-                UpdateMainPanelBackground();
-
-                UpdateThumbnailBarBackground();
-                UpdateTSBarBackground();
-                UpdateInfoPanelBackground();
-
+                YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
                 // show update notice
-                if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
+                if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
                 {
-                    YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
-                    // show update notice
-                    if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
-                    {
-                        UIUpdateNoticePopUp.ShowAt();
-                        Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
-                        XMLUtils.SaveSettings();
-                    }
+                    UIUpdateNoticePopUp.ShowAt();
+                    Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                    XMLUtils.SaveSettings();
                 }
             }
         }
