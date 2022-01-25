@@ -10,7 +10,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.2-beta3";
+        public const string version = "1.1.2";
 
         public string Name
         {
@@ -21,13 +21,17 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20220115;
+        public const double updateNoticeDate = 20220125;
         public const string updateNotice =
 
             "- Fix bugs in Theme Editor mode\n\n" +
 
             "- Fix bugs in Asset Editor mode. Some features are no longer\n" +
-            "  available in Asset Editor mode\n\n";
+            "  available in Asset Editor mode\n\n" +
+
+            "- UI tweaks\n\n" +
+
+            "- Update translations";
 
         public void OnEnabled()
         {
