@@ -31,6 +31,7 @@
     <Translation ID="YAT_QM_IPB" String="Фон инфопанели:"/>
     <Translation ID="YAT_QM_PB_OR" String="По умолчанию"/>
     <Translation ID="YAT_SET_UUI" String="Интегрировать основную кнопку в мод Unified UI (UUI)"/>
+    <Translation ID="YAT_QM_ASSET" String="Некоторые функции не доступны в Редакторе объектов"/>
 
   </Translations>
 </Language>

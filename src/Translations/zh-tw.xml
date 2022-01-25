@@ -31,6 +31,7 @@
     <Translation ID="YAT_QM_IPB" String="資訊面板背景:"/>
     <Translation ID="YAT_QM_PB_OR" String="原始"/>
     <Translation ID="YAT_SET_UUI" String="將主按鈕整合到 UnifiedUI (UUI) 模組面板"/>
+    <Translation ID="YAT_QM_ASSET" String="某些功能在資產編輯器模式下不可用"/>
 
   </Translations>
 </Language>

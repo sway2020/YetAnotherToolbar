@@ -31,6 +31,7 @@
     <Translation ID="YAT_QM_IPB" String="情報パネルの背景:"/>
     <Translation ID="YAT_QM_PB_OR" String="オリジナル"/>
     <Translation ID="YAT_SET_UUI" String="メインボタンをUnifiedUI(UUI) MODに統合"/>
+    <Translation ID="YAT_QM_ASSET" String="一部の機能はアセットエディタで使用できません"/>
 
   </Translations>
 </Language>

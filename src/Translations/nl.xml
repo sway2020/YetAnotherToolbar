@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="nl" ReadableName="Nederlands">
+  <Translations>
+    <Translation ID="YAT_DESC" String="Nog een werkbalk mod"/>
+    <Translation ID="TRN_CHOICE" String="Stel taal in (geactiveerd vanaf de volgende keer)"/>
+    <Translation ID="TRN_SYS" String="Systeemtaal gebruiken"/>
+    <Translation ID="YAT_SET_HMB" String="Verberg hoofdknop"/>
+    <Translation ID="YAT_SET_HAB" String="Verberg adviseurknop"/>
+    <Translation ID="YAT_SET_HFP" String="Verberg filterpanelen"/>
+    <Translation ID="YAT_SET_HMBRST" String="Reset positie van de hoofdknop"/>
+    <Translation ID="YAT_SET_DUN" String="Schakel toekomstige update meldingen uit"/>
+    <Translation ID="YAT_SET_CFP" String="Locatie configuratiebestand"/>
+    <Translation ID="YAT_SET_OFE" String="Toon in Verkenner"/>
+    <Translation ID="YAT_SET_KEY" String="Schakel tussen modus voor uitvouwen/samenvouwen"/>
+    <Translation ID="YAT_SET_QMKEY" String="Open snelmenu"/>
+    <Translation ID="YAT_QM_TIT" String="Snelmenu"/>
+    <Translation ID="YAT_QM_ROW" String="Aantal rijen wanneer uitgevouwen:"/>
+    <Translation ID="YAT_QM_COL" String="Aantal kolommen:"/>
+    <Translation ID="YAT_QM_SCL" String="Paneel bedienings-schaal:"/>
+    <Translation ID="YAT_QM_HOR" String="Verschuiving horizontale positie:"/>
+    <Translation ID="YAT_QM_VER" String="Verschuiving verticale positie:"/>
+    <Translation ID="YAT_QM_BAC" String="Achtergrond paneel:"/>
+    <Translation ID="YAT_QM_DRK" String="Donker"/>
+    <Translation ID="YAT_QM_LGH" String="Licht"/>
+    <Translation ID="YAT_QM_TRS" String="Transparant"/>
+    <Translation ID="YAT_UP_TIT" String="Bijwerken"/>
+    <Translation ID="YAT_UP_CNF" String="Bevestigen"/>
+    <Translation ID="YAT_SET_HMKEY" String="Werkbalkpanelen verbergen"/>
+    <Translation ID="YAT_QM_THM" String="Achtergrond miniatuurbalk:"/>
+    <Translation ID="YAT_QM_TSB" String="Achtergrond TS balk:"/>
+    <Translation ID="YAT_QM_IPB" String="Achtergrond informatiepaneel:"/>
+    <Translation ID="YAT_QM_PB_OR" String="Oorspronkelijk"/>
+    <Translation ID="YAT_SET_UUI" String="Integreer hoofdknop in UnifiedUI (UUI) mod"/>
+    <Translation ID="YAT_QM_ASSET" String="Sommige functies zijn niet beschikbaar in de Asset Editor"/>
+
+  </Translations>
+</Language>

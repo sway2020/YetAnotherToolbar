@@ -18,6 +18,7 @@ namespace YetAnotherToolbar
         public static bool isRICOEnabled = false;
         public static bool isUUIEnabled = false;
         public static bool isEditorMode = false;
+        public static bool isAssetEditorMode = false;
         private Dictionary<UIPanel, UIScrollbar> dictVerticalScrollbars = new Dictionary<UIPanel, UIScrollbar>();
         public bool shownUpdateNoticeFlag = false;
 
@@ -97,36 +98,30 @@ namespace YetAnotherToolbar
 
         public void Update()
         {
-            if (!initialized)
+            if (initialized) return;
+            if (isAssetEditorMode && tsContainer.components.Count == 0) return;
+
+            initialized = true;
+
+            if (!Settings.expanded) Collapse();
+            else Expand();
+
+            UpdateMainPanelBackground();
+
+            UpdateThumbnailBarBackground();
+            UpdateTSBarBackground();
+            UpdateInfoPanelBackground();
+
+            // show update notice
+            if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
             {
-                initialized = true;
-
-                if (!Settings.expanded)
-                {
-                    Collapse();
-                }
-                else
-                {
-                    Expand();
-                }
-
-                UpdateMainPanelBackground();
-
-                UpdateThumbnailBarBackground();
-                UpdateTSBarBackground();
-                UpdateInfoPanelBackground();
-
+                YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
                 // show update notice
-                if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
+                if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
                 {
-                    YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
-                    // show update notice
-                    if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
-                    {
-                        UIUpdateNoticePopUp.ShowAt();
-                        Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
-                        XMLUtils.SaveSettings();
-                    }
+                    UIUpdateNoticePopUp.ShowAt();
+                    Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                    XMLUtils.SaveSettings();
                 }
             }
         }
@@ -239,7 +234,10 @@ namespace YetAnotherToolbar
 
         public void UpdateScale(float scaleFactor)
         {
-            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
+            if (tsContainer == null) return;
+            // scaling should not be available in asset editor mode
+            if (isAssetEditorMode) tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
+            else tsContainer.transform.localScale = new Vector2(scaleFactor, scaleFactor);
         }
 
         public void ResetScale()
@@ -249,7 +247,10 @@ namespace YetAnotherToolbar
 
         public void RestoreScale()
         {
-            if (tsContainer != null) tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
+            // scaling should not be available in asset editor mode
+            if (tsContainer == null) return;
+            if (isAssetEditorMode) tsContainer.transform.localScale = new Vector2(1.0f, 1.0f);
+            else tsContainer.transform.localScale = new Vector2(Settings.toolbarScale, Settings.toolbarScale);
         }
 
         public void ToggleMenuVisibility()
@@ -281,26 +282,33 @@ namespace YetAnotherToolbar
         public void UpdatePanelPosition()
         {
             CheckMenuVisibility();
+
+            float scale = isAssetEditorMode ? 1.0f : Settings.toolbarScale;
+            float horizontalOffset = isAssetEditorMode ? 0 : Settings.horizontalOffset;
+            float verticalOffset = isAssetEditorMode ? 0 : Settings.verticalOffset;
+
             UIView view = UIView.GetAView();
-            float x = (596f * view.GetScreenResolution().x / 1920f) + Settings.horizontalOffset;
-            float y = -110f + Settings.verticalOffset;
+            float x = (596f * view.GetScreenResolution().x / 1920f) + horizontalOffset;
+            float y = -110f + verticalOffset;
 
             if (Settings.expanded)
             {
-                tsContainer.relativePosition = new Vector2(x, y - (104f * (Settings.numOfRows - 1)) + (104f * (Settings.numOfRows) * (1 - Settings.toolbarScale)));
+                tsContainer.relativePosition = new Vector2(x, y - (104f * (Settings.numOfRows - 1)) + (104f * (Settings.numOfRows) * (1 - scale)));
             }
             else
             {
-                tsContainer.relativePosition = new Vector2(x, y + (104f * (1 - Settings.toolbarScale)));
+                tsContainer.relativePosition = new Vector2(x, y + (104f * (1 - scale)));
             }
 
         }
 
-        private void UpdateLayout(int numOfRows, int numOfCols)
+        private void UpdateLayout(int numOfRows, int numCols)
         {
             CheckMenuVisibility();
             try
             {
+                int numOfCols = isAssetEditorMode ? 7 : numCols;
+
                 UITabContainer gtsContainer;
 
                 tsContainer.height = Mathf.Round(104f * numOfRows) + 1;
