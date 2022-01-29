@@ -10,11 +10,12 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.2";
+        public const string version = "1.1.3";
+        public const bool isBeta = false;
 
         public string Name
         {
-            get { return "Yet Another Toolbar "+ version; }
+            get { return "Yet Another Toolbar " + (isBeta ? "[BETA] " : "") + version; }
         }
         public string Description
         {
