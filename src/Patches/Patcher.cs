@@ -4,7 +4,7 @@ using CitiesHarmony.API;
 
 namespace YetAnotherToolbar
 {
-    public static class Patcher
+    internal static class Patcher
     {
         // Unique harmony identifier.
         private const string harmonyID = "com.github.sway2020.YetAnotherToolbar";
