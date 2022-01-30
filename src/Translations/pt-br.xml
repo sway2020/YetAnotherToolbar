@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="pt-br" ReadableName="Português (BR)">
+  <Translations>
+    <Translation ID="YAT_DESC" String="Mod 'Another Toolbar'"/>
+    <Translation ID="TRN_CHOICE" String="Definir idioma (necessário reiniciar o jogo)"/>
+    <Translation ID="TRN_SYS" String="Usar idioma do sistema"/>
+    <Translation ID="YAT_SET_HMB" String="Ocultar botão principal"/>
+    <Translation ID="YAT_SET_HAB" String="Ocultar botão de avisos"/>
+    <Translation ID="YAT_SET_HFP" String="Ocultar painel de filtros"/>
+    <Translation ID="YAT_SET_HMBRST" String="Redefinir a posição do botão"/>
+    <Translation ID="YAT_SET_DUN" String="Desativar avisos sobre atualizações"/>
+    <Translation ID="YAT_SET_CFP" String="Local do arquivo de configurções"/>
+    <Translation ID="YAT_SET_OFE" String="Abrir no Gerenciador de Arquivos"/>
+    <Translation ID="YAT_SET_KEY" String="Alternar modo expandir/recolher"/>
+    <Translation ID="YAT_SET_QMKEY" String="Abrir menu rápido"/>
+    <Translation ID="YAT_QM_TIT" String="Menu rápido"/>
+    <Translation ID="YAT_QM_ROW" String="Número de linhas quando expandido:"/>
+    <Translation ID="YAT_QM_COL" String="Número de colunas:"/>
+    <Translation ID="YAT_QM_SCL" String="Escala da interface do painel:"/>
+    <Translation ID="YAT_QM_HOR" String="Deslocamento horizontal:"/>
+    <Translation ID="YAT_QM_VER" String="Deslocamento vertical:"/>
+    <Translation ID="YAT_QM_BAC" String="Fundo do painel:"/>
+    <Translation ID="YAT_QM_DRK" String="Escuro"/>
+    <Translation ID="YAT_QM_LGH" String="Claro"/>
+    <Translation ID="YAT_QM_TRS" String="Transparente"/>
+    <Translation ID="YAT_UP_TIT" String="Atualizar"/>
+    <Translation ID="YAT_UP_CNF" String="Confirmar"/>
+    <Translation ID="YAT_SET_HMKEY" String="Ocultar painéis da barra"/>
+    <Translation ID="YAT_QM_THM" String="Fundo das miniaturas (thumbs):"/>
+    <Translation ID="YAT_QM_TSB" String="Fundo da barra de ícones: "/>
+    <Translation ID="YAT_QM_IPB" String="Fundo do painel de informações:"/>
+    <Translation ID="YAT_QM_PB_OR" String="Original"/>
+    <Translation ID="YAT_SET_UUI" String="Integrar botão principal ao mod 'UnifiedUI (UUI)'"/>
+    <Translation ID="YAT_QM_ASSET" String="Algumas funções não estão disponíveis no modo Editor"/>
+
+  </Translations>
+</Language>

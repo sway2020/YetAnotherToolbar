@@ -10,8 +10,8 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.3";
-        public const bool isBeta = false;
+        public const string version = "1.1.4";
+        public const bool isBeta = true;
 
         public string Name
         {
