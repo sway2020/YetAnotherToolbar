@@ -40,7 +40,6 @@ namespace YetAnotherToolbar
                 if (mainButton == null)
                 {
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
-
                     thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
                     tsBar = UIView.Find<UISlicedSprite>("TSBar");
                     infoPanel = UIView.Find<UIPanel>("InfoPanel");
@@ -111,6 +110,25 @@ namespace YetAnotherToolbar
             UpdateThumbnailBarBackground();
             UpdateTSBarBackground();
             UpdateInfoPanelBackground();
+
+            UITabContainer gtsContainer;
+            foreach (UIComponent toolPanel in tsContainer.components)
+            {
+                if (toolPanel is UIPanel)
+                {
+                    gtsContainer = toolPanel.GetComponentInChildren<UITabContainer>();
+                    if (gtsContainer == null) continue;
+
+                    // if new tab panels are added mid-game, usually happens when unlock all mod is not used
+                    gtsContainer.eventComponentAdded += (c, p) =>
+                    {
+                        UpdateScale(1.0f);
+                        UpdateLayout(Settings.expanded ? Settings.numOfRows : 1, Settings.numOfCols);
+                        UpdateScale(Settings.toolbarScale);
+                        UpdatePanelPosition();
+                    };
+                }
+            }
 
             // show update notice
             //if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
