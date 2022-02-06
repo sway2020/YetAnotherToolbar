@@ -87,10 +87,10 @@ namespace YetAnotherToolbar
             }
         }
 
-        public void Update()
+        public bool InitializationCheck()
         {
-            if (initialized) return;
-            if (isAssetEditorMode && tsContainer.components.Count == 0) return;
+            if (initialized) return true;
+            if (isAssetEditorMode && tsContainer.components.Count == 0) return false;
 
             initialized = true;
 
@@ -121,6 +121,8 @@ namespace YetAnotherToolbar
                     };
                 }
             }
+
+            return true;
 
             // show update notice
             //if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)

@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Debugging.cs" />
     <Compile Include="GUI\UUIIntegration.cs" />
+    <Compile Include="InitializationWorker.cs" />
     <Compile Include="Loading.cs" />
     <Compile Include="ModSettings.cs" />
     <Compile Include="OptionsKeymapping.cs" />
