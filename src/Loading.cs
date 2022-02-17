@@ -21,6 +21,14 @@ namespace YetAnotherToolbar
             {
                 YetAnotherToolbar.instance.Start();
             }
+            if (InitializationWorker.instance == null)
+            {
+                InitializationWorker.instance = new GameObject("InitializationWorker").AddComponent<InitializationWorker>();
+            }
+            else
+            {
+                InitializationWorker.instance.Start();
+            }
         }
     }
 }

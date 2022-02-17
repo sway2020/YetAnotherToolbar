@@ -57,16 +57,8 @@ namespace YetAnotherToolbar
                     {
                         Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar layout patch will be applied");
 
-                        try
-                        {
-                            bool result = DrawPloppablePanelPatch.Patch(Patcher.harmonyInstance);
-                            if (result) Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch applied");
-                            else Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch failed. TabClicked() not found");
-                        }
-                        catch (Exception ex)
-                        {
-                            Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch failed. {ex.Message}");
-                        }
+                        bool result = DrawPloppablePanelPatch.ApplyPatch(Patcher.harmonyInstance);
+                        if (result) Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch applied");
                     }
 
                     originalScreenSize = UIView.GetAView().GetScreenResolution();
@@ -95,10 +87,10 @@ namespace YetAnotherToolbar
             }
         }
 
-        public void Update()
+        public bool InitializationCheck()
         {
-            if (initialized) return;
-            if (isAssetEditorMode && tsContainer.components.Count == 0) return;
+            if (initialized) return true;
+            if (isAssetEditorMode && tsContainer.components.Count == 0) return false;
 
             initialized = true;
 
@@ -129,6 +121,8 @@ namespace YetAnotherToolbar
                     };
                 }
             }
+
+            return true;
 
             // show update notice
             //if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
