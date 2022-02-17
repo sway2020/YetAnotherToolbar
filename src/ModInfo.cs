@@ -10,8 +10,8 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.5-beta2";
-        public const bool isBeta = true;
+        public const string version = "1.1.5";
+        public const bool isBeta = false;
 
         public string Name
         {
@@ -23,16 +23,7 @@ namespace YetAnotherToolbar
         }
 
         public const double updateNoticeDate = 20220125;
-        public const string updateNotice =
-
-            "- Fix bugs in Theme Editor mode\n\n" +
-
-            "- Fix bugs in Asset Editor mode. Some features are no longer\n" +
-            "  available in Asset Editor mode\n\n" +
-
-            "- UI tweaks\n\n" +
-
-            "- Update translations";
+        public const string updateNotice = "";
 
         public void OnEnabled()
         {

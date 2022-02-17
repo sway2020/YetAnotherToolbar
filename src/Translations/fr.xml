@@ -25,13 +25,13 @@
     <Translation ID="YAT_QM_TRS" String="Transparent"/>
     <Translation ID="YAT_UP_TIT" String="Mettre à jour"/>
     <Translation ID="YAT_UP_CNF" String="Confirmer"/>
-    <Translation ID="YAT_SET_HMKEY" String="Hide toolbar panels"/>
-    <Translation ID="YAT_QM_THM" String="Thumbnail bar background:"/>
-    <Translation ID="YAT_QM_TSB" String="TS bar background:"/>
-    <Translation ID="YAT_QM_IPB" String="Info panel background:"/>
+    <Translation ID="YAT_SET_HMKEY" String="Masquer les panneaux de la barre d'outils"/>
+    <Translation ID="YAT_QM_THM" String="Fond de la barre de vignettes :"/>
+    <Translation ID="YAT_QM_TSB" String="Fond de la barre TS :"/>
+    <Translation ID="YAT_QM_IPB" String="Fond du panneau d'information :"/>
     <Translation ID="YAT_QM_PB_OR" String="Original"/>
-    <Translation ID="YAT_SET_UUI" String="Integrate main button into UnifiedUI (UUI) mod"/>
-    <Translation ID="YAT_QM_ASSET" String="Some features are not available in Asset Editor mode"/>
+    <Translation ID="YAT_SET_UUI" String="Intégration du bouton principal dans le mod 'UnifiedUI (UUI)'"/>
+    <Translation ID="YAT_QM_ASSET" String="Certaines fonctions ne sont pas disponibles en mode 'Éditeur d'Assets'"/>
 
   </Translations>
 </Language>
