@@ -26,12 +26,12 @@
     <Translation ID="YAT_UP_TIT" String="Aktualizacja"/>
     <Translation ID="YAT_UP_CNF" String="Potwierdź"/>
     <Translation ID="YAT_SET_HMKEY" String="Ukryj panel paska narzędzi"/>
-    <Translation ID="YAT_QM_THM" String="Thumbnail bar background:"/>
-    <Translation ID="YAT_QM_TSB" String="TS bar background:"/>
-    <Translation ID="YAT_QM_IPB" String="Info panel background:"/>
-    <Translation ID="YAT_QM_PB_OR" String="Original"/>
+    <Translation ID="YAT_QM_THM" String="Tło paska miniatur:"/>
+    <Translation ID="YAT_QM_TSB" String="Tło zakładek TS:"/>
+    <Translation ID="YAT_QM_IPB" String="Tło panelu informacyjnego:"/>
+    <Translation ID="YAT_QM_PB_OR" String="Oryginalny"/>
     <Translation ID="YAT_SET_UUI" String="Zintegruj przycisk główny z modem UnifiedUI (UUI)"/>
-    <Translation ID="YAT_QM_ASSET" String="Some features are not available in Asset Editor mode"/>
+    <Translation ID="YAT_QM_ASSET" String="Niektóre funkcje nie są dostępne w trybie edytora zasobów"/>
 
   </Translations>
 </Language>
