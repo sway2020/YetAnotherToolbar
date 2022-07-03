@@ -28,6 +28,10 @@ namespace YetAnotherToolbar
         private UISlider verticalOffsetSlider;
         private UITextField verticalOffsetValueTextField;
 
+        private UILabel tsBarOffsetLabel;
+        private UISlider tsBarOffsetSlider;
+        private UITextField tsBarOffsetValueTextField;
+
         private UILabel backgroundLabel;
         private UIDropDown backgroundDropdown;
 
@@ -47,7 +51,7 @@ namespace YetAnotherToolbar
             name = "YetAnotherToolbar_UIQuickMenuPopUp";
             atlas = SamsamTS.UIUtils.GetAtlas("Ingame");
             backgroundSprite = "GenericPanelWhite";
-            size = new Vector2(460, 460);
+            size = new Vector2(460, 500);
             instance = this;
 
             UILabel title = AddUIComponent<UILabel>();
@@ -227,11 +231,39 @@ namespace YetAnotherToolbar
                 YetAnotherToolbar.instance.UpdatePanelPosition();
             };
 
+            tsBarOffsetLabel = AddUIComponent<UILabel>();
+            tsBarOffsetLabel.text = Translations.Translate("YAT_QM_TSO");
+            tsBarOffsetLabel.textScale = 0.8f;
+            tsBarOffsetLabel.textColor = new Color32(0, 0, 0, 255);
+            tsBarOffsetLabel.relativePosition = new Vector3(title.relativePosition.x, verticalOffsetLabel.relativePosition.y + verticalOffsetLabel.height + 30);
+
+            tsBarOffsetSlider = SamsamTS.UIUtils.CreateSlider(this, Settings.tsBarOffset, -1500.0f, 1500f, 10.0f);
+            tsBarOffsetSlider.relativePosition = new Vector3(tsBarOffsetLabel.relativePosition.x, tsBarOffsetLabel.relativePosition.y + tsBarOffsetLabel.height + 5);
+            tsBarOffsetSlider.eventValueChanged += (c, p) =>
+            {
+                if (tsBarOffsetSlider.value == Settings.tsBarOffset) return;
+                tsBarOffsetValueTextField.text = $"{tsBarOffsetSlider.value}";
+            };
+
+            tsBarOffsetValueTextField = SamsamTS.UIUtils.CreateTextField(this);
+            tsBarOffsetValueTextField.text = $"{Settings.tsBarOffset}";
+            tsBarOffsetValueTextField.width = 70;
+            tsBarOffsetValueTextField.relativePosition = new Vector3(tsBarOffsetSlider.relativePosition.x + tsBarOffsetSlider.width + 15, tsBarOffsetSlider.relativePosition.y - 10);
+            tsBarOffsetValueTextField.eventTextChanged += (c, p) =>
+            {
+                if (!int.TryParse(tsBarOffsetValueTextField.text, out int newValue)) return;
+                if (newValue < -1500 || newValue > 1500) return; // reasonable range
+                Settings.tsBarOffset = newValue;
+                XMLUtils.SaveSettings();
+                tsBarOffsetSlider.value = newValue;
+                YetAnotherToolbar.instance.UpdateTSBarOffset();
+            };
+
             backgroundLabel = AddUIComponent<UILabel>();
             backgroundLabel.text = Translations.Translate("YAT_QM_BAC");
             backgroundLabel.textScale = 0.8f;
             backgroundLabel.textColor = new Color32(0, 0, 0, 255);
-            backgroundLabel.relativePosition = new Vector3(title.relativePosition.x, verticalOffsetLabel.relativePosition.y + verticalOffsetLabel.height + 45);
+            backgroundLabel.relativePosition = new Vector3(title.relativePosition.x, tsBarOffsetLabel.relativePosition.y + tsBarOffsetLabel.height + 45);
 
             backgroundDropdown = SamsamTS.UIUtils.CreateDropDown(this);
             backgroundDropdown.normalBgSprite = "TextFieldPanelHovered";

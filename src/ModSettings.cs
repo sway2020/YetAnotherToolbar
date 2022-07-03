@@ -16,6 +16,7 @@ namespace YetAnotherToolbar
         internal static int numOfCols = 7;
         internal static int verticalOffset = 0;
         internal static int horizontalOffset = 0;
+        internal static int tsBarOffset = 0;
         internal static bool expanded = true;
         internal static bool hideMainButton = false;
         internal static bool disableUpdateNotice = false;
@@ -55,6 +56,9 @@ namespace YetAnotherToolbar
 
         [XmlElement("horizontalOffset")]
         public int HorizontalOffset { get => Settings.horizontalOffset; set => Settings.horizontalOffset = value; }
+
+        [XmlElement("tsBarOffset")]
+        public int TSBarOffset { get => Settings.tsBarOffset; set => Settings.tsBarOffset = value; }
 
         [XmlElement("expanded")]
         public bool Expanded { get => Settings.expanded; set => Settings.expanded = value; }
