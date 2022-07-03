@@ -25,6 +25,9 @@ namespace YetAnotherToolbar
         public bool hideMenuFlag = false;
         private Vector2 lastMenuPosition;
 
+        private static UITabstrip mainTS;
+        private static float originalTSPosX;
+
         private static UISlicedSprite thumbnailBar;
         private static UISlicedSprite tsBar;
         private static UIPanel infoPanel;
@@ -41,6 +44,7 @@ namespace YetAnotherToolbar
                 {
                     tsContainer = GameObject.Find("TSContainer").GetComponent<UITabContainer>();
                     thumbnailBar = UIView.Find<UISlicedSprite>("ThumbnailBar");
+                    mainTS = UIView.Find<UITabstrip>("MainToolstrip");
                     tsBar = UIView.Find<UISlicedSprite>("TSBar");
                     infoPanel = UIView.Find<UIPanel>("InfoPanel");
                     pauseOutline = GameObject.Find("PauseOutline")?.GetComponent<UIComponent>();
@@ -60,6 +64,8 @@ namespace YetAnotherToolbar
                         bool result = DrawPloppablePanelPatch.ApplyPatch(Patcher.harmonyInstance);
                         if (result) Debugging.Message($"Found enabled mod: ploppablerico. Yet Another Toolbar scale patch applied");
                     }
+
+                    originalTSPosX = mainTS.relativePosition.x;
 
                     originalScreenSize = UIView.GetAView().GetScreenResolution();
                     //UIMultiStateButton advisorButton = view.FindUIComponent<UIMultiStateButton>("AdvisorButton");
@@ -102,6 +108,7 @@ namespace YetAnotherToolbar
             UpdateThumbnailBarBackground();
             UpdateTSBarBackground();
             UpdateInfoPanelBackground();
+            UpdateTSBarOffset();
 
             UITabContainer gtsContainer;
             foreach (UIComponent toolPanel in tsContainer.components)
@@ -312,6 +319,11 @@ namespace YetAnotherToolbar
                 tsContainer.relativePosition = new Vector2(x, y + (104f * (1 - scale)));
             }
 
+        }
+
+        public void UpdateTSBarOffset()
+        {
+            mainTS.relativePosition = new Vector3(originalTSPosX + Settings.tsBarOffset, mainTS.relativePosition.y);
         }
 
         private void UpdateLayout(int numOfRows, int numCols)

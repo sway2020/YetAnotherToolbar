@@ -19,6 +19,7 @@
     <Translation ID="YAT_QM_SCL" String="Panel UI scale:" />
     <Translation ID="YAT_QM_HOR" String="Horizontal position offset:" />
     <Translation ID="YAT_QM_VER" String="Vertical position offset:" />
+    <Translation ID="YAT_QM_TSO" String="TS Bar offset:" />
     <Translation ID="YAT_QM_BAC" String="Panel background:" />
     <Translation ID="YAT_QM_DRK" String="Dark" />
     <Translation ID="YAT_QM_LGH" String="Light" />
