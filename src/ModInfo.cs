@@ -10,7 +10,7 @@ namespace YetAnotherToolbar
 {
     public class ModInfo : IUserMod
     {
-        public const string version = "1.1.5-2";
+        public const string version = "1.1.6";
         public const bool isBeta = false;
 
         public string Name
@@ -22,8 +22,16 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20220125;
-        public const string updateNotice = "";
+        public const double updateNoticeDate = 20220126;
+        public const string updateNotice =
+
+            "- Add an option to change TS Bar offset (contributed by neinnew)\n\n" +
+
+            "  To use this new feature, please DISABLE following options in other mods: \n\n" +
+
+            "    Find It! 2 - center the main toolbar\n\n" +
+
+            "    Hide it, Bobby! - Modify toolbar position\n\n";
 
         public void OnEnabled()
         {

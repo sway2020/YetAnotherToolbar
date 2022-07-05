@@ -415,6 +415,19 @@ namespace YetAnotherToolbar
                 // UIView.PushModal(instance);
             }
             instance.Show(true);
+
+            // show update notice
+            if (!YetAnotherToolbar.instance.shownUpdateNoticeFlag)
+            {
+                YetAnotherToolbar.instance.shownUpdateNoticeFlag = true;
+                // show update notice
+                if (!Settings.disableUpdateNotice && (ModInfo.updateNoticeDate > Settings.lastUpdateNotice))
+                {
+                    UIUpdateNoticePopUp.ShowAt();
+                    Settings.lastUpdateNotice = ModInfo.updateNoticeDate;
+                    XMLUtils.SaveSettings();
+                }
+            }
         }
 
         private Vector3 deltaPosition;
