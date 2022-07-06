@@ -32,6 +32,7 @@
     <Translation ID="YAT_QM_PB_OR" String="원래대로"/>
     <Translation ID="YAT_SET_UUI" String="메인 버튼을 UnifedUI (UUI) 모드로 통합"/>
     <Translation ID="YAT_QM_ASSET" String="자산 편집기 모드에서는 일부 기능이 사용 불가능합니다"/>
+    <Translation ID="YAT_QM_TSO" String="TS Bar offset:"/>
 
   </Translations>
 </Language>
