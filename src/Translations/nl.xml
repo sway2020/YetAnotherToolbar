@@ -32,6 +32,7 @@
     <Translation ID="YAT_QM_PB_OR" String="Oorspronkelijk"/>
     <Translation ID="YAT_SET_UUI" String="Integreer hoofdknop in UnifiedUI (UUI) mod"/>
     <Translation ID="YAT_QM_ASSET" String="Sommige functies zijn niet beschikbaar in de Asset Editor"/>
+    <Translation ID="YAT_QM_TSO" String="Verschuiving TS balk:"/>
 
   </Translations>
 </Language>

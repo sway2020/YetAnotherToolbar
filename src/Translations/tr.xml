@@ -32,6 +32,7 @@
     <Translation ID="YAT_QM_PB_OR" String="Orijinal"/>
     <Translation ID="YAT_SET_UUI" String="Ana butonu Birleşik UI (UUI) moduna entegre edin"/>
     <Translation ID="YAT_QM_ASSET" String="Bazı özellikler Varlık Düzenleyici modunda kullanılamaz"/>
+    <Translation ID="YAT_QM_TSO" String="TS Bar offset:"/>
 
   </Translations>
 </Language>

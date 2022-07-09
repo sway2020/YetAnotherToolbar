@@ -32,6 +32,7 @@
     <Translation ID="YAT_QM_PB_OR" String="Original" />
     <Translation ID="YAT_SET_UUI" String="Integrate main button into UnifiedUI (UUI) mod" />
     <Translation ID="YAT_QM_ASSET" String="Some features are not available in Asset Editor mode" />
+    <Translation ID="YAT_QM_TSO" String="TS Bar offset:" />
 
   </Translations>
 </Language>

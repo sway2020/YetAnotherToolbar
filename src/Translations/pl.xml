@@ -32,6 +32,7 @@
     <Translation ID="YAT_QM_PB_OR" String="Oryginalny"/>
     <Translation ID="YAT_SET_UUI" String="Zintegruj przycisk główny z modem UnifiedUI (UUI)"/>
     <Translation ID="YAT_QM_ASSET" String="Niektóre funkcje nie są dostępne w trybie edytora zasobów"/>
+    <Translation ID="YAT_QM_TSO" String="TS Bar offset:"/>
 
   </Translations>
 </Language>

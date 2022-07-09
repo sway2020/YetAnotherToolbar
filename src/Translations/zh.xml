@@ -32,6 +32,7 @@
     <Translation ID="YAT_QM_PB_OR" String="原始的"/>
     <Translation ID="YAT_SET_UUI" String="将主按钮集成到 UnifiedUI (UUI) 模组面板"/>
     <Translation ID="YAT_QM_ASSET" String="某些功能在资产编辑器模式下不可用"/>
+    <Translation ID="YAT_QM_TSO" String="TS bar 偏移："/>
 
   </Translations>
 </Language>
