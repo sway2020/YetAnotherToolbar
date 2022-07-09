@@ -22,7 +22,7 @@ namespace YetAnotherToolbar
             get { return Translations.Translate("YAT_DESC"); }
         }
 
-        public const double updateNoticeDate = 20220126;
+        public const double updateNoticeDate = 20220709;
         public const string updateNotice =
 
             "- Add an option to change TS Bar offset (contributed by neinnew)\n\n" +
@@ -31,7 +31,9 @@ namespace YetAnotherToolbar
 
             "    Find It! 2 - center the main toolbar\n\n" +
 
-            "    Hide it, Bobby! - Modify toolbar position\n\n";
+            "    Hide it, Bobby! - Modify toolbar position\n\n" +
+
+            "- Switch to NuGet Gallery's version of UnifiedUILib\n\n";
 
         public void OnEnabled()
         {
